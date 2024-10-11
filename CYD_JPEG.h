@@ -34,7 +34,7 @@ extern TFT_eSPI tft;
 #define BUFFER_GROWTH_FACTOR 2
 
 // Buffer size for chunked decoding
-#define JPEG_BUFFER_SIZE 50000
+#define JPEG_BUFFER_SIZE 40000
 
 #ifdef USE_DMA
   uint16_t  dmaBuffer1[16*16]; // Toggle buffer for 16*16 MCU block, 512bytes

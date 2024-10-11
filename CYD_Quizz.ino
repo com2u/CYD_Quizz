@@ -209,12 +209,14 @@ void loop() {
       delay(3000);
       
       String imagelist[] = {
-      "https://images.wallpaperscraft.com/image/single/landscape_planets_stars_160551_240x320.jpg",
-      "https://images.wallpaperscraft.com/image/single/color_paint_rainbow_55289_240x320.jpg",
-      "https://images.wallpaperscraft.com/image/single/rainbow_line_light_15335_240x320.jpg",
-      "https://wallpapersmug.com/download/240x320/d0bdec/black-shapes-pattern-abstract.jpg",
-      "https://images.wallpaperscraft.com/image/single/nature_landscape_winter_10733_225x300.jpg",
-      "https://images.hdqwalls.com/download/anonymous-4k-ok-240x320.jpg"};
+      //"https://images.wallpaperscraft.com/image/single/landscape_planets_stars_160551_240x320.jpg",
+      //"https://images.wallpaperscraft.com/image/single/color_paint_rainbow_55289_240x320.jpg",
+      //"https://images.wallpaperscraft.com/image/single/rainbow_line_light_15335_240x320.jpg",
+      //"https://wallpapersmug.com/download/240x320/d0bdec/black-shapes-pattern-abstract.jpg",
+      //"https://images.wallpaperscraft.com/image/single/nature_landscape_winter_10733_225x300.jpg",
+      //"https://images.hdqwalls.com/download/anonymous-4k-ok-240x320.jpg",
+      "https://github.com/com2u/CYD_Quizz/blob/main/data/quizz._hex.jpg"};
+      
       int arraySize = sizeof(imagelist) / sizeof(imagelist[0]);
 
       for(int i = 0; i < arraySize; i++) {
