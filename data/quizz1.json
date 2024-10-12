@@ -1,6 +1,6 @@
 {
-"Image": "http://sunrisetradingsystems.com/data/quizz_hex.jpg", 
-"Sound":"http://sunrisetradingsystems.com/data/bell.mp3", 
+"Image": "https://com2u.github.io/CYD_Quizz/data/quizz_hex.jpg", 
+"Sound":"https://com2u.github.io/CYD_Quizz/data/bell.mp3", 
 "Countdown": 150,
 "Selection": "keyboard",
 "Answer": "^password$",
