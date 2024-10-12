@@ -5,7 +5,7 @@
 
 #include <Arduino.h>  // Include the Arduino library to define String
 
-#define DEBUG_OUTPUT 1
+#define DEBUG_OUTPUT 2
 #define PROJECT_NAME "ESP32_CYD_PING"
 
 extern int global_state;
