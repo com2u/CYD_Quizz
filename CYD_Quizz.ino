@@ -205,32 +205,143 @@ void loop() {
       global_state = 0;
       
 
-      CYD_TFT_DrawImage();
-      delay(3000);
+      //CYD_TFT_DrawImage();
+      //delay(3000);
       
       String imagelist[] = {
       //"https://images.wallpaperscraft.com/image/single/landscape_planets_stars_160551_240x320.jpg",
       //"https://images.wallpaperscraft.com/image/single/color_paint_rainbow_55289_240x320.jpg",
       //"https://images.wallpaperscraft.com/image/single/rainbow_line_light_15335_240x320.jpg",
-      //"https://wallpapersmug.com/download/240x320/d0bdec/black-shapes-pattern-abstract.jpg",
-      //"https://images.wallpaperscraft.com/image/single/nature_landscape_winter_10733_225x300.jpg",
+      "https://wallpapersmug.com/download/240x320/d0bdec/black-shapes-pattern-abstract.jpg",
+      "https://images.wallpaperscraft.com/image/single/nature_landscape_winter_10733_225x300.jpg",
+      //"https://github.com/com2u/CYD_Quizz/blob/main/data/quizz_hex.jpg",
       //"https://images.hdqwalls.com/download/anonymous-4k-ok-240x320.jpg",
-      "https://github.com/com2u/CYD_Quizz/blob/main/data/quizz._hex.jpg"};
+      "http://sunrisetradingsystems.com/data/quizz_hex.jpg"
+      };
       
       int arraySize = sizeof(imagelist) / sizeof(imagelist[0]);
 
       for(int i = 0; i < arraySize; i++) {
 
         loadURLImage(imagelist[i]);
-        delay(5000);
+        //playAudio("http://soundfxcenter.com/home-and-office/doors-and-windows/8d82b5_Doorbell_Door_Sound_Effect.mp3");
+        //delay(5000);
       
       }
-      keyboard(false);
       
     }
+    if (selectedItem == "Quizz"){
+      global_state = 0;
+      Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap());
+      String baseURL = "http://sunrisetradingsystems.com/data/";
+      String quizzNo = "quizz.json";
+      //JsonObject jsonObject = fetchJsonFromUrl((String) baseURL+quizzNo);
+        // Fetch and parse JSON data
+      String url = "http://sunrisetradingsystems.com/data/quizz1.json";
+      DynamicJsonDocument doc = fetchJsonFromUrl(url);
+      String imageURL = "";
+      String mp3 = "";
+      String expectedAnswer = "";
+      int countdown = 999;
+      String selection = "";
+      String nextPassed = "";
+      String nextFailed = "";
+      // Access the parsed JSON data
+      
+    if (!doc.isNull()) {
+      if (doc.containsKey("Image")) {
+        imageURL = doc["Image"].as<String>();
+
+      }
+      
+      if (doc.containsKey("Sound")) {
+        mp3 = doc["Sound"].as<String>();
+
+      }
+      
+      if (doc.containsKey("Answer")) {
+        expectedAnswer = doc["Answer"].as<String>();
+
+      }
+      
+      if (doc.containsKey("Countdown")) {
+        countdown = doc["Countdown"].as<int>();
+
+      }
+      
+      if (doc.containsKey("Selection")) {
+        selection = doc["Selection"].as<String>();
+
+      }
+      
+      if (doc.containsKey("NextPassed")) {
+        nextPassed = doc["NextPassed"].as<String>();
+
+      }
+      
+      if (doc.containsKey("NextFailed")) nextFailed = doc["NextFailed"].as<String>();
+
+      
+
+          if (DEBUG_OUTPUT > 1) Serial.print((String) "Quiz image: "+imageURL+" MP3: "+mp3+" Answer: "+expectedAnswer+" Countdown: "+countdown+" Selection: "+selection+" Next Passed: "+nextPassed+" Next Failed: "+nextFailed);
+            
+          if (imageURL.length() > 0) loadURLImage(imageURL);
+          if (mp3.length() > 0) {
+            playAudio(mp3);
+            //delay(5000);
+            while(hanlde_AudioESP32()){}
+          } else {
+            Serial.println("No Audio file defined");
+          }
+          
+          String answer = keyboard(false);
+          if (expectedAnswer == answer) {
+            Serial.println("Expected Answer correct!");
+          }else {
+            Serial.println("Wrong Anser");
+          }
+
+          
+       
+      } else {
+        Serial.println("No Quizz found");
+      }
+               
+    }
     
+
+        
+  /*
+        imageURL = jsonObject["Image"].as<String>();
+          Serial.print("First quiz image: ");
+          Serial.println(imageURL);
+          mp3 = jsonObject["Sound"].as<String>();
+          Serial.print("First quiz MP3: ");
+          Serial.println(mp3);
+          expectedAnswer = jsonObject["Answer"].as<String>();
+          Serial.print("expectedAnswer: ");
+          Serial.println(expectedAnswer);
+          */
+      /*
+      if (jsonObject.containsKey("Quizz")) {
+        JsonArray quizzArray = jsonObject["Quizz"].as<JsonArray>();
+        if (quizzArray.size() > 0) {
+          imageURL = quizzArray[0]["Image"].as<String>();
+          Serial.print("First quiz image: ");
+          Serial.println(imageURL);
+          mp3 = quizzArray[0]["Sound"].as<String>();
+          Serial.print("First quiz MP3: ");
+          Serial.println(mp3);
+          expectedAnswer = quizzArray[0]["Answer"].as<String>();
+          */
     if (selectedItem == "Setup"){
       global_state = 10;
+    }
+    if (selectedItem == "Timer"){
+      global_state = 30;
+    }
+    if (selectedItem == "Test"){
+      global_state = 40;
     }
     if (selectedItem == "Keyboard"){
       global_state = 21;

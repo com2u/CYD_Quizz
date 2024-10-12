@@ -1,6 +1,8 @@
 #include <WiFi.h>
 #include "globals.h" // For PROJECT_NAME, ssid, and password arrays
 #include <Credentials.h>
+#include <HTTPClient.h>
+#include <ArduinoJson.h>
 
 
 
@@ -137,4 +139,44 @@ void checkWiFiConnection() {
     WiFi.disconnect();
     initWIFI();
   }
+}
+
+JsonObject fetchJsonFromUrl(String url) {
+  DynamicJsonDocument doc(4096); // Adjust size based on your JSON data
+  
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    
+    http.begin(url);
+    int httpResponseCode = http.GET();
+    
+    if (httpResponseCode > 0) {
+      if (DEBUG_OUTPUT > 3) { Serial.print("HTTP Response code: ");  Serial.println(httpResponseCode); }
+      String payload = http.getString();
+      
+      // Parse JSON
+      DeserializationError error = deserializeJson(doc, payload);
+      
+      if (error) {
+        Serial.print("deserializeJson() failed: ");
+        Serial.println(error.c_str());
+      } else {
+        // Print the received JSON for debugging
+        if (DEBUG_OUTPUT > 3) {
+          Serial.println("Received JSON:");
+          serializeJsonPretty(doc, Serial);
+        }
+        Serial.println();
+      }
+    } else {
+      Serial.print("Error code: ");
+      Serial.println(httpResponseCode);
+    }
+    
+    http.end();
+  } else {
+    Serial.println("WiFi not connected");
+  }
+  
+  return doc.as<JsonObject>();
 }

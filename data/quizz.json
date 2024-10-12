@@ -1,0 +1,44 @@
+{
+	"backgroundImage":"Background.png",
+	"MixArea":{"X":500,"Y":500,"Width":200,"Height":200},
+	"FlipArea":{"X":5,"Y":5,"Width":200,"Height":400},
+	"UpadteImageIndexArea":{"X":100,"Y":500,"Width":200,"Height":200},
+    "Quizz": [
+	    {"Image": "http://sunrisetradingsystems.com/data/quizz_hex.jpg", 
+		  "Sound":"http://sunrisetradingsystems.com/data/bell.mp3", 
+		  "Countdown": 150, 
+		  "Selection": "keyboard",
+		  "Answer": "Password",
+		  "NextPassed": "quizz2.json",
+		  "NextFailed": "EXIT"
+		 },
+		 {"Image": "http://sunrisetradingsystems.com/data/quizz_binary_clock.jpg", 
+		  "Sound":"http://sunrisetradingsystems.com/data/modem.mp3", 
+		  "Countdown": 150, 
+		  "Selection": "keyboard",
+		  "Answer": "23:59",
+		  "NextPassed": "",
+		  "NextFailed": ""
+		 },
+		 {"Image": "http://sunrisetradingsystems.com/data/quizz_utc.jpg", 
+		  "Sound":"http://sunrisetradingsystems.com/data/applause.mp3", 
+		  "Countdown": 150, 
+		  "Selection": "keyboard",
+		  "Answer": "Greenland",
+		  "NextPassed": "",
+		  "NextFailed": ""
+		 },
+		 {"Image": "http://sunrisetradingsystems.com/data/quizz_hex.jpg", 
+		  "Sound":"http://sunrisetradingsystems.com/data/didi.mp3", 
+		  "Countdown": 150, 
+		  "Selection": "choice/area",
+		  "Option1": "Password",
+		  "Option2": "Password",
+		  "Option3": "Password",
+		  "Option4": "Password",
+		  "Option5": "Password",
+		  "NextPassed": "",
+		  "NextFailed": ""
+		 }
+    ]
+}

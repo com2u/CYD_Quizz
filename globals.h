@@ -5,6 +5,8 @@
 
 #include <Arduino.h>  // Include the Arduino library to define String
 
+#define DEBUG_OUTPUT 1
+#define PROJECT_NAME "ESP32_CYD_PING"
 
 extern int global_state;
 extern int audioPlaying;
@@ -14,7 +16,7 @@ extern int LED_GREEN;
 extern int LED_BLUE;
 extern const char* wled_ip;
 
-#define PROJECT_NAME "ESP32_CYD_PING"
+
 
 extern String menuData[13];
 extern String menuWIFI[33];

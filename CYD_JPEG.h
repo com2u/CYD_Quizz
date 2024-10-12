@@ -10,7 +10,7 @@
 #define CYD_JPEG_H
 
 // Debugging flag
-#define DEBUG_OUTPUT 1
+
 
 #pragma once
 #include <TJpg_Decoder.h>
@@ -30,11 +30,11 @@
 extern TFT_eSPI tft;
 
 // Ring buffer size (adjust as needed, but keep it a power of 2)
-#define INITIAL_BUFFER_SIZE 25384
-#define BUFFER_GROWTH_FACTOR 2
+//#define INITIAL_BUFFER_SIZE 25384
+//#define BUFFER_GROWTH_FACTOR 2
 
 // Buffer size for chunked decoding
-#define JPEG_BUFFER_SIZE 40000
+#define JPEG_BUFFER_SIZE 30000
 
 #ifdef USE_DMA
   uint16_t  dmaBuffer1[16*16]; // Toggle buffer for 16*16 MCU block, 512bytes

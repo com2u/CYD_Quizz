@@ -24,8 +24,13 @@ SPIClass mySpi = SPIClass(VSPI);
 XPT2046_Touchscreen ts(XPT2046_CS, XPT2046_IRQ);
 TFT_eSPI tft = TFT_eSPI();
 
+unsigned long lastMenuChangeMillis;
+
 int state = 0;  
-const char *menuEntry[]  = {"Time", "Countdown", "Sound Board", "Ping", "Image", "Count Up", "Keyboard", "Setup"};
+//const char *menuEntry[]  = {"Time", "Countdown", "Sound Board", "Ping", "Image", "Count Up", "Keyboard", "Setup"};
+const char *menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup"};
+const char *menuTest[]  = {"Image", "Sound Board",  "Keyboard", "<--"};
+const char *menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 const char *menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
 const char *menuSetupEntry[] = {"Volume +", "Volume -", "Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
 const char *menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
@@ -35,7 +40,9 @@ String emptyStrings = "                              ";
 const int MENU_ENTRY_COUNT = sizeof(menuEntry) / sizeof(menuEntry[0]);
 const int MENU_AUDIO_ENTRY_COUNT = sizeof(menuAudioEntry) / sizeof(menuAudioEntry[0]);
 const int MENU_SETUP_ENTRY_COUNT = sizeof(menuSetupEntry) / sizeof(menuSetupEntry[0]);
-const int MENU_INFO_ENTRY_COUNT = sizeof(menuSetupEntry) / sizeof(menuSetupEntry[0]);
+const int MENU_INFO_ENTRY_COUNT = sizeof(menuInfoEntry) / sizeof(menuInfoEntry[0]);
+const int MENU_TIMER_ENTRY_COUNT = sizeof(menuTimer) / sizeof(menuTimer[0]);
+const int MENU_TEST_ENTRY_COUNT = sizeof(menuTest) / sizeof(menuTest[0]);
 
   const char **currentMenu;
   int menuSize;
@@ -64,7 +71,7 @@ TS_Point CYD_Handle_Touch() {
     TS_Point p = ts.getPoint();
     p.x = (int) (p.x-270) /15;
     p.y = (int) (p.y-120) /12;
-    Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    if (DEBUG_OUTPUT > 3) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     return p;
   }
   return TS_Point();  // Return an empty TS_Point if no touch detected
@@ -205,6 +212,12 @@ void initMenu(){
   } else if (global_state == 20) {
     currentMenu = menuInfoEntry;
     menuSize = MENU_INFO_ENTRY_COUNT;
+  } else if (global_state == 30) {
+    currentMenu = menuTimer;
+    menuSize = MENU_TIMER_ENTRY_COUNT;
+  }else if (global_state == 40) {
+    currentMenu = menuTest;
+    menuSize = MENU_TEST_ENTRY_COUNT;
   } else {
     currentMenu = menuEntry;
     menuSize = MENU_ENTRY_COUNT;
@@ -234,6 +247,11 @@ void showMenu() {
 
 String checkMenuTouch(TS_Point p) {
 
+  // debounce
+  if (lastMenuChangeMillis+300 > millis()){
+     return "";
+  }
+
   initMenu();
 
   int menuItemHeight = 30;
@@ -244,6 +262,7 @@ String checkMenuTouch(TS_Point p) {
     int y = startY + i * (menuItemHeight + menuItemPadding);
     if (p.y >= y && p.y <= y + menuItemHeight && p.x >= 10 && p.x <= tft.width() - 10) {
       return String(currentMenu[i]);
+      lastMenuChangeMillis = millis();
     }
   }
   if (global_state == 7 || global_state == 4 || global_state == 3){

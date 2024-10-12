@@ -1,0 +1,9 @@
+{
+"Image": "http://sunrisetradingsystems.com/data/quizz_hex.jpg", 
+"Sound":"http://sunrisetradingsystems.com/data/bell.mp3", 
+"Countdown": 150,
+"Selection": "keyboard",
+"Answer": "Password",
+"NextPassed": "quizz2.json",
+"NextFailed": "EXIT"	
+}
