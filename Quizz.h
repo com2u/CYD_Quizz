@@ -68,17 +68,28 @@ String Quizz(String quizzNo){
             String answer = keyboard(false);
             answer.trim();  // Remove leading and trailing whitespace
             Serial.println("trim");
-            // Convert expectedAnswer to std::string
-            std::string expectedAnswerStd = expectedAnswer.c_str();
-            Serial.println("expectedAnswerStd = expectedAnswer.c_str()");
-            
-            // Create a regex pattern for case-insensitive match
-            std::regex pattern(expectedAnswerStd, std::regex_constants::icase);
-            Serial.println("pattern(expectedAnswerStd");
-            
+
+            // Create a regex pattern for case-insensitive match directly from expectedAnswer
+            //std::regex pattern("(?i)^password$", std::regex_constants::icase);
+            //Serial.println("Regex pattern created");
+
+
+            // Create a regex pattern for case-insensitive "password" match
+            //std::regex pattern("^password$", std::regex_constants::icase);
+
+            // Create a regex pattern for case-insensitive match directly from expectedAnswer
+            std::regex pattern(expectedAnswer.c_str(), std::regex_constants::icase);
+            Serial.println("Regex pattern created");
+
+
             // Perform the regex match
             bool match = std::regex_search(answer.c_str(), pattern);
-            Serial.println("std::regex_search");
+
+            // Perform the regex match
+            //bool match = std::regex_search(answer.c_str(), "(?i)^password$");
+            //Serial.println("Regex search performed");
+            
+            
             if (match) {
               Serial.println("Expected Answer correct!");
               return nextPassed;

@@ -3,7 +3,7 @@
 "Sound":"http://sunrisetradingsystems.com/data/applause.mp3", 
 "Countdown": 150, 
 "Selection": "keyboard",
-"Answer": "(?i)^greenland$",
+"Answer": "^greenland$",
 "NextPassed": "quizz3.json",
 "NextFailed": "EXIT"
 }
