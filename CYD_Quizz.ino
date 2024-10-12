@@ -233,11 +233,10 @@ void loop() {
     }
     if (selectedItem == "Quizz"){
       global_state = 0;
-      String quizzNo = "quizz1.json";
-      //JsonObject jsonObject = fetchJsonFromUrl((String) baseURL+quizzNo);
-        // Fetch and parse JSON data
-      //String url = "http://sunrisetradingsystems.com/data/quizz1.json";
-      String nextQuizz = Quizz(quizzNo);          
+      String nextQuizz = "quizz1.json";
+      while ((nextQuizz != "") && (nextQuizz != "EXIT")) {
+        nextQuizz = Quizz(nextQuizz);       
+      }   
     }
     
 

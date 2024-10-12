@@ -1,3 +1,10 @@
+#include <Regexp.h>
+#include <regex>
+// Regexp by Nick Gammon form the Library manager
+
+
+
+
 String Quizz(String quizzNo){
    Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap());
       String baseURL = "http://sunrisetradingsystems.com/data/";
@@ -57,14 +64,60 @@ String Quizz(String quizzNo){
             Serial.println("No Audio file defined");
           }
           
-          String answer = keyboard(false);
-          if (expectedAnswer == answer) {
-            Serial.println("Expected Answer correct!");
-            return nextPassed;
-          }else {
-            Serial.println("Wrong Anser");
-            return nextFailed;
-          }
+          if (selection == "keyboard" ){
+            String answer = keyboard(false);
+            answer.trim();  // Remove leading and trailing whitespace
+            Serial.println("trim");
+            // Convert expectedAnswer to std::string
+            std::string expectedAnswerStd = expectedAnswer.c_str();
+            Serial.println("expectedAnswerStd = expectedAnswer.c_str()");
+            
+            // Create a regex pattern for case-insensitive match
+            std::regex pattern(expectedAnswerStd, std::regex_constants::icase);
+            Serial.println("pattern(expectedAnswerStd");
+            
+            // Perform the regex match
+            bool match = std::regex_search(answer.c_str(), pattern);
+            Serial.println("std::regex_search");
+            if (match) {
+              Serial.println("Expected Answer correct!");
+              return nextPassed;
+              // Handle correct answer (e.g., return nextPassed;)
+            } else {
+              Serial.println("Wrong Answer");
+              return nextFailed;
+            }
+
+/*
+              MatchState ms;
+
+              // what we are searching (the target)
+              char buf[100] = "";
+              strncpy(buf, answer.c_str(), sizeof(buf) - 1);
+              buf[sizeof(buf) - 1] = '\0';  // Ensure null-termination
+              ms.Target(buf);  // set its address
+              Serial.println( buf);
+              
+              char result = ms.Match ("(?i)^password$");
+              Serial.println(REGEXP_MATCHED);
+              Serial.println((int) result);
+              if (result == REGEXP_MATCHED){
+                Serial.println("Expected Answer correct!");
+                return nextPassed;
+              } else {
+                Serial.println("Wrong Anser");
+                return nextFailed;
+              }
+             */
+            /*
+            if (regexMatch(expectedAnswer.c_str(), answer.c_str())) {
+              Serial.println("Expected Answer correct!");
+              return nextPassed;
+            } else {
+              Serial.println("Wrong Anser");
+              return nextFailed;
+            }*/
+          } 
           
           
        

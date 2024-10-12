@@ -1,0 +1,9 @@
+{
+"Image": "http://sunrisetradingsystems.com/data/quizz_utc.jpg", 
+"Sound":"http://sunrisetradingsystems.com/data/applause.mp3", 
+"Countdown": 150, 
+"Selection": "keyboard",
+"Answer": "(?i)^greenland$",
+"NextPassed": "quizz3.json",
+"NextFailed": "EXIT"
+}

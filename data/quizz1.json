@@ -3,7 +3,7 @@
 "Sound":"http://sunrisetradingsystems.com/data/bell.mp3", 
 "Countdown": 150,
 "Selection": "keyboard",
-"Answer": "Password",
+"Answer": "(?i)^password$",
 "NextPassed": "quizz2.json",
 "NextFailed": "EXIT"	
 }
