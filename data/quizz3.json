@@ -1,6 +1,6 @@
 {
-"Image": "http://sunrisetradingsystems.com/data/quizz_binary_clock.jpg", 
-"Sound":"http://sunrisetradingsystems.com/data/modem.mp3", 
+"Image": "https://com2u.github.io/CYD_Quizz/data/quizz_binary_clock.jpg", 
+"Sound":"https://com2u.github.io/CYD_Quizz/data/modem.mp3", 
 "Countdown": 150, 
 "Selection": "keyboard",
 "Answer": "^23[\\s.:,-]?59$",

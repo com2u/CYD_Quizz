@@ -1,6 +1,6 @@
 {
-"Image": "http://sunrisetradingsystems.com/data/quizz_utc.jpg", 
-"Sound":"http://sunrisetradingsystems.com/data/applause.mp3", 
+"Image": "https://com2u.github.io/CYD_Quizz/data/quizz_utc.jpg", 
+"Sound":"https://com2u.github.io/CYD_Quizz/data/applause.mp3", 
 "Countdown": 150, 
 "Selection": "keyboard",
 "Answer": "^greenland$",
