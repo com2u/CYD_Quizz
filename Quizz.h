@@ -2,34 +2,36 @@
 #include <regex>
 // Regexp by Nick Gammon form the Library manager
 
-void displayWrappedText(String text, int maxWidth) {
+
+void displayWrappedText(String text, int maxWidth = 33) {
   String currentLine = "";
-  int lastSpace = 0;
+  String nextWord = "";
   
   for (unsigned int i = 0; i < text.length(); i++) {
-    currentLine += text[i];
-    
-    if (text[i] == ' ') {
-      lastSpace = i;
-    }
-    
-    if (currentLine.length() == maxWidth) {
-      if (lastSpace > 0) {
-        currentLine = currentLine.substring(0, lastSpace);
-        i = lastSpace;
+    if (text[i] == ' ' || i == text.length() - 1) {
+      if (i == text.length() - 1 && text[i] != ' ') {
+        nextWord += text[i];
       }
-      tft.println(currentLine);
-      currentLine = "";
-      lastSpace = 0;
+      
+      if (currentLine.length() + nextWord.length() > maxWidth) {
+        tft.println((String) "  "+currentLine);
+        currentLine = nextWord;
+      } else {
+        if (currentLine.length() > 0) {
+          currentLine += " ";
+        }
+        currentLine += nextWord;
+      }
+      nextWord = "";
+    } else {
+      nextWord += text[i];
     }
   }
   
   if (currentLine.length() > 0) {
-    tft.println(currentLine);
+    tft.println((String) "  "+currentLine);
   }
 }
-
-
 String Quizz(String quizzNo){
    Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap());
       String baseURL = "https://com2u.github.io/CYD_Quizz/data/";
@@ -37,7 +39,7 @@ String Quizz(String quizzNo){
       String imageURL = "";
       String mp3 = "";
       String expectedAnswer = "";
-      int countdown = 999;
+      int countdownSet = 999;
       String selection = "";
       String nextPassed = "";
       String nextFailed = "";
@@ -49,32 +51,46 @@ String Quizz(String quizzNo){
       if (doc.containsKey("Image")) imageURL = doc["Image"].as<String>();
       if (doc.containsKey("Sound")) mp3 = doc["Sound"].as<String>();
       if (doc.containsKey("Answer")) expectedAnswer = doc["Answer"].as<String>();
-      if (doc.containsKey("Countdown")) countdown = doc["Countdown"].as<int>();
+      if (doc.containsKey("Countdown")) countdownSet = doc["Countdown"].as<int>();
       if (doc.containsKey("Selection")) selection = doc["Selection"].as<String>();
       if (doc.containsKey("NextPassed")) nextPassed = doc["NextPassed"].as<String>();
       if (doc.containsKey("NextFailed")) nextFailed = doc["NextFailed"].as<String>();
       if (doc.containsKey("Text")) quizzText = doc["Text"].as<String>();
       
 
-      if (DEBUG_OUTPUT > 1) Serial.print((String) "Quiz Text: "+quizzText+" Image: "+imageURL+" MP3: "+mp3+" Answer: "+expectedAnswer+" Countdown: "+countdown+" Selection: "+selection+" Next Passed: "+nextPassed+" Next Failed: "+nextFailed);
+      if (DEBUG_OUTPUT > 1) Serial.println((String) "Quiz Text: "+quizzText+" Image: "+imageURL+" MP3: "+mp3+" Answer: "+expectedAnswer+" Countdown: "+countdownSet+" Selection: "+selection+" Next Passed: "+nextPassed+" Next Failed: "+nextFailed);
           
       if (imageURL.length() > 0) { loadURLImage(imageURL); } else { CYD_TFT_clear(); }
       if (quizzText.length() > 0) {
-        Serial.print((String) "Quiz Text: "+quizzText);
-        tft.setTextFont(3);
-        tft.setCursor(10, 30);
+        Serial.println((String) "Quiz Text: "+quizzText);
+        tft.setTextFont(2);
+        int maxLineChar = 33;
+        if (quizzText.length() < 70) {
+          tft.setTextFont(4);
+          maxLineChar = 20;
+        }
+        
+        tft.setCursor(0, 30);
         tft.setTextColor(TFT_LIGHTGREY, TFT_BLACK);
          //TFT_BLACK, TFT_WHITE, TFT_LIGHTGREY
-         tft.println(quizzText);
-         tft.setCursor(10, 60);
-         displayWrappedText(quizzText,40);
-         tft.setTextFont(2);
+         //tft.println(quizzText);
+        //tft.println("Hallo Welt!");
+         //tft.setCursor(5, 60);
+         //tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY);
+         displayWrappedText(quizzText,maxLineChar);
+         //tft.setTextFont(2);
+         //delay(1000);
+         //Serial.println((String) "Quiz Text: Hallo Welt!");
       }
       if (mp3.length() > 0) {
         playAudio(mp3);
         while(hanlde_AudioESP32()){}
       } else {
         Serial.println("No Audio file defined");
+      }
+      if (countdownSet > 0) {
+          countdown = countdownSet;
+          nextCountMillis = millis()+1000;
       }
       
       if (selection == "keyboard" ){
@@ -86,6 +102,8 @@ String Quizz(String quizzNo){
         Serial.println("Regex pattern created");
         // Perform the regex match
         bool match = std::regex_search(answer.c_str(), pattern);
+        // Countdown reset
+        countdown = 0;
         if (match) {
           Serial.println("Expected Answer correct!");
           return nextPassed;
@@ -94,7 +112,9 @@ String Quizz(String quizzNo){
           Serial.println("Wrong Answer");
           return nextFailed;
         }
-      } 
+      }
+      // Countdown reset
+      countdown = 0;
     } else {
       Serial.println("No Quizz found");
       return "";

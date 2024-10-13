@@ -15,6 +15,8 @@ extern int LED_RED;
 extern int LED_GREEN;
 extern int LED_BLUE;
 extern const char* wled_ip;
+extern int countdown;
+extern unsigned long nextCountMillis;
 
 
 

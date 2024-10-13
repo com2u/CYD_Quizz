@@ -28,8 +28,7 @@
 const uint16_t TFT_COLOR_BLACK = 0;
 const uint16_t TFT_COLOR_WHITE = 655350;
 
-int countdown = 100;
-unsigned long nextCountMillis;
+
 String selectedItem;
 
 void codeForCore0Task(void *parameter)
@@ -42,7 +41,21 @@ void codeForCore0Task(void *parameter)
       pingHosts();
       checkUrls();
       delay(3000); // Wait for 30 seconds before the next cycle
-    } else {
+    } if (global_state == 100) {
+    if ((countdown > 0)  && millis() >= nextCountMillis ) {
+      //Serial.println(countdown);
+      CYD_TFT_Top();
+      CYD_TFT_print((String) countdown, TFT_COLOR_BLACK, TFT_COLOR_WHITE);
+      if (countdown > 0) {
+        countdown--;
+        nextCountMillis = millis()+1000;
+      } else {
+        global_state = 0;
+        CYD_TFT_Top();
+        CYD_TFT_print((String) countdown, TFT_COLOR_BLACK, TFT_COLOR_WHITE);
+      }
+    }
+    }  else {
       delay(50);
     }
   }
@@ -232,12 +245,13 @@ void loop() {
       
     }
     if (selectedItem == "Quizz"){
-      global_state = 0;
+      global_state = 100;
       String nextQuizz = "quizz1.json";
       while ((nextQuizz != "") && (nextQuizz != "EXIT")) {
         nextQuizz = Quizz(nextQuizz);       
       }   
     }
+    global_state = 0;
     
 
         
