@@ -72,15 +72,7 @@ String Quizz(String quizzNo){
         
         tft.setCursor(0, 30);
         tft.setTextColor(TFT_LIGHTGREY, TFT_BLACK);
-         //TFT_BLACK, TFT_WHITE, TFT_LIGHTGREY
-         //tft.println(quizzText);
-        //tft.println("Hallo Welt!");
-         //tft.setCursor(5, 60);
-         //tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY);
-         displayWrappedText(quizzText,maxLineChar);
-         //tft.setTextFont(2);
-         //delay(1000);
-         //Serial.println((String) "Quiz Text: Hallo Welt!");
+        displayWrappedText(quizzText,maxLineChar);
       }
       if (mp3.length() > 0) {
         playAudio(mp3);
@@ -111,6 +103,17 @@ String Quizz(String quizzNo){
         } else {
           Serial.println("Wrong Answer");
           return nextFailed;
+        }
+      } else if (selection == "option" ){
+        if (doc.containsKey("Option")) {
+          JsonArray optionArray = doc["Option"].as<JsonArray>();
+          for (JsonVariant option : optionArray) {
+            String optionText = option.as<String>();
+            Serial.println(optionText);
+            // Here you can add code to display the option or handle it as needed
+          }
+        } else {
+          Serial.println("No Options to choose");
         }
       }
       // Countdown reset

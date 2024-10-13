@@ -1,9 +1,10 @@
 {
-"Text": "What is the \r\n  name \r\n  of the pro tocol used for rout ing Int", 
+"Text": "What is the next number? 1, 1, 2, 3, 5, 8, …", 
 "Sound":"", 
 "Countdown": 150,
-"Selection": "keyboard",
-"Answer": "^password$",
+"Selection": "option",
+"Answer": "13",
+"Option": ["Option A", "Option B", "Option C", "Option D", "Option E"]
 "NextPassed": "quizz2.json",
 "NextFailed": "EXIT"	
 }
