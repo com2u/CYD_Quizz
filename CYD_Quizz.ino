@@ -264,6 +264,11 @@ void loop() {
           Serial.println(mp3);
           expectedAnswer = quizzArray[0]["Answer"].as<String>();
           */
+    if (selectedItem == "Calibrate Touch"){
+      loadURLImage("https://com2u.github.io/CYD_Quizz/data/calibrate.jpg");
+      Serial.println(keyboard(false));
+    }
+    
     if (selectedItem == "Setup"){
       global_state = 10;
     }
@@ -272,6 +277,9 @@ void loop() {
     }
     if (selectedItem == "Test"){
       global_state = 40;
+    }
+     if (selectedItem == "LED"){
+      global_state = 50;
     }
     if (selectedItem == "Keyboard"){
       global_state = 21;

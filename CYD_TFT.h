@@ -32,7 +32,8 @@ const char *menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup
 const char *menuTest[]  = {"Image", "Sound Board",  "Keyboard", "<--"};
 const char *menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 const char *menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
-const char *menuSetupEntry[] = {"Volume +", "Volume -", "Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
+const char *menuSetupEntry[] = {"Volume +", "Volume -", "LED", "WIFI", "Calibrate Touch", "<--"};
+const char *menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
 const char *menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
 const char *WIFIEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
 String emptyStrings = "                              ";
@@ -43,6 +44,7 @@ const int MENU_SETUP_ENTRY_COUNT = sizeof(menuSetupEntry) / sizeof(menuSetupEntr
 const int MENU_INFO_ENTRY_COUNT = sizeof(menuInfoEntry) / sizeof(menuInfoEntry[0]);
 const int MENU_TIMER_ENTRY_COUNT = sizeof(menuTimer) / sizeof(menuTimer[0]);
 const int MENU_TEST_ENTRY_COUNT = sizeof(menuTest) / sizeof(menuTest[0]);
+const int MENU_LED_ENTRY_COUNT = sizeof(menuLED) / sizeof(menuLED[0]);
 
   const char **currentMenu;
   int menuSize;
@@ -69,9 +71,10 @@ void CYD_TFT_DrawImage(){
 TS_Point CYD_Handle_Touch() {
   if (ts.tirqTouched() && ts.touched()) {
     TS_Point p = ts.getPoint();
-    p.x = (int) (p.x-270) /15;
-    p.y = (int) (p.y-120) /12;
-    if (DEBUG_OUTPUT > 3) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    if (DEBUG_OUTPUT > 1) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    p.x = (int) ((p.x-270) /15);
+    p.y = (int) (p.y-120) /12.5;
+    if (DEBUG_OUTPUT > 1) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     return p;
   }
   return TS_Point();  // Return an empty TS_Point if no touch detected
@@ -218,6 +221,9 @@ void initMenu(){
   }else if (global_state == 40) {
     currentMenu = menuTest;
     menuSize = MENU_TEST_ENTRY_COUNT;
+  } else if (global_state == 50) {
+    currentMenu = menuLED;
+    menuSize = MENU_LED_ENTRY_COUNT;
   } else {
     currentMenu = menuEntry;
     menuSize = MENU_ENTRY_COUNT;
