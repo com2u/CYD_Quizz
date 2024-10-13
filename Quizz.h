@@ -39,7 +39,7 @@ String Quizz(String quizzNo){
       String imageURL = "";
       String mp3 = "";
       String expectedAnswer = "";
-      int countdownSet = 999;
+      int countdownSet = 0;
       String selection = "";
       String nextPassed = "";
       String nextFailed = "";
@@ -65,7 +65,7 @@ String Quizz(String quizzNo){
         Serial.println((String) "Quiz Text: "+quizzText);
         tft.setTextFont(2);
         int maxLineChar = 33;
-        if (quizzText.length() < 70) {
+        if (quizzText.length() < 80) {
           tft.setTextFont(4);
           maxLineChar = 20;
         }

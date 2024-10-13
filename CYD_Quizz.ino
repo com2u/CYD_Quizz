@@ -26,7 +26,7 @@
 //#define PROJECT_NAME "ESP32_CYD_PING"
 //const char* wled_ip = "http://192.168.0.90/json/state";
 const uint16_t TFT_COLOR_BLACK = 0;
-const uint16_t TFT_COLOR_WHITE = 655350;
+const uint16_t TFT_COLOR_WHITE = 0xFFFFFF;
 
 
 String selectedItem;
