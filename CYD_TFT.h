@@ -73,7 +73,7 @@ TS_Point CYD_Handle_Touch() {
     TS_Point p = ts.getPoint();
     if (DEBUG_OUTPUT > 1) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     p.x = (int) ((p.x-270) /15);
-    p.y = (int) (p.y-120) /12.5;
+    p.y = (int) (p.y-120) /11.3;
     if (DEBUG_OUTPUT > 1) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     return p;
   }
@@ -95,7 +95,7 @@ String keyboard(boolean clear) {
 
   // Display keyboard
   if (clear) tft.fillScreen(TFT_WHITE);
-  tft.setTextColor(TFT_WHITE, TFT_LIGHTGREY );
+  tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY );
   tft.setTextFont(2);
 
   int keyIndex = 0;
