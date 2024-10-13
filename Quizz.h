@@ -2,12 +2,37 @@
 #include <regex>
 // Regexp by Nick Gammon form the Library manager
 
-
+void displayWrappedText(String text, int maxWidth) {
+  String currentLine = "";
+  int lastSpace = 0;
+  
+  for (unsigned int i = 0; i < text.length(); i++) {
+    currentLine += text[i];
+    
+    if (text[i] == ' ') {
+      lastSpace = i;
+    }
+    
+    if (currentLine.length() == maxWidth) {
+      if (lastSpace > 0) {
+        currentLine = currentLine.substring(0, lastSpace);
+        i = lastSpace;
+      }
+      tft.println(currentLine);
+      currentLine = "";
+      lastSpace = 0;
+    }
+  }
+  
+  if (currentLine.length() > 0) {
+    tft.println(currentLine);
+  }
+}
 
 
 String Quizz(String quizzNo){
    Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap());
-      String baseURL = "http://sunrisetradingsystems.com/data/";
+      String baseURL = "https://com2u.github.io/CYD_Quizz/data/";
       DynamicJsonDocument doc = fetchJsonFromUrl((String) baseURL+quizzNo);
       String imageURL = "";
       String mp3 = "";
@@ -31,17 +56,19 @@ String Quizz(String quizzNo){
       if (doc.containsKey("Text")) quizzText = doc["Text"].as<String>();
       
 
-      if (DEBUG_OUTPUT > 1) Serial.print((String) "Quiz image: "+imageURL+" MP3: "+mp3+" Answer: "+expectedAnswer+" Countdown: "+countdown+" Selection: "+selection+" Next Passed: "+nextPassed+" Next Failed: "+nextFailed);
+      if (DEBUG_OUTPUT > 1) Serial.print((String) "Quiz Text: "+quizzText+" Image: "+imageURL+" MP3: "+mp3+" Answer: "+expectedAnswer+" Countdown: "+countdown+" Selection: "+selection+" Next Passed: "+nextPassed+" Next Failed: "+nextFailed);
           
-      (imageURL.length() > 0) ? loadURLImage(imageURL) : CYD_TFT_clear();
+      if (imageURL.length() > 0) { loadURLImage(imageURL); } else { CYD_TFT_clear(); }
       if (quizzText.length() > 0) {
-        tft.setTextFont(2);
+        Serial.print((String) "Quiz Text: "+quizzText);
+        tft.setTextFont(3);
         tft.setCursor(10, 30);
         tft.setTextColor(TFT_LIGHTGREY, TFT_BLACK);
          //TFT_BLACK, TFT_WHITE, TFT_LIGHTGREY
-        tft.println(quizzText);
-       
-      
+         tft.println(quizzText);
+         tft.setCursor(10, 60);
+         displayWrappedText(quizzText,40);
+         tft.setTextFont(2);
       }
       if (mp3.length() > 0) {
         playAudio(mp3);

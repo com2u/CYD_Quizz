@@ -336,12 +336,17 @@ void loop() {
     if (global_state == 10){
       menuData[0] = String(audioVolume);
       menuData[1] = String(audioVolume);
-      menuData[2] = String(LED_RED);
-      menuData[3] = String(LED_RED);
-      menuData[4] = String(LED_GREEN);
-      menuData[5] = String(LED_GREEN);
-      menuData[6] = String(LED_BLUE);
-      menuData[7] = String(LED_BLUE);
+
+    }
+    if (global_state == 50){
+      menuData[0] = String(audioVolume);
+      menuData[1] = String(audioVolume);
+      menuData[0] = String(LED_RED);
+      menuData[1] = String(LED_RED);
+      menuData[2] = String(LED_GREEN);
+      menuData[3] = String(LED_GREEN);
+      menuData[4] = String(LED_BLUE);
+      menuData[5] = String(LED_BLUE);
     }
 
     showMenu();

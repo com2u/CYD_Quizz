@@ -32,10 +32,10 @@ const char *menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup
 const char *menuTest[]  = {"Image", "Sound Board",  "Keyboard", "<--"};
 const char *menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 const char *menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
-const char *menuSetupEntry[] = {"Volume +", "Volume -", "LED", "WIFI", "Calibrate Touch", "<--"};
+const char *menuSetupEntry[] = {"Volume +", "Volume -", "LED", "WIFI", "Calibrate Touch", "Debug", "<--"};
 const char *menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
 const char *menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
-const char *WIFIEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
+const char *WIFIEntry[] = {" ", " ", " ", " ", "<--"};
 String emptyStrings = "                              ";
 
 const int MENU_ENTRY_COUNT = sizeof(menuEntry) / sizeof(menuEntry[0]);
@@ -71,10 +71,10 @@ void CYD_TFT_DrawImage(){
 TS_Point CYD_Handle_Touch() {
   if (ts.tirqTouched() && ts.touched()) {
     TS_Point p = ts.getPoint();
-    if (DEBUG_OUTPUT > 1) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    if (DEBUG_OUTPUT > 4) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     p.x = (int) ((p.x-270) /15);
     p.y = (int) (p.y-120) /11.3;
-    if (DEBUG_OUTPUT > 1) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    if (DEBUG_OUTPUT > 3) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     return p;
   }
   return TS_Point();  // Return an empty TS_Point if no touch detected
