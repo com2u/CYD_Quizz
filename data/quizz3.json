@@ -1,5 +1,5 @@
 {
-"Text": "Which matches the regex pattern [A-Z][0-9]{3}?"", 
+"Text": "Which matches the regex pattern [A-Z][0-9]{3}?", 
 "Sound":"", 
 "Countdown": 150,
 "Selection": "option",
