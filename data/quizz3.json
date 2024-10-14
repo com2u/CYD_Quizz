@@ -4,7 +4,7 @@
 "Countdown": 150,
 "Selection": "option",
 "Answer": "B123",
-"Option": ["A1B", "ABC123", "XYZ3", "A0???", "B123"]
+"Option": ["A1B", "ABC123", "XYZ3", "A0???", "B123"],
 "NextPassed": "quizz4.json",
 "NextFailed": "EXIT"	
 }
