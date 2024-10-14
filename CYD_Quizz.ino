@@ -281,7 +281,7 @@ void loop() {
           expectedAnswer = quizzArray[0]["Answer"].as<String>();
           */
     if (selectedItem == "Calibrate Touch"){
-      loadURLImage("https://com2u.github.io/CYD_Quizz/data/calibrate.jpg");
+      loadURLImage(baseURL+"calibrate.jpg");
       Serial.println(keyboard(false));
     }
     

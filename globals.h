@@ -23,6 +23,7 @@ extern unsigned long nextCountMillis;
 extern String menuData[13];
 extern String menuWIFI[33];
 extern String menuQuizzOption[5];
+extern String baseURL;
 
 
 #endif // GLOBALS_H

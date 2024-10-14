@@ -188,6 +188,7 @@ uint32_t jpgRead(JDEC* jdec, uint8_t* buf, uint32_t len) {
 
 // Load and display a JPEG image from a URL
 void loadURLImage(String url) {
+    url.replace("{baseURL}",baseURL);
     HTTPClient http;
     WiFiClient* stream;
     Serial.println(url);

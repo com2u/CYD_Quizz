@@ -43,6 +43,7 @@ String validateQuizz(bool passed, String nextPassed, String nextFailed){
   if (passed){
           message = "  CORRECT\n\r  ANSWER !";       
           tft.setTextColor(TFT_GREEN, TFT_BLACK);
+          CYD_LED_Green();
           tft.println(message);
           Serial.println(message);
           tft.setTextFont(2);
@@ -51,6 +52,7 @@ String validateQuizz(bool passed, String nextPassed, String nextFailed){
         } else {
           message = "  INCORRECT\n\r ANSWER";
           tft.setTextColor(TFT_RED, TFT_BLACK);
+          CYD_LED_Red();
           tft.println(message);
           Serial.println(message);
           tft.setTextFont(2);
@@ -67,8 +69,8 @@ bool regexMatch(String text, String patternExp){
  
 }
 String Quizz(String quizzNo){
-   Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap());
-      String baseURL = "https://com2u.github.io/CYD_Quizz/data/";
+   Serial.println((String) "Quizz:"+quizzNo);
+   Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap() );
       DynamicJsonDocument doc = fetchJsonFromUrl((String) baseURL+quizzNo);
       String imageURL = "";
       String mp3 = "";

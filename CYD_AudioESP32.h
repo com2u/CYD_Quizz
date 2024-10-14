@@ -81,6 +81,7 @@ void playAudio(int number){
 
 void playAudio(String url){
   audio.setVolume(audioVolume); // default 0...21
+  url.replace("{baseURL}",baseURL);
   audio.connecttohost(url.c_str());
 }
 

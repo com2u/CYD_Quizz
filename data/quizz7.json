@@ -1,6 +1,6 @@
 {
-"Image": "https://com2u.github.io/CYD_Quizz/data/quizz_utc.jpg", 
-"Sound":"https://com2u.github.io/CYD_Quizz/data/applause.mp3", 
+"Image": "{baseURL}quizz_utc.jpg", 
+"Sound":"{baseURL}applause.mp3", 
 "Countdown": 150, 
 "Selection": "keyboard",
 "Answer": "^greenland$",
