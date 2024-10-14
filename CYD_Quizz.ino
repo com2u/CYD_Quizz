@@ -46,7 +46,7 @@ void codeForCore0Task(void *parameter)
     if ((countdown > 0)  && millis() >= nextCountMillis ) {
       //Serial.println(countdown);
       CYD_TFT_Top();
-      CYD_TFT_print((String)  "   "+countdown, TFT_COLOR_WHITE, TFT_OLOR_BLACK);
+      CYD_TFT_print((String)  "   "+countdown, TFT_COLOR_WHITE, TFT_COLOR_BLACK);
       if (countdown > 0) {
         countdown--;
         nextCountMillis = millis()+1000;

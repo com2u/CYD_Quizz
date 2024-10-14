@@ -115,6 +115,7 @@ String Quizz(String quizzNo){
         Serial.println("No Audio file defined");
       }
       if (countdownSet > 0) {
+          Serial.println("Set Countdown");
           countdown = countdownSet;
           nextCountMillis = millis()+1000;
       }
@@ -127,8 +128,10 @@ String Quizz(String quizzNo){
         // Countdown reset
         return validateQuizz(match, nextPassed, nextFailed);
       } else if (selection == "option" ){
+        Serial.println("Section options");
         if (doc.containsKey("Option")) {
           int itemCount = 0;
+          Serial.println("Find options");
           JsonArray optionArray = doc["Option"].as<JsonArray>();
           for (JsonVariant option : optionArray) {
             String optionText = option.as<String>();
