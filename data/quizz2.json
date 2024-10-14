@@ -4,6 +4,6 @@
 "Countdown": 150,
 "Selection": "keyboard",
 "Answer": "32",
-"NextPassed": "quizz2.json",
+"NextPassed": "quizz3.json",
 "NextFailed": "EXIT"	
 }
