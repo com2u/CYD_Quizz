@@ -27,15 +27,14 @@ TFT_eSPI tft = TFT_eSPI();
 unsigned long lastMenuChangeMillis;
 
 int state = 0;  
-//const char *menuEntry[]  = {"Time", "Countdown", "Sound Board", "Ping", "Image", "Count Up", "Keyboard", "Setup"};
-const char *menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup"};
-const char *menuTest[]  = {"Image", "Sound Board",  "Keyboard", "<--"};
-const char *menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
-const char *menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
-const char *menuSetupEntry[] = {"Volume +", "Volume -", "LED", "WIFI", "Calibrate Touch", "Debug", "<--"};
-const char *menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
-const char *menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
-const char *WIFIEntry[] = {" ", " ", " ", " ", "<--"};
+String menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup"};
+String menuTest[]  = {"Image", "Sound Board",  "Keyboard", "<--"};
+String menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
+String menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
+String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "WIFI", "Calibrate Touch", "Debug", "<--"};
+String menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
+String menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
+String WIFIEntry[] = {" ", " ", " ", " ", "<--"};
 String emptyStrings = "                              ";
 
 const int MENU_ENTRY_COUNT = sizeof(menuEntry) / sizeof(menuEntry[0]);
@@ -46,8 +45,8 @@ const int MENU_TIMER_ENTRY_COUNT = sizeof(menuTimer) / sizeof(menuTimer[0]);
 const int MENU_TEST_ENTRY_COUNT = sizeof(menuTest) / sizeof(menuTest[0]);
 const int MENU_LED_ENTRY_COUNT = sizeof(menuLED) / sizeof(menuLED[0]);
 
-  const char **currentMenu;
-  int menuSize;
+String *currentMenu;
+int menuSize;
 
 
 
@@ -64,9 +63,6 @@ void CYD_TFT_DrawImage(){
   //drawJPEG();  
 }
 
-//void CYD_TFT_DrawSDCardImage(){
-  //drawJPEG_SDCard();
-//}
 
 TS_Point CYD_Handle_Touch() {
   if (ts.tirqTouched() && ts.touched()) {
@@ -173,10 +169,6 @@ void touchScreen_Start(){
 }
 
 
-//void touchScreen_End(){
-//  mySpi.end();
-//}
-
 void CYD_TFT_init(){
   tft.init();
   tft.setRotation(0);
@@ -204,43 +196,46 @@ void CYD_TFT_BigDisplay(){
 }
 
 
-
 void initMenu(){
   if (global_state == 3) {
     currentMenu = menuAudioEntry;
-    menuSize = MENU_AUDIO_ENTRY_COUNT;
+    menuSize = sizeof(menuAudioEntry) / sizeof(menuAudioEntry[0]);
   } else if (global_state == 10) {
     currentMenu = menuSetupEntry;
-    menuSize = MENU_SETUP_ENTRY_COUNT;
+    menuSize = sizeof(menuSetupEntry) / sizeof(menuSetupEntry[0]);
   } else if (global_state == 20) {
     currentMenu = menuInfoEntry;
-    menuSize = MENU_INFO_ENTRY_COUNT;
+    menuSize = sizeof(menuInfoEntry) / sizeof(menuInfoEntry[0]);
   } else if (global_state == 30) {
     currentMenu = menuTimer;
-    menuSize = MENU_TIMER_ENTRY_COUNT;
-  }else if (global_state == 40) {
+    menuSize = sizeof(menuTimer) / sizeof(menuTimer[0]);
+  } else if (global_state == 40) {
     currentMenu = menuTest;
-    menuSize = MENU_TEST_ENTRY_COUNT;
+    menuSize = sizeof(menuTest) / sizeof(menuTest[0]);
   } else if (global_state == 50) {
     currentMenu = menuLED;
-    menuSize = MENU_LED_ENTRY_COUNT;
+    menuSize = sizeof(menuLED) / sizeof(menuLED[0]);
+  } else if (global_state == 100) {
+    currentMenu = menuQuizzOption;
+    menuSize = sizeof(menuQuizzOption) / sizeof(menuQuizzOption[0]);
   } else {
     currentMenu = menuEntry;
-    menuSize = MENU_ENTRY_COUNT;
+    menuSize = sizeof(menuEntry) / sizeof(menuEntry[0]);
   }
+  
 }
 
-void showMenu() {
-  tft.fillScreen(TFT_BLACK);
+void showMenu(bool clearDisplay, int startY = 10) {
+  if (clearDisplay) tft.fillScreen(TFT_BLACK);
   tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY);
   tft.setTextFont(2);
-  Serial.println("TFT.showMenu " + String(global_state));
+  
   
   initMenu();
- 
+  Serial.println((String) "MenuSize: " + menuSize);
   int menuItemHeight = 30;
   int menuItemPadding = 5;
-  int startY = 10;
+  //int startY = 10;
   
   for (int i = 0; i < menuSize; i++) {
     int y = startY + i * (menuItemHeight + menuItemPadding);
@@ -248,10 +243,11 @@ void showMenu() {
     tft.drawRect(10, y, tft.width() - 20, menuItemHeight, TFT_WHITE);
     tft.setCursor(15, y + (menuItemHeight / 2) - 6);
     tft.println((String) currentMenu[i]+" "+menuData[i]);
+    Serial.println((String) currentMenu[i]+" "+menuData[i]);
   }
 }
 
-String checkMenuTouch(TS_Point p) {
+String checkMenuTouch(TS_Point p, int startY = 10) {
 
   // debounce
   if (lastMenuChangeMillis+300 > millis()){
@@ -262,7 +258,7 @@ String checkMenuTouch(TS_Point p) {
 
   int menuItemHeight = 30;
   int menuItemPadding = 5;
-  int startY = 10;
+  
   
   for (int i = 0; i < menuSize; i++) {
     int y = startY + i * (menuItemHeight + menuItemPadding);
@@ -279,10 +275,10 @@ String checkMenuTouch(TS_Point p) {
 }
 
 
-String handleMenu(){
+String handleMenu(int startY = 10){
   TS_Point p = CYD_Handle_Touch();
   if (p.z > 0) {  // Check if there's a valid touch
-    return checkMenuTouch(p);
+    return checkMenuTouch(p, startY);
   } else {
     return "";
   }

@@ -14,4 +14,5 @@ String menuWIFI[33];
 const char* wled_ip = "http://192.168.0.90/json/state";
 int countdown = 100;
 unsigned long nextCountMillis;
+String menuQuizzOption[] = {"Option Q", "Option W", "Option X", "Option Y", "Option Z"};
 

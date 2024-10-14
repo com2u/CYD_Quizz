@@ -32,6 +32,14 @@ void displayWrappedText(String text, int maxWidth = 33) {
     tft.println((String) "  "+currentLine);
   }
 }
+
+bool regexMatch(String text, String pattern){
+         std::regex pattern(pattern.c_str(), std::regex_constants::icase);
+        Serial.println("Regex pattern created");
+        // Perform the regex match
+        return match = std::regex_search(text.c_str(), pattern);
+ 
+}
 String Quizz(String quizzNo){
    Serial.printf("Free heap: %d bytes\n", ESP.getFreeHeap());
       String baseURL = "https://com2u.github.io/CYD_Quizz/data/";
@@ -89,11 +97,7 @@ String Quizz(String quizzNo){
         String answer = keyboard(false);
         answer.trim();  // Remove leading and trailing whitespace
         Serial.println("trim");
-        // Create a regex pattern for case-insensitive match directly from expectedAnswer
-        std::regex pattern(expectedAnswer.c_str(), std::regex_constants::icase);
-        Serial.println("Regex pattern created");
-        // Perform the regex match
-        bool match = std::regex_search(answer.c_str(), pattern);
+        bool match = regexMatch(answer, expectedAnswer);
         // Countdown reset
         countdown = 0;
         if (match) {
@@ -106,15 +110,36 @@ String Quizz(String quizzNo){
         }
       } else if (selection == "option" ){
         if (doc.containsKey("Option")) {
+          int itemCount = 0;
           JsonArray optionArray = doc["Option"].as<JsonArray>();
           for (JsonVariant option : optionArray) {
             String optionText = option.as<String>();
             Serial.println(optionText);
+            menuQuizzOption[itemCount] = optionText;
+            itemCount++;
             // Here you can add code to display the option or handle it as needed
           }
         } else {
           Serial.println("No Options to choose");
         }
+        int OptionMenuPosition = 148;
+        showMenu(false, OptionMenuPosition);
+
+        String selectedItem = "";
+        while(selectedItem == ""  ){
+          selectedItem = handleMenu(OptionMenuPosition);
+        }
+        if (expectedAnswer == selectedItem){
+          Serial.println("Expected Answer correct!");
+          return nextPassed;
+          // Handle correct answer (e.g., return nextPassed;)
+        } else {
+          Serial.println("Wrong Answer");
+          return nextFailed;
+        }
+        
+
+        return "";
       }
       // Countdown reset
       countdown = 0;

@@ -27,6 +27,7 @@
 //const char* wled_ip = "http://192.168.0.90/json/state";
 const uint16_t TFT_COLOR_BLACK = 0;
 const uint16_t TFT_COLOR_WHITE = 0xFFFFFF;
+int menuYstart = 10;
 
 
 String selectedItem;
@@ -92,7 +93,7 @@ void setup() {
   
   //CYD_TFT_init();
   global_state = 0;
-  showMenu();
+  showMenu(true, menuYstart);
   TaskHandle_t Core0Task;
 
    xTaskCreatePinnedToCore(
@@ -150,7 +151,7 @@ void loop() {
   CountUp();
   //handle_Audio();
   hanlde_AudioESP32();
-  selectedItem = handleMenu();
+  selectedItem = handleMenu(menuYstart);
   if (selectedItem != "") {
     Serial.println((String) "Selected menu item: " + selectedItem+"  Status:"+global_state);    
     if (selectedItem == "Time") {
@@ -163,6 +164,7 @@ void loop() {
       global_state = 2;
       countdown = 100;
       nextCountMillis = millis()+1000;
+      Serial.println("CountDonw started");
       CYD_TFT_clear();
       return;
     }
@@ -363,8 +365,8 @@ void loop() {
       menuData[5] = String(LED_BLUE);
     }
 
-    showMenu();
-    Serial.println((String) "global_state:"+global_state+" audioVolume:"+audioVolume+" LED_RED:"+LED_RED+" LED_GREEN:"+LED_GREEN+" LED_BLUE:"+LED_BLUE);
+    showMenu(true, menuYstart);
+    if (DEBUG_OUTPUT > 1) Serial.println((String) "global_state:"+global_state+" audioVolume:"+audioVolume+" LED_RED:"+LED_RED+" LED_GREEN:"+LED_GREEN+" LED_BLUE:"+LED_BLUE);
     
   } 
   delay(10);  // Small delay to prevent excessive checking
