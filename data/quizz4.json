@@ -4,7 +4,7 @@
 "Countdown": 150,
 "Selection": "option",
 "Answer": "/localhost/i",
-"Option": ["IP Broadcast", "localhost", "DHCP Server", "External IP", "Reverse IP"]
+"Option": ["IP Broadcast", "localhost", "DHCP Server", "External IP", "Reverse IP"],
 "NextPassed": "quizz5.json",
 "NextFailed": "EXIT"	
 }
