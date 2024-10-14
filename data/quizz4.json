@@ -1,9 +1,10 @@
 {
-"Image": "https://com2u.github.io/CYD_Quizz/data/quizz_hex.jpg", 
-"Sound":"https://com2u.github.io/CYD_Quizz/data/bell.mp3", 
+"Text": "What is 127.0.0.1"", 
+"Sound":"", 
 "Countdown": 150,
-"Selection": "keyboard",
-"Answer": "^password$",
-"NextPassed": "quizz2.json",
+"Selection": "option",
+"Answer": "/localhost/i",
+"Option": ["IP Broadcast", "localhost", "DHCP Server", "External IP", "Reverse IP"]
+"NextPassed": "quizz5.json",
 "NextFailed": "EXIT"	
 }

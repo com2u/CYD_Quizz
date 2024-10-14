@@ -12,7 +12,7 @@ String menuWIFI[33];
 
 // If wled_ip is not used in globals.cpp, you can omit this line
 const char* wled_ip = "http://192.168.0.90/json/state";
-int countdown = 100;
+int countdown = 0;
 unsigned long nextCountMillis;
 String menuQuizzOption[] = {"Option Q", "Option W", "Option X", "Option Y", "Option Z"};
 

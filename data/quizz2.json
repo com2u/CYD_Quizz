@@ -1,9 +1,9 @@
 {
-"Image": "https://com2u.github.io/CYD_Quizz/data/quizz_utc.jpg", 
-"Sound":"https://com2u.github.io/CYD_Quizz/data/applause.mp3", 
-"Countdown": 150, 
+"Text": "What is the next number? 2, 4, 8, 16, …", 
+"Sound":"", 
+"Countdown": 150,
 "Selection": "keyboard",
-"Answer": "^greenland$",
-"NextPassed": "quizz3.json",
-"NextFailed": "EXIT"
+"Answer": "32",
+"NextPassed": "quizz2.json",
+"NextFailed": "EXIT"	
 }

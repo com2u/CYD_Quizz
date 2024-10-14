@@ -232,7 +232,7 @@ void showMenu(bool clearDisplay, int startY = 10) {
   
   
   initMenu();
-  Serial.println((String) "MenuSize: " + menuSize);
+  if (DEBUG_OUTPUT > 3) Serial.println((String) "MenuSize: " + menuSize);
   int menuItemHeight = 30;
   int menuItemPadding = 5;
   //int startY = 10;
@@ -243,7 +243,7 @@ void showMenu(bool clearDisplay, int startY = 10) {
     tft.drawRect(10, y, tft.width() - 20, menuItemHeight, TFT_WHITE);
     tft.setCursor(15, y + (menuItemHeight / 2) - 6);
     tft.println((String) currentMenu[i]+" "+menuData[i]);
-    Serial.println((String) currentMenu[i]+" "+menuData[i]);
+    if (DEBUG_OUTPUT > 3) Serial.println((String) currentMenu[i]+" "+menuData[i]);
   }
 }
 

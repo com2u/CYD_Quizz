@@ -33,11 +33,37 @@ void displayWrappedText(String text, int maxWidth = 33) {
   }
 }
 
-bool regexMatch(String text, String pattern){
-         std::regex pattern(pattern.c_str(), std::regex_constants::icase);
+String validateQuizz(bool passed, String nextPassed, String nextFailed){
+  countdown = 0;
+  tft.setTextFont(4);     
+  tft.setCursor(0, 30);
+  tft.fillRect(0, 25, tft.width()-1, 75, TFT_BLACK);
+  tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);
+  String message = "";
+  if (passed){
+          message = "  CORRECT\n\r  ANSWER !";       
+          tft.setTextColor(TFT_GREEN, TFT_BLACK);
+          tft.println(message);
+          Serial.println(message);
+          tft.setTextFont(2);
+          delay(700);
+          return nextPassed;
+        } else {
+          message = "  INCORRECT\n\r ANSWER";
+          tft.setTextColor(TFT_RED, TFT_BLACK);
+          tft.println(message);
+          Serial.println(message);
+          tft.setTextFont(2);
+          delay(700);
+          return nextFailed;
+        }
+}
+
+bool regexMatch(String text, String patternExp){
+         std::regex pattern(patternExp.c_str(), std::regex_constants::icase);
         Serial.println("Regex pattern created");
         // Perform the regex match
-        return match = std::regex_search(text.c_str(), pattern);
+        return std::regex_search(text.c_str(), pattern);
  
 }
 String Quizz(String quizzNo){
@@ -99,15 +125,7 @@ String Quizz(String quizzNo){
         Serial.println("trim");
         bool match = regexMatch(answer, expectedAnswer);
         // Countdown reset
-        countdown = 0;
-        if (match) {
-          Serial.println("Expected Answer correct!");
-          return nextPassed;
-          // Handle correct answer (e.g., return nextPassed;)
-        } else {
-          Serial.println("Wrong Answer");
-          return nextFailed;
-        }
+        return validateQuizz(match, nextPassed, nextFailed);
       } else if (selection == "option" ){
         if (doc.containsKey("Option")) {
           int itemCount = 0;
@@ -129,14 +147,7 @@ String Quizz(String quizzNo){
         while(selectedItem == ""  ){
           selectedItem = handleMenu(OptionMenuPosition);
         }
-        if (expectedAnswer == selectedItem){
-          Serial.println("Expected Answer correct!");
-          return nextPassed;
-          // Handle correct answer (e.g., return nextPassed;)
-        } else {
-          Serial.println("Wrong Answer");
-          return nextFailed;
-        }
+        return validateQuizz((expectedAnswer == selectedItem), nextPassed, nextFailed);
         
 
         return "";
