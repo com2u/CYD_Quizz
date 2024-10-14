@@ -1,0 +1,9 @@
+{
+"Image": "https://com2u.github.io/CYD_Quizz/data/quizz_binary_clock.jpg", 
+"Sound":"https://com2u.github.io/CYD_Quizz/data/modem.mp3", 
+"Countdown": 150, 
+"Selection": "keyboard",
+"Answer": "^23[\\s.:,-]?59$",
+"NextPassed": "quizz6.json",
+"NextFailed": "EXIT"
+}
