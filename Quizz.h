@@ -38,13 +38,14 @@ String validateQuizz(bool passed, String nextPassed, String nextFailed){
   tft.setTextFont(4);     
   tft.setCursor(0, 30);
   tft.fillRect(0, 25, tft.width()-1, 75, TFT_BLACK);
-  tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);
+  
   String message = "";
   if (passed){
           message = "  CORRECT\n\r  ANSWER !";       
           tft.setTextColor(TFT_GREEN, TFT_BLACK);
           CYD_LED_Green();
           tft.println(message);
+          tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);
           Serial.println(message);
           tft.setTextFont(2);
           delay(700);
@@ -54,6 +55,7 @@ String validateQuizz(bool passed, String nextPassed, String nextFailed){
           tft.setTextColor(TFT_RED, TFT_BLACK);
           CYD_LED_Red();
           tft.println(message);
+          tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);
           Serial.println(message);
           tft.setTextFont(2);
           delay(700);

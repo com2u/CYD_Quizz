@@ -248,7 +248,7 @@ void loop() {
     }
     if (selectedItem == "Quizz"){
       global_state = 100;
-      String nextQuizz = "quizz1.json";
+      String nextQuizz = startQuizz;
       while ((nextQuizz != "") && (nextQuizz != "EXIT")) {
         nextQuizz = Quizz(nextQuizz);       
       }   

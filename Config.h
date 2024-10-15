@@ -50,8 +50,10 @@ bool loadConfig() {
       return false;
   }
  
+  
   const char* serverName = doc["serverName"];
   const char* accessToken = doc["accessToken"];
+  if (doc.containsKey("startQuizz")) startQuizz = doc["startQuizz"].as<String>();
 
   Serial.print("Loaded serverName: ");
   Serial.println(serverName);
@@ -65,6 +67,8 @@ bool saveConfig() {
   DynamicJsonDocument doc(1024);
   doc["serverName"] = "api.example.com";
   doc["accessToken"] = "128du9as8du12eoue8da98h123ueh9h98";
+  doc["startQuizz"] = "quizz1.json";
+
   
 
   File configFile = SPIFFS.open("/config.json", "w");

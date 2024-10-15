@@ -2,8 +2,8 @@
 #include "SD.h"
 
 
-#define CYD_LED_BLUE 4
-#define CYD_LED_RED 17
+#define CYD_LED_BLUE 17
+#define CYD_LED_RED 4
 #define CYD_LED_GREEN 16
 
 

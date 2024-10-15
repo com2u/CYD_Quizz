@@ -188,6 +188,13 @@ uint32_t jpgRead(JDEC* jdec, uint8_t* buf, uint32_t len) {
 
 // Load and display a JPEG image from a URL
 void loadURLImage(String url) {
+    tft.setTextFont(4);     
+    tft.setCursor(0, 30);
+    tft.fillRect(0, 25, tft.width()-1, 75, TFT_BLACK);  
+    tft.setTextColor(TFT_BLUE, TFT_BLACK);
+    tft.println("   Loading ...");
+    tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);   
+    tft.setTextFont(2);
     url.replace("{baseURL}",baseURL);
     HTTPClient http;
     WiFiClient* stream;

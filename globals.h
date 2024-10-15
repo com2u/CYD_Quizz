@@ -24,6 +24,7 @@ extern String menuData[13];
 extern String menuWIFI[33];
 extern String menuQuizzOption[5];
 extern String baseURL;
+extern String startQuizz;
 
 
 #endif // GLOBALS_H
