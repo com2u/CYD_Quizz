@@ -54,11 +54,15 @@ bool loadConfig() {
   const char* serverName = doc["serverName"];
   const char* accessToken = doc["accessToken"];
   if (doc.containsKey("startQuizz")) startQuizz = doc["startQuizz"].as<String>();
-
-  Serial.print("Loaded serverName: ");
-  Serial.println(serverName);
-  Serial.print("Loaded accessToken: ");
-  Serial.println(accessToken);
+  if (doc.containsKey("TFTRotation")) TFTRotation = doc["TFTRotation"].as<signed int>();
+  //Serial.print("Loaded serverName: ");
+  //Serial.println(serverName);
+  //Serial.print("Loaded accessToken: ");
+  //Serial.println(accessToken);
+  Serial.print("startQuizz: ");
+  Serial.println(startQuizz);
+  Serial.print("TFTRotation: ");
+  Serial.println(TFTRotation);
   return true;
 }
 
@@ -68,6 +72,7 @@ bool saveConfig() {
   doc["serverName"] = "api.example.com";
   doc["accessToken"] = "128du9as8du12eoue8da98h123ueh9h98";
   doc["startQuizz"] = "quizz1.json";
+  doc["TFTRotation"] = "2";
 
   
 

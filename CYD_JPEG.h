@@ -213,7 +213,7 @@ void loadURLImage(String url) {
         if (httpCode == HTTP_CODE_OK) {
             stream = http.getStreamPtr();
 
-            tft.fillScreen(TFT_BLACK);
+            //tft.fillScreen(TFT_BLACK);
 
             uint32_t dt = millis();
 

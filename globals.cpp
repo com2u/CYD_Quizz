@@ -18,4 +18,5 @@ String menuQuizzOption[] = {"", "", "", "", ""};
 //String baseURL = "https://com2u.github.io/CYD_Quizz/data/";
 String baseURL = "http://sunrisetradingsystems.com/data/";
 String startQuizz = "quizz1.json";
+int TFTRotation = 0;
 

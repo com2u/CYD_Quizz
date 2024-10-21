@@ -71,6 +71,7 @@ void setup() {
   LED_BLUE = 0;
   global_state = -1;
   Serial.begin(115200);
+  InitConfig();
   CYD_TFT_init();
   CYD_init();
   CYD_LED_Yellow();
@@ -86,7 +87,7 @@ void setup() {
   init_AudioESP32();
   //for (int i=0; i< 1000; i++){
   hanlde_AudioESP32();
-  InitConfig();
+  
   saveConfig();
   //  delay(10);
   //}

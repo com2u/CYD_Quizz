@@ -105,7 +105,7 @@ String Quizz(String quizzNo){
         int maxLineChar = 33;
         if (quizzText.length() < 80) {
           tft.setTextFont(4);
-          maxLineChar = 20;
+          maxLineChar = 19;
         }
         
         tft.setCursor(0, 30);

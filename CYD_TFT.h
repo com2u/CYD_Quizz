@@ -165,13 +165,13 @@ String keyboard(boolean clear) {
 void touchScreen_Start(){
   mySpi.begin(XPT2046_CLK, XPT2046_MISO, XPT2046_MOSI, XPT2046_CS);
   ts.begin(mySpi);
-  ts.setRotation(0);
+  ts.setRotation(TFTRotation);
 }
 
 
 void CYD_TFT_init(){
   tft.init();
-  tft.setRotation(0);
+  tft.setRotation(TFTRotation);
   tft.fillScreen(TFT_BLACK);
   tft.setTextColor( TFT_WHITE, TFT_BLACK);
   tft.setTextFont(2);

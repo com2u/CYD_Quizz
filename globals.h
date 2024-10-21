@@ -25,6 +25,7 @@ extern String menuWIFI[33];
 extern String menuQuizzOption[5];
 extern String baseURL;
 extern String startQuizz;
+extern int TFTRotation;
 
 
 #endif // GLOBALS_H

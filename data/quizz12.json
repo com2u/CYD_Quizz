@@ -1,0 +1,10 @@
+{
+"Text": "What is always true?", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "option",
+"Answer": "(A XOR B) OR (NOT A XOR NOT B) ",
+"Option": ["(A OR B)", "(A AND B) OR (NOT A AND NOT B)", "(A XOR B) OR (A OR B)", "(A XOR B) OR (NOT A XOR NOT B)", "(A OR B) AND (NOT A OR NOT B)"],
+"NextPassed": "quizz13.json",
+"NextFailed": "EXIT"	
+}

@@ -1,0 +1,10 @@
+{
+"Text": "What is ++++++++++[>+++++++> ++++++++++>+++>+<<<<-]>++.>+. +++++++..+++.>++.<<+++++++++++++ ++.>.+++.------.--------.>+.>", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "option",
+"Answer": "Brainfuck",
+"Option": ["Whitespace", "Morse Code", "Brainfuck", "EAN Code", "Shakespeare"],
+"NextPassed": "quizz12.json",
+"NextFailed": "EXIT"	
+}
