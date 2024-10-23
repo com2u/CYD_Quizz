@@ -72,7 +72,7 @@ bool saveConfig() {
   doc["serverName"] = "api.example.com";
   doc["accessToken"] = "128du9as8du12eoue8da98h123ueh9h98";
   doc["startQuizz"] = "quizz1.json";
-  doc["TFTRotation"] = "2";
+  doc["TFTRotation"] = "0";
 
   
 

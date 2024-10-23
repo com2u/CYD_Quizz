@@ -15,8 +15,8 @@ const char* wled_ip = "http://192.168.0.90/json/state";
 int countdown = 0;
 unsigned long nextCountMillis;
 String menuQuizzOption[] = {"", "", "", "", ""};
-//String baseURL = "https://com2u.github.io/CYD_Quizz/data/";
-String baseURL = "http://sunrisetradingsystems.com/data/";
+String baseURL = "https://com2u.github.io/CYD_Quizz/data/";
+//String baseURL = "http://sunrisetradingsystems.com/data/";
 String startQuizz = "quizz1.json";
 int TFTRotation = 0;
 

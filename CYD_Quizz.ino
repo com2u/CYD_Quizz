@@ -283,7 +283,8 @@ void loop() {
           */
     if (selectedItem == "Calibrate Touch"){
       loadURLImage(baseURL+"calibrate.jpg");
-      Serial.println(keyboard(false));
+      handleCalibration();
+      //Serial.println(keyboard(false));
     }
     
     if (selectedItem == "Setup"){
@@ -297,6 +298,19 @@ void loop() {
     }
      if (selectedItem == "LED"){
       global_state = 50;
+    }
+    if (selectedItem == "Display Vertical"){
+      TFTRotation = 0;
+      saveConfig();
+    }
+    if (selectedItem == "Display 180"){
+      TFTRotation = 2;
+      saveConfig();
+    }
+    if (selectedItem == "Startup Quizz"){
+      startQuizz = keyboard(true);
+      Serial.println(startQuizz);
+      saveConfig();
     }
     if (selectedItem == "Keyboard"){
       global_state = 21;

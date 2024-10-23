@@ -31,7 +31,7 @@ String menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup"};
 String menuTest[]  = {"Image", "Sound Board",  "Keyboard", "<--"};
 String menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 String menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
-String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "WIFI", "Calibrate Touch", "Debug", "<--"};
+String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "Startup Quizz", "Calibrate Touch", "Display Vertical", "Display 180", "<--"};
 String menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
 String menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
 String WIFIEntry[] = {" ", " ", " ", " ", "<--"};
@@ -64,13 +64,13 @@ void CYD_TFT_DrawImage(){
 }
 
 
-TS_Point CYD_Handle_Touch() {
+TS_Point CYD_Handle_Touch(int debug) {
   if (ts.tirqTouched() && ts.touched()) {
     TS_Point p = ts.getPoint();
-    if (DEBUG_OUTPUT > 4) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    if (debug > 4) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     p.x = (int) ((p.x-270) /15);
     p.y = (int) (p.y-120) /11.3;
-    if (DEBUG_OUTPUT > 3) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    if (debug > 3) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     return p;
   }
   return TS_Point();  // Return an empty TS_Point if no touch detected
@@ -113,7 +113,7 @@ String keyboard(boolean clear) {
   startX = startX;
   startY = startY;
   while (true) {
-    TS_Point p = CYD_Handle_Touch();
+    TS_Point p = CYD_Handle_Touch(0);
     if (p.z > 0) {
       int row = (p.y - startY) / (keyHeight + keySpacing);
       int col = (p.x - startX - rowOffsets[row]) / (rowKeyWidth[row] + keySpacing);
@@ -225,6 +225,8 @@ void initMenu(){
   
 }
 
+
+
 void showMenu(bool clearDisplay, int startY = 10) {
   if (clearDisplay) tft.fillScreen(TFT_BLACK);
   tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY);
@@ -276,11 +278,20 @@ String checkMenuTouch(TS_Point p, int startY = 10) {
 
 
 String handleMenu(int startY = 10){
-  TS_Point p = CYD_Handle_Touch();
+  TS_Point p = CYD_Handle_Touch(0);
   if (p.z > 0) {  // Check if there's a valid touch
     return checkMenuTouch(p, startY);
   } else {
     return "";
+  }
+}
+
+String handleCalibration(){
+  TS_Point p = CYD_Handle_Touch(0);
+  Serial.println("Wait clibrartion to exit");
+  while((p.x > 80) && (p.x < 180) && (p.y > 80) && (p.y < 250)){
+    p = CYD_Handle_Touch(5);
+    delay(10);
   }
 }
 
