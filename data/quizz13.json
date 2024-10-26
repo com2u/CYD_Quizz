@@ -1,0 +1,9 @@
+{
+"Text": "Wich digit is wrong? 3.140592653", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "keyboard",
+"Answer": "0",
+"NextPassed": "EXIT",
+"NextFailed": "EXIT"	
+}

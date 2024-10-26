@@ -20,6 +20,7 @@
 #include "PingMonitor.h"
 #include "Config.h"
 #include "Quizz.h"
+#include "MQTT.h"
 
 
 
@@ -31,6 +32,18 @@ int menuYstart = 10;
 
 
 String selectedItem;
+
+void displayCountdown(){
+  if (TFTMutex == 0) 
+      {
+        CYD_TFT_Top();
+        if (QuizzPassedCount > 0 || QuizzFailCount > 0 ) {
+            if (TFTMutex == 0) CYD_TFT_print((String) "   "+countdown+" sec.      OK: "+QuizzPassedCount+"/"+(QuizzPassedCount+QuizzFailCount), TFT_COLOR_WHITE, TFT_COLOR_BLACK);
+          } else {
+            if (TFTMutex == 0) CYD_TFT_print((String) "   "+countdown+" sec.", TFT_COLOR_WHITE, TFT_COLOR_BLACK);
+          }
+      }
+}
 
 void codeForCore0Task(void *parameter)
 {
@@ -45,15 +58,14 @@ void codeForCore0Task(void *parameter)
     } if (global_state == 100) {
     if ((countdown > 0)  && millis() >= nextCountMillis ) {
       //Serial.println(countdown);
-      CYD_TFT_Top();
-      CYD_TFT_print((String)  "   "+countdown, TFT_COLOR_WHITE, TFT_COLOR_BLACK);
+      displayCountdown();
       if (countdown > 0) {
         countdown--;
         nextCountMillis = millis()+1000;
       } else {
         global_state = 0;
-        CYD_TFT_Top();
-        CYD_TFT_print((String) "   "+countdown, TFT_COLOR_WHITE, TFT_COLOR_BLACK);
+        displayCountdown();
+        sendMQTT("Countdown 0");
       }
     }
     }  else {
@@ -87,8 +99,9 @@ void setup() {
   init_AudioESP32();
   //for (int i=0; i< 1000; i++){
   hanlde_AudioESP32();
-  
-  saveConfig();
+  initMQTT();
+  sendMQTT("init");
+  //saveConfig();
   //  delay(10);
   //}
   
@@ -152,8 +165,10 @@ void loop() {
   CountUp();
   //handle_Audio();
   hanlde_AudioESP32();
+  handleMQTT();
   selectedItem = handleMenu(menuYstart);
   if (selectedItem != "") {
+    sendMQTT(selectedItem);
     Serial.println((String) "Selected menu item: " + selectedItem+"  Status:"+global_state);    
     if (selectedItem == "Time") {
       String mytimestamp = getMyTime();
@@ -162,6 +177,7 @@ void loop() {
       return;
     }
     if (selectedItem == "Countdown") {
+      
       global_state = 2;
       countdown = 100;
       nextCountMillis = millis()+1000;
@@ -249,12 +265,26 @@ void loop() {
     }
     if (selectedItem == "Quizz"){
       global_state = 100;
+      sendMQTT("Quizz1");
       String nextQuizz = startQuizz;
+      Serial.println((String) "global_state = 100 - startQuizz:"+nextQuizz);
       while ((nextQuizz != "") && (nextQuizz != "EXIT")) {
         nextQuizz = Quizz(nextQuizz);       
       }   
     }
-    global_state = 0;
+    if (selectedItem == "Quizz Setup"){
+      global_state = 110;
+    }
+    if (selectedItem == "Quizz Fail Count") {
+      QuizzMode = 1;
+      QuizzFailCount = 0;
+      QuizzPassedCount = 0;
+    }
+    if (selectedItem == "Quizz Mode Restart") {
+      QuizzMode = 0;
+      QuizzFailCount = 0;
+      QuizzPassedCount = 0;
+    }
     
 
         
@@ -284,6 +314,9 @@ void loop() {
     if (selectedItem == "Calibrate Touch"){
       loadURLImage(baseURL+"calibrate.jpg");
       handleCalibration();
+      saveConfig();
+      global_state = 0;
+      //selectedItem = "";
       //Serial.println(keyboard(false));
     }
     
@@ -310,6 +343,16 @@ void loop() {
     if (selectedItem == "Startup Quizz"){
       startQuizz = keyboard(true);
       Serial.println(startQuizz);
+      saveConfig();
+    }
+    if (selectedItem == "Invert Color"){
+      CYD_TFT_InvertColor(1);
+      TFTInvertColor = 1;
+      saveConfig();
+    }
+    if (selectedItem == "Original Color"){
+      CYD_TFT_InvertColor(0);
+      TFTInvertColor = 0;
       saveConfig();
     }
     if (selectedItem == "Keyboard"){
@@ -370,8 +413,6 @@ void loop() {
 
     }
     if (global_state == 50){
-      menuData[0] = String(audioVolume);
-      menuData[1] = String(audioVolume);
       menuData[0] = String(LED_RED);
       menuData[1] = String(LED_RED);
       menuData[2] = String(LED_GREEN);

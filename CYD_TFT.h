@@ -26,12 +26,26 @@ TFT_eSPI tft = TFT_eSPI();
 
 unsigned long lastMenuChangeMillis;
 
+// Calibration Values
+  int xTopLeft = -1;
+  int xTopRight = -1;
+  int xBottomLeft = -1;
+  int xBottomRight = -1;
+  int yTopLeft = -1;
+  int yTopRight = -1;
+  int yBottomLeft = -1;
+  int yBottomRight = -1;
+
+  
+
 int state = 0;  
 String menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup"};
-String menuTest[]  = {"Image", "Sound Board",  "Keyboard", "<--"};
+String menuTest[]  = {"Image", "Sound Board",  "Keyboard",  "Invert Color",  "Original Color", "<--"};
 String menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 String menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
-String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "Startup Quizz", "Calibrate Touch", "Display Vertical", "Display 180", "<--"};
+String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "Quizz Setup", "Calibrate Touch", "Display Vertical", "Display 180", "<--"};
+String menuQuizz[] = {"Startup Quizz", "Quizz Fail Count", "Quizz Mode Restart", "Quizz Reset", "<--"};
+
 String menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
 String menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
 String WIFIEntry[] = {" ", " ", " ", " ", "<--"};
@@ -48,7 +62,37 @@ const int MENU_LED_ENTRY_COUNT = sizeof(menuLED) / sizeof(menuLED[0]);
 String *currentMenu;
 int menuSize;
 
-
+void initMenu(){
+  if (global_state == 3) {
+    currentMenu = menuAudioEntry;
+    menuSize = sizeof(menuAudioEntry) / sizeof(menuAudioEntry[0]);
+  } else if (global_state == 10) {
+    currentMenu = menuSetupEntry;
+    menuSize = sizeof(menuSetupEntry) / sizeof(menuSetupEntry[0]);
+  } else if (global_state == 20) {
+    currentMenu = menuInfoEntry;
+    menuSize = sizeof(menuInfoEntry) / sizeof(menuInfoEntry[0]);
+  } else if (global_state == 30) {
+    currentMenu = menuTimer;
+    menuSize = sizeof(menuTimer) / sizeof(menuTimer[0]);
+  } else if (global_state == 40) {
+    currentMenu = menuTest;
+    menuSize = sizeof(menuTest) / sizeof(menuTest[0]);
+  } else if (global_state == 50) {
+    currentMenu = menuLED;
+    menuSize = sizeof(menuLED) / sizeof(menuLED[0]);
+  } else if (global_state == 100) {
+    currentMenu = menuQuizzOption;
+    menuSize = sizeof(menuQuizzOption) / sizeof(menuQuizzOption[0]);
+  } else if (global_state == 110) {
+    currentMenu = menuQuizz;
+    menuSize = sizeof(menuQuizz) / sizeof(menuQuizz[0]);
+  } else {
+    currentMenu = menuEntry;
+    menuSize = sizeof(menuEntry) / sizeof(menuEntry[0]);
+  }
+  
+}
 
 
 const char* keys[] = {
@@ -63,14 +107,47 @@ void CYD_TFT_DrawImage(){
   //drawJPEG();  
 }
 
+void CYD_TFT_InvertColor(int value){
+  tft.invertDisplay(value);
+}
 
-TS_Point CYD_Handle_Touch(int debug) {
+
+void mapTouchToDisplay(int touchX, int touchY, int &mappedX, int &mappedY) {
+  // Map the x coordinate using linear interpolation
+  float xFactorTop = (float)(tft.width() - 10) / (xTopRight - xTopLeft);
+  float xFactorBottom = (float)(tft.width() - 10) / (xBottomRight - xBottomLeft);
+  xIntercept = 10 - (xTopLeft * xFactorTop);
+  
+  // Map the y coordinate using linear interpolation
+  float yFactorLeft = (float)(tft.height() - 10) / (yBottomLeft - yTopLeft);
+  float yFactorRight = (float)(tft.height() - 10) / (yBottomRight - yTopRight);
+  yIntercept = 10 - (yTopLeft * yFactorLeft);
+  xCalibFactor = (xFactorTop + xFactorBottom) / 2.0;
+  yCalibFactor = (yFactorLeft + yFactorRight) / 2.0;
+  // Compute mapped coordinates
+  mappedX = (touchX * xCalibFactor) + xIntercept;
+  mappedY = (touchY * yCalibFactor) + yIntercept;
+  Serial.println((String) "X Calibaration values xCalibFactor:"+xCalibFactor+" xIntercept:"+xIntercept );
+  Serial.println((String) "Y Calibaration values yCalibFactor:"+yCalibFactor+" yIntercept:"+yIntercept );
+}
+
+TS_Point CYD_Handle_Touch(int calibrate) {
   if (ts.tirqTouched() && ts.touched()) {
     TS_Point p = ts.getPoint();
-    if (debug > 4) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    if (calibrate == 1) {
+      return p;
+    }
+    if (DEBUG_OUTPUT > 4) Serial.println((String) "Touch Original: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    /*
+    int mappedX = (p.x * xCalibFactor) + xIntercept;
+    int mappedY = (p.y * yCalibFactor) + yIntercept;
     p.x = (int) ((p.x-270) /15);
     p.y = (int) (p.y-120) /11.3;
-    if (debug > 3) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+    */
+    p.x = (p.x * xCalibFactor) + xIntercept;
+    p.y = (p.y * yCalibFactor) + yIntercept;
+    //Serial.println((String) "Calibration X:"+mappedX+" Y:"+mappedY );
+    if (DEBUG_OUTPUT > 3) Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
     return p;
   }
   return TS_Point();  // Return an empty TS_Point if no touch detected
@@ -88,7 +165,7 @@ String keyboard(boolean clear) {
   int keysPerRow[] = {10, 10, 10, 10, 5};
   int rowOffsets[] = {0, 0, 0, 0, 0};
   int rowKeyWidth[] = {20, 20, 20, 20, 40};
-
+  TFTMutex = 1;
   // Display keyboard
   if (clear) tft.fillScreen(TFT_WHITE);
   tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY );
@@ -112,6 +189,7 @@ String keyboard(boolean clear) {
   tft.drawRect(5, cursorYpos, tft.width() - 10, 20, TFT_BLACK);
   startX = startX;
   startY = startY;
+  TFTMutex = 0;
   while (true) {
     TS_Point p = CYD_Handle_Touch(0);
     if (p.z > 0) {
@@ -149,11 +227,12 @@ String keyboard(boolean clear) {
               input += lowerChar;
             }
           }
-
+          TFTMutex = 1;
           // Update input display
           tft.fillRect(10, cursorYpos+1, tft.width() - 20, 18, TFT_WHITE);
           tft.setCursor(15, cursorYpos+2);
           tft.print(input);
+          TFTMutex = 0;
         }
       }
 
@@ -171,6 +250,7 @@ void touchScreen_Start(){
 
 void CYD_TFT_init(){
   tft.init();
+  tft.invertDisplay(TFTInvertColor);
   tft.setRotation(TFTRotation);
   tft.fillScreen(TFT_BLACK);
   tft.setTextColor( TFT_WHITE, TFT_BLACK);
@@ -196,34 +276,7 @@ void CYD_TFT_BigDisplay(){
 }
 
 
-void initMenu(){
-  if (global_state == 3) {
-    currentMenu = menuAudioEntry;
-    menuSize = sizeof(menuAudioEntry) / sizeof(menuAudioEntry[0]);
-  } else if (global_state == 10) {
-    currentMenu = menuSetupEntry;
-    menuSize = sizeof(menuSetupEntry) / sizeof(menuSetupEntry[0]);
-  } else if (global_state == 20) {
-    currentMenu = menuInfoEntry;
-    menuSize = sizeof(menuInfoEntry) / sizeof(menuInfoEntry[0]);
-  } else if (global_state == 30) {
-    currentMenu = menuTimer;
-    menuSize = sizeof(menuTimer) / sizeof(menuTimer[0]);
-  } else if (global_state == 40) {
-    currentMenu = menuTest;
-    menuSize = sizeof(menuTest) / sizeof(menuTest[0]);
-  } else if (global_state == 50) {
-    currentMenu = menuLED;
-    menuSize = sizeof(menuLED) / sizeof(menuLED[0]);
-  } else if (global_state == 100) {
-    currentMenu = menuQuizzOption;
-    menuSize = sizeof(menuQuizzOption) / sizeof(menuQuizzOption[0]);
-  } else {
-    currentMenu = menuEntry;
-    menuSize = sizeof(menuEntry) / sizeof(menuEntry[0]);
-  }
-  
-}
+
 
 
 
@@ -286,13 +339,46 @@ String handleMenu(int startY = 10){
   }
 }
 
-String handleCalibration(){
+void handleCalibration(){
+
+  
   TS_Point p = CYD_Handle_Touch(0);
   Serial.println("Wait clibrartion to exit");
-  while((p.x > 80) && (p.x < 180) && (p.y > 80) && (p.y < 250)){
-    p = CYD_Handle_Touch(5);
+  while(((p.x < 1000) || (p.x > 3000)) && ((p.y < 1000) || (p.y > 3000))){
+    p = CYD_Handle_Touch(1);
+    if (p.x != 0 && p.y != 0){
+      Serial.println((String) "Touch: X:"+p.x+" Y:"+p.y+" Z:"+p.z);
+      if ((p.x < 1000) && (p.y < 1000)){
+        xTopLeft = p.x;
+        yTopLeft = p.y;
+      }
+      if ((p.x > 3000) && (p.y < 1000)){
+        xTopRight = p.x;
+        yTopRight = p.y;
+      }
+      if ((p.x < 1000) && (p.y > 3000)){
+        xBottomLeft = p.x;
+        yBottomLeft = p.y;
+      }
+      if ((p.x > 3000) && (p.y > 3000)){
+        xBottomRight = p.x;
+        yBottomRight = p.y;
+      }
+      if (xTopLeft != -1 && xTopRight != -1 && xBottomLeft != -1 && xBottomRight != -1){
+        Serial.println((String) "Expected pixel (x,y) 10,10 Touch: xTopLeft:"+xTopLeft+ ", yTopLeft:"+yTopLeft);
+        Serial.println((String) "Expected pixel (x,y) 230,10 Touch: xTopRight:"+xTopRight+ ", yTopRight:"+yTopRight);
+        Serial.println((String) "Expected pixel (x,y) 10,310 Touch: xBottomLeft:"+xBottomLeft+ ", yBottomLeft:"+yBottomLeft);
+        Serial.println((String) "Expected pixel (x,y) 230,310 Touch: xBottomRight:"+xBottomRight+ ", yBottomRight:"+yBottomRight);
+        int mappedX, mappedY;
+        mapTouchToDisplay(p.x, p.y, mappedX, mappedY);
+        Serial.println((String) "calibarated (x,y) "+ mappedX+ ","+mappedY);
+      }
+    }
     delay(10);
   }
+  Serial.println("Calibartion completed");
+  global_state = 0;
+
 }
 
 

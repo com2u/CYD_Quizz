@@ -1,5 +1,6 @@
 #include <Regexp.h>
 #include <regex>
+// #include "MQTT.h"
 // Regexp by Nick Gammon form the Library manager
 
 
@@ -47,7 +48,9 @@ String validateQuizz(bool passed, String nextPassed, String nextFailed){
           tft.println(message);
           tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);
           Serial.println(message);
+          //sendMQTT(message);
           tft.setTextFont(2);
+          QuizzPassedCount++;
           delay(700);
           return nextPassed;
         } else {
@@ -57,9 +60,16 @@ String validateQuizz(bool passed, String nextPassed, String nextFailed){
           tft.println(message);
           tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);
           Serial.println(message);
+          //sendMQTT(message);
           tft.setTextFont(2);
+          QuizzFailCount++;
           delay(700);
-          return nextFailed;
+          if (QuizzMode == 0){
+            return nextFailed;
+          } else {
+            return nextPassed;
+          }
+          
         }
 }
 

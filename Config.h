@@ -54,27 +54,50 @@ bool loadConfig() {
   const char* serverName = doc["serverName"];
   const char* accessToken = doc["accessToken"];
   if (doc.containsKey("startQuizz")) startQuizz = doc["startQuizz"].as<String>();
+  if (doc.containsKey("QuizzMode")) QuizzMode = doc["QuizzMode"].as<signed int>();
+  if (doc.containsKey("initMenuItem")) initMenuItem = doc["initMenuItem"].as<String>();
   if (doc.containsKey("TFTRotation")) TFTRotation = doc["TFTRotation"].as<signed int>();
+  if (doc.containsKey("TFTInvertColor")) TFTInvertColor = doc["TFTInvertColor"].as<signed int>();
+  if (doc.containsKey("xCalibFactor")) xCalibFactor = doc["xCalibFactor"].as<float>();
+  if (doc.containsKey("yCalibFactor")) yCalibFactor = doc["yCalibFactor"].as<float>();
+  if (doc.containsKey("xIntercept")) xIntercept = doc["xIntercept"].as<float>();
+  if (doc.containsKey("yIntercept")) yIntercept = doc["yIntercept"].as<float>();
+
+
   //Serial.print("Loaded serverName: ");
   //Serial.println(serverName);
   //Serial.print("Loaded accessToken: ");
   //Serial.println(accessToken);
-  Serial.print("startQuizz: ");
-  Serial.println(startQuizz);
-  Serial.print("TFTRotation: ");
-  Serial.println(TFTRotation);
+  Serial.println((String) "initMenuItem: "+initMenuItem);
+  Serial.println((String) "startQuizz: "+startQuizz);
+  Serial.println((String) "QuizzMode: "+QuizzMode);
+  Serial.println((String) "TFTRotation: "+TFTRotation);
+
+   Serial.println((String) "xCalibFactor: "+xCalibFactor);
+    Serial.println((String) "yCalibFactor: "+yCalibFactor);
+     Serial.println((String) "xIntercept: "+xIntercept);
+      Serial.println((String) "yIntercept: "+yIntercept);
+
+
   return true;
 }
 
 bool saveConfig() {
-
+  
   DynamicJsonDocument doc(1024);
   doc["serverName"] = "api.example.com";
   doc["accessToken"] = "128du9as8du12eoue8da98h123ueh9h98";
   doc["startQuizz"] = "quizz1.json";
-  doc["TFTRotation"] = "0";
+  doc["TFTRotation"] = (String) TFTRotation;
+  doc["TFTInvertColor"] = (String) TFTInvertColor;
+  doc["QuizzMode"] = QuizzMode;
+  doc["initMenuItem"] = initMenuItem;
+  doc["xCalibFactor"] = (String) xCalibFactor;
+  doc["yCalibFactor"] = (String) yCalibFactor;
+  doc["xIntercept"] = (String) xIntercept;
+  doc["yIntercept"]= (String) yIntercept;
 
-  
+
 
   File configFile = SPIFFS.open("/config.json", "w");
   if (!configFile) {
@@ -82,7 +105,7 @@ bool saveConfig() {
     return false;
   }
   serializeJson(doc, configFile);
-
+  Serial.println("Config saved");
   //json.printTo(configFile);
   return true;
 }
@@ -97,15 +120,13 @@ void InitConfig() {
 
   listAllFiles();
 
-  if (!saveConfig()) {
-    Serial.println("Failed to save config");
-  } else {
-    Serial.println("Config saved");
-  }
+
 
   if (!loadConfig()) {
     Serial.println("Failed to load config");
   } else {
     Serial.println("Config loaded");
   }
+
+  saveConfig();
 }
