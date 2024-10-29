@@ -305,7 +305,8 @@ void showMenu(bool clearDisplay, int startY = 10) {
 String checkMenuTouch(TS_Point p, int startY = 10) {
 
   // debounce
-  if (lastMenuChangeMillis+300 > millis()){
+  if ((lastMenuChangeMillis+300) > millis()){
+    if (DEBUG_OUTPUT > 3) Serial.println((String) "Touch deboucer "+(lastMenuChangeMillis+300)+" > "+millis());
      return "";
   }
 
@@ -318,8 +319,8 @@ String checkMenuTouch(TS_Point p, int startY = 10) {
   for (int i = 0; i < menuSize; i++) {
     int y = startY + i * (menuItemHeight + menuItemPadding);
     if (p.y >= y && p.y <= y + menuItemHeight && p.x >= 10 && p.x <= tft.width() - 10) {
-      return String(currentMenu[i]);
       lastMenuChangeMillis = millis();
+      return String(currentMenu[i]);
     }
   }
   if (global_state == 7 || global_state == 4 || global_state == 3){

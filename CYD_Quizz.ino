@@ -411,14 +411,15 @@ void loop() {
       menuData[0] = String(audioVolume);
       menuData[1] = String(audioVolume);
 
-    }
-    if (global_state == 50){
+    } else if (global_state == 50){
       menuData[0] = String(LED_RED);
       menuData[1] = String(LED_RED);
       menuData[2] = String(LED_GREEN);
       menuData[3] = String(LED_GREEN);
       menuData[4] = String(LED_BLUE);
       menuData[5] = String(LED_BLUE);
+    } else {
+      clearMenuData();
     }
 
     showMenu(true, menuYstart);

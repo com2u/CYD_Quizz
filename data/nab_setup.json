@@ -1,0 +1,11 @@
+{
+"Text": "To bring the NotABomb into setup mode all switches need to be switched to the up position and no button is pressed. Confirm when you are done.", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "option",
+"Answer": "Done",
+"Option": ["Done"],
+"KeySend": "Setup",
+"NextPassed": "nab_LEDMatrixDecode.json",
+"NextFailed": "EXIT"	
+}

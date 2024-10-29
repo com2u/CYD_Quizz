@@ -1,0 +1,10 @@
+{
+"Text": "Decode the binary text from the LED Matrix", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "keyboard",
+"Answer": "Password",
+"KeySend": "DecodeBinary",
+"NextPassed": "nab2.json",
+"NextFailed": "EXIT"	
+}

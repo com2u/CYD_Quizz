@@ -1,9 +1,9 @@
 {
-"Text": "Wich digit is wrong? 3.140592653", 
+"Text": "Which is the wrong digit? 3.141592854", 
 "Sound":"", 
 "Countdown": 150,
 "Selection": "keyboard",
-"Answer": "0",
+"Answer": "8",
 "NextPassed": "EXIT",
 "NextFailed": "EXIT"	
 }
