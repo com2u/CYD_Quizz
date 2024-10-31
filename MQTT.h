@@ -15,7 +15,13 @@ char topicChar[150];
 int value = 0;
 int reconnectCount = 0;
 StaticJsonDocument<220>  doc;
+String MQTTTopic = "";
+String MQTTPayload = "";
 
+void clearMQTTMessage(){
+  MQTTTopic = "";
+  MQTTPayload = "";
+}
 
 
 void mycallback(char* topic, byte* payload, unsigned int length) {
@@ -25,22 +31,13 @@ void mycallback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.println("] ");
-  //Serial.println(payload);
-  String command = "";
-  Serial.print("Payload [");
   
-  for (int i = 0; i < length; i++) {
-    command += (char)payload[i];
-    Serial.print((char)payload[i]);
-  }
-  Serial.print("]");
+  // Set MQTTTopic from the incoming topic
+  MQTTTopic = String(topic);
   
-  Serial.print(command);
-  if (command.equals("0")) {
-    value = LOW;
-  } else if (command.equals("1")) {
-    value = HIGH;
-  } 
+  // Set MQTTPayload directly from the payload
+  MQTTPayload = String((char*)payload, length);
+  Serial.println((String) MQTTTopic+" Payload ["+MQTTPayload+"]");
 }
 
 void reconnect() {
@@ -115,6 +112,43 @@ void handleMQTT() {
   client.loop();
 }
 
+String checkMQTTQuizz(){
+  handleMQTT();
+  if (MQTTTopic != "") {
+    if (MQTTTopic == "NotABomb/Key/Keypad" ){
+      if (MQTTPayload ==  "1") {
+        return menuQuizzOption[0];
+      } 
+      if (MQTTPayload ==  "2") {
+        return menuQuizzOption[1];
+      }
+      if (MQTTPayload ==  "3") {
+        return menuQuizzOption[2];
+      }
+      if (MQTTPayload ==  "4") {
+        return menuQuizzOption[3];
+      }
+      if (MQTTPayload ==  "5") {
+        return menuQuizzOption[3];
+      }
+      if (MQTTPayload ==  "6") {
+        return menuQuizzOption[5];
+      }
+      if (MQTTPayload ==  "A") {
+        return menuQuizzOption[0];
+      }
+      if (MQTTPayload ==  "B") {
+        return menuQuizzOption[1];
+      }
+      if (MQTTPayload ==  "C") {
+        return menuQuizzOption[2];
+      }
+      if (MQTTPayload ==  "D") {
+        return menuQuizzOption[3];
+      }
+    } 
+  }
+}
 
 
 

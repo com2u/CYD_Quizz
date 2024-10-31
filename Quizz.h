@@ -1,7 +1,10 @@
+#pragma once
+#include "MQTT.h"  // Add this line to include MQTT.h
 #include <Regexp.h>
 #include <regex>
-// #include "MQTT.h"
 // Regexp by Nick Gammon form the Library manager
+
+
 
 
 void displayWrappedText(String text, int maxWidth = 33) {
@@ -159,10 +162,13 @@ String Quizz(String quizzNo){
         }
         int OptionMenuPosition = 148;
         showMenu(false, OptionMenuPosition);
-
+        clearMQTTMessage();
         String selectedItem = "";
         while(selectedItem == ""  ){
           selectedItem = handleMenu(OptionMenuPosition);
+          if (selectedItem == "") {
+            selectedItem = checkMQTTQuizz();
+          }
         }
         return validateQuizz((expectedAnswer == selectedItem), nextPassed, nextFailed);
         
