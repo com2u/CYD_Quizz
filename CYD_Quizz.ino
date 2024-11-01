@@ -84,8 +84,8 @@ void setup() {
   global_state = -1;
   Serial.begin(115200);
   InitConfig();
-  CYD_TFT_init();
   CYD_init();
+  CYD_TFT_init();
   CYD_LED_Yellow();
   CYD_TFT_print("Connet WIFI ...", TFT_COLOR_BLACK, TFT_COLOR_WHITE);
   scanWIFINetwork();
@@ -272,9 +272,13 @@ void loop() {
         nextQuizz = Quizz(nextQuizz);       
       }   
     }
+    if (selectedItem == "REBOOT"){
+      ESP.restart();
+    }
     if (selectedItem == "Quizz Setup"){
       global_state = 110;
     }
+    
     if (selectedItem == "Quizz Fail Count") {
       QuizzMode = 1;
       QuizzFailCount = 0;

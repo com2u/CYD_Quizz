@@ -3,10 +3,10 @@
 			"Sound": "", 
 			"Countdown": 150,
 			"Selection": "option",
-			"Answer": "Verify data integrity and authenticity",
+			"Answer": "Verify data integrity & authenticity",
 			"Option": [
 				"Encrypt messages",
-				"Verify data integrity and authenticity",
+				"Verify data integrity & authenticity",
 				"Increase network speed",
 				"Store data",
 				"Handle passwords"

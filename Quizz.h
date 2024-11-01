@@ -116,9 +116,9 @@ String Quizz(String quizzNo){
         Serial.println((String) "Quiz Text: "+quizzText);
         tft.setTextFont(2);
         int maxLineChar = 33;
-        if (quizzText.length() < 80) {
+        if (quizzText.length() < 70) {
           tft.setTextFont(4);
-          maxLineChar = 19;
+          maxLineChar = 15;
         }
         
         tft.setCursor(0, 30);
@@ -170,6 +170,7 @@ String Quizz(String quizzNo){
             selectedItem = checkMQTTQuizz();
           }
         }
+        if (selectedItem == "EXIT") return "";
         return validateQuizz((expectedAnswer == selectedItem), nextPassed, nextFailed);
         
 

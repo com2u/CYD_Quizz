@@ -1,6 +1,6 @@
  {
 			"Text": "NotABomb uses typical wire colors. What are typical pairs?",
-			"Sound": "", 
+			"Sound": "{baseURL}copper-bell-ding.mp3", 
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "+ = red, GND = black",

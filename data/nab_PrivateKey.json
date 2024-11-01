@@ -1,6 +1,6 @@
 		{
 			"Text": "Which key is used in asymmetric encryption for decryption?",
-			"Sound": "", 
+			"Sound": "{baseURL}openingDing.mp3", 
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "Private key",

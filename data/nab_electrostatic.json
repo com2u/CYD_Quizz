@@ -1,6 +1,6 @@
 {
 			"Text": "What should be avoided when deactivating explosives?",
-			"Sound": "", 
+			"Sound": "{baseURL}OpenBlipp.mp3", 
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "Electrostatic charge",

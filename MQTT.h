@@ -156,6 +156,9 @@ String checkMQTTQuizz(){
       if (MQTTPayload ==  "D") {
         return menuQuizzOption[3];
       }
+      if (MQTTPayload ==  "EXIT") {
+        return "EXIT";
+      }
     } 
   }
   return "";

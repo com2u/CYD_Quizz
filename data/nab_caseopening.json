@@ -1,6 +1,6 @@
 {
 			"Text": "Purpose of NotABomb’s built-in light sensor?",
-			"Sound": "", 
+			"Sound": "{baseURL}correct-bling.mp3", 
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "Detect case opening",

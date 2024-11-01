@@ -1,6 +1,6 @@
 {
 			"Text": "Best way to analyze NotABomb’s electronics safely?",
-			"Sound": "", 
+			"Sound": "{baseURL}hotel-bell-ding.mp3", 
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "Measure Voltage",

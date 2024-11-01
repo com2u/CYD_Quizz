@@ -87,7 +87,7 @@ bool saveConfig() {
   DynamicJsonDocument doc(1024);
   doc["serverName"] = "api.example.com";
   doc["accessToken"] = "128du9as8du12eoue8da98h123ueh9h98";
-  doc["startQuizz"] = "quizz1.json";
+  doc["startQuizz"] = startQuizz;
   doc["TFTRotation"] = (String) TFTRotation;
   doc["TFTInvertColor"] = (String) TFTInvertColor;
   doc["QuizzMode"] = QuizzMode;

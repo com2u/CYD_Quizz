@@ -1,6 +1,6 @@
 		{
 			"Text": "Which user is best for SSH access?",
-			"Sound": "", 
+			"Sound": "{baseURL}correct_2.mp3", 
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "root",

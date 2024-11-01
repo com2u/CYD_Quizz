@@ -3,12 +3,12 @@
 			"Sound": "", 
 			"Countdown": 150,
 			"Selection": "option",
-			"Answer": "Infrared Sensor",
+			"Answer": "Gyroscope",
 			"Option": [
 				"Magnetometer",
 				"Gyroscope",
 				"Temperature Sensor",
-				"Infrared Sensor",
+				"Laser Sensor",
 				"NFC"
 			],
 			"NextPassed": "nab_capacitor.json",

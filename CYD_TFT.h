@@ -40,7 +40,7 @@ unsigned long lastMenuChangeMillis;
 
 int state = 0;  
 String menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup"};
-String menuTest[]  = {"Image", "Sound Board",  "Keyboard",  "Invert Color",  "Original Color", "<--"};
+String menuTest[]  = {"Image", "Sound Board",  "Keyboard",  "Invert Color",  "Original Color", "REBOOT", "<--"};
 String menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 String menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
 String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "Quizz Setup", "Calibrate Touch", "Display Vertical", "Display 180", "<--"};
@@ -250,8 +250,9 @@ void touchScreen_Start(){
 
 void CYD_TFT_init(){
   tft.init();
-  tft.invertDisplay(TFTInvertColor);
   tft.setRotation(TFTRotation);
+  tft.invertDisplay(TFTInvertColor);
+  Serial.println((String) "TFTInvertColor: "+TFTInvertColor);
   tft.fillScreen(TFT_BLACK);
   tft.setTextColor( TFT_WHITE, TFT_BLACK);
   tft.setTextFont(2);

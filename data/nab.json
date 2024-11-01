@@ -1,0 +1,16 @@
+		{
+			"Text": "In how many combinations can you press the white button? Press corresponding number at the keypad.",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "4",
+			"Option": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5"
+			],
+			"NextPassed": "nab_AllButtons.json",
+			"NextFailed": "EXIT"
+		}
