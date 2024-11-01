@@ -1,0 +1,16 @@
+{
+			"Text": "All buttons must be pressed to disarm NotABomb. What logic is used?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "3) AND",
+			"Option": [
+				"1) XOR",
+				"2) OR",
+				"3) AND",
+				"4) Parallel",
+				"5) NOT"
+			],
+			"NextPassed": "nab_fuse.json",
+			"NextFailed": "EXIT"
+		}

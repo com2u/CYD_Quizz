@@ -1,0 +1,16 @@
+		{
+			"Text": "Which component can amplify a signal?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Transistor",
+			"Option": [
+				"Resistor",
+				"Diode",
+				"Capacitor",
+				"Transistor",
+				"Inductor"
+			],
+			"NextPassed": "nab_SFTP2.json",
+			"NextFailed": "EXIT"
+		}

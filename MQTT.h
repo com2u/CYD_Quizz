@@ -1,5 +1,11 @@
+#ifndef MQTT_H
+#define MQTT_H  // Header guard to prevent multiple inclusion
+
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
+
+#ifndef MQTT_GLOBALS  // This ensures global variables are only defined once
+#define MQTT_GLOBALS
 
 
 const char* MQTTPath = "NotABomb/CYD/init";
@@ -18,6 +24,8 @@ StaticJsonDocument<220>  doc;
 String MQTTTopic = "";
 String MQTTPayload = "";
 
+#endif
+
 void clearMQTTMessage(){
   MQTTTopic = "";
   MQTTPayload = "";
@@ -34,10 +42,12 @@ void mycallback(char* topic, byte* payload, unsigned int length) {
   
   // Set MQTTTopic from the incoming topic
   MQTTTopic = String(topic);
-  
   // Set MQTTPayload directly from the payload
   MQTTPayload = String((char*)payload, length);
   Serial.println((String) MQTTTopic+" Payload ["+MQTTPayload+"]");
+  if (MQTTPayload == "RESTART"){
+    ESP.restart();
+  }
 }
 
 void reconnect() {
@@ -148,6 +158,7 @@ String checkMQTTQuizz(){
       }
     } 
   }
+  return "";
 }
 
 
@@ -172,3 +183,4 @@ boolean sendMQTT(String message) {
 }
 
 
+#endif // MQTT_H

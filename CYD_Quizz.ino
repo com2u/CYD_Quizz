@@ -334,10 +334,14 @@ void loop() {
     }
     if (selectedItem == "Display Vertical"){
       TFTRotation = 0;
+      tft.setRotation(TFTRotation);
+      ts.setRotation(TFTRotation);
       saveConfig();
     }
     if (selectedItem == "Display 180"){
       TFTRotation = 2;
+      tft.setRotation(TFTRotation);
+      ts.setRotation(TFTRotation);
       saveConfig();
     }
     if (selectedItem == "Startup Quizz"){

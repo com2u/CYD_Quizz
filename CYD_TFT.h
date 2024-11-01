@@ -370,6 +370,8 @@ void handleCalibration(){
         Serial.println((String) "Expected pixel (x,y) 230,10 Touch: xTopRight:"+xTopRight+ ", yTopRight:"+yTopRight);
         Serial.println((String) "Expected pixel (x,y) 10,310 Touch: xBottomLeft:"+xBottomLeft+ ", yBottomLeft:"+yBottomLeft);
         Serial.println((String) "Expected pixel (x,y) 230,310 Touch: xBottomRight:"+xBottomRight+ ", yBottomRight:"+yBottomRight);
+        tft.setCursor(60, 80);
+        tft.print("Calibrated");
         int mappedX, mappedY;
         mapTouchToDisplay(p.x, p.y, mappedX, mappedY);
         Serial.println((String) "calibarated (x,y) "+ mappedX+ ","+mappedY);

@@ -1,0 +1,16 @@
+		{
+			"Text": "What is a common attack that targets encrypted data by analyzing patterns?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Side-channel attack",
+			"Option": [
+				"Man-in-the-middle",
+				"Brute force attack",
+				"Side-channel attack",
+				"Phishing",
+				"DNS poisoning"
+			],
+			"NextPassed": "nab_SSL-TLS.json",
+			"NextFailed": "EXIT"
+		}

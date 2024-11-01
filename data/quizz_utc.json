@@ -1,0 +1,9 @@
+{
+"Image": "{baseURL}quizz_utc.jpg", 
+"Sound":"{baseURL}applause.mp3", 
+"Countdown": 150, 
+"Selection": "keyboard",
+"Answer": "^afghanistan$",
+"NextPassed": "quizz_caesar.json",
+"NextFailed": "EXIT"
+}

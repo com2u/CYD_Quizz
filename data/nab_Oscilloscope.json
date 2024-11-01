@@ -1,0 +1,16 @@
+		{
+			"Text": "What tool is used to measure voltage over time?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "2) Oscilloscope",
+			"Option": [
+				"1) Voltmeter",
+				"2) Oscilloscope",
+				"3) Multimeter",
+				"4) Ammeter",
+				"5) Capacitor tester"
+			],
+			"NextPassed": "nab_caseopening.json",
+			"NextFailed": "EXIT"
+		}

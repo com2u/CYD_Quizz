@@ -1,0 +1,16 @@
+		{
+			"Text": "Which security measure scrambles data into unreadable text until decrypted?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Encryption",
+			"Option": [
+				"Encryption",
+				"Compression",
+				"Hashing",
+				"Firewall",
+				"Logging"
+			],
+			"NextPassed": "nab_MD5.json",
+			"NextFailed": "EXIT"
+		}

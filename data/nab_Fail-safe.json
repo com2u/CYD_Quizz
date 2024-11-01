@@ -1,0 +1,16 @@
+{
+			"Text": "NotABomb was designed by a genius. What principle did he apply?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Fail-safe",
+			"Option": [
+				"Fail-safe",
+				"Six Sigma",
+				"Parity",
+				"TL;DR",
+				"Big Data"
+			],
+			"NextPassed": "nab_ChewingGum.json",
+			"NextFailed": "EXIT"
+		}

@@ -12,33 +12,913 @@
 		  "NextPassed": "quizz2.json",
 		  "NextFailed": "EXIT"
 		 },
-		 {"Image": "http://sunrisetradingsystems.com/data/quizz_binary_clock.jpg", 
-		  "Sound":"http://sunrisetradingsystems.com/data/modem.mp3", 
-		  "Countdown": 150, 
-		  "Selection": "keyboard",
-		  "Answer": "23:59",
-		  "NextPassed": "",
-		  "NextFailed": ""
+		 {"Text": "Which matches the regex pattern [A-Z][0-9]{3}?", 
+			"Sound":"", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "B123",
+			"Option": ["A1B", "ABC123", "XYZ3", "A0???", "B123"],
+			"NextPassed": "quizz3.json",
+			"NextFailed": "EXIT"	
 		 },
-		 {"Image": "http://sunrisetradingsystems.com/data/quizz_utc.jpg", 
-		  "Sound":"http://sunrisetradingsystems.com/data/applause.mp3", 
-		  "Countdown": 150, 
-		  "Selection": "keyboard",
-		  "Answer": "Greenland",
-		  "NextPassed": "",
-		  "NextFailed": ""
+		 {"Text": "What character does ASCII code 65 represent?", 
+			"Sound":"", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "A",
+			"Option": ["@", "0", "a", "A", "&"],
+			"NextPassed": "quizz3.json",
+			"NextFailed": "EXIT"	
 		 },
-		 {"Image": "http://sunrisetradingsystems.com/data/quizz_hex.jpg", 
-		  "Sound":"http://sunrisetradingsystems.com/data/didi.mp3", 
-		  "Countdown": 150, 
-		  "Selection": "choice/area",
-		  "Option1": "Password",
-		  "Option2": "Password",
-		  "Option3": "Password",
-		  "Option4": "Password",
-		  "Option5": "Password",
-		  "NextPassed": "",
-		  "NextFailed": ""
-		 }
+		 {"Text": "Decrypt 'Ebiil, Tloia!' with Caesar shift -3", 
+			"Sound":"", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Hello, World!",
+			"Option": ["Bello, catch!", "Hello, World!", "Better World!", "Nessi, catch!", "What's, up?"],
+			"NextPassed": "quizz5.json",
+			"NextFailed": "EXIT"
+		 },
+		 {	"Text": "What is ++++++++++[>+++++++> ++++++++++>+++>+<<<<-]>++.>+. +++++++..+++.>++.<<+++++++++++++ ++.>.+++.------.--------.>+.>", 
+			"Sound":"", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Brainfuck",
+			"Option": ["Whitespace", "Morse Code", "Brainfuck", "EAN Code", "Shakespeare"],
+			"NextPassed": "quizz6.json",
+			"NextFailed": "EXIT"	
+		 },
+		 {
+			"Text": "NotABomb uses typical wire colors. What are typical pairs?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "+ = red, GND = black",
+			"Option": [
+				"RX = red, TX = black",
+				"Ground = red, Power = blue",
+				"+ = red, GND = black",
+				"Ground = yellow, Signal = brown"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What sensor type typically detects movement?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Infrared Sensor",
+			"Option": [
+				"Magnetometer",
+				"Gyroscope",
+				"Temperature Sensor",
+				"Infrared Sensor",
+				"NFC"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What should be avoided when deactivating explosives?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Electrostatic charge",
+			"Option": [
+				"Noise",
+				"Light",
+				"Electrostatic charge",
+				"Ultrasound",
+				"Fingerprints"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "NotABomb is powered by a battery. A status LED with three similar resistors shows that the bomb is armed. The Voltage at one resistor is ~1 Volt.",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Battery Voltage = 9V",
+			"Option": [
+				"Battery Voltage = 9V",
+				"Battery Voltage = 5V",
+				"Battery Voltage = 3.3V",
+				"Battery Voltage = 1.7V"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Best way to analyze NotABomb’s electronics safely?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Measure Voltage",
+			"Option": [
+				"Measure Voltage",
+				"Measure Current",
+				"Cut wires",
+				"Replace resistors",
+				"Measure Charge"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Why might NotABomb have four diodes in its input cable?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Bridge rectifier for AC",
+			"Option": [
+				"Support 12V and 24V",
+				"Bridge rectifier for AC",
+				"Solar power input",
+				"Battery buffer"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Purpose of NotABomb’s built-in light sensor?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Detect case opening",
+			"Option": [
+				"Detect case opening",
+				"Solar-powered operation",
+				"Function in the dark",
+				"Display status"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which module allows NotABomb to transmit wirelessly?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "BLE",
+			"Option": [
+				"UART",
+				"BLE",
+				"SPI",
+				"PWM",
+				"I2C"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which component retains power even without a battery?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Capacitor",
+			"Option": [
+				"Resistor",
+				"CPU",
+				"Capacitor",
+				"RAM",
+				"ROM"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Where is NotABomb’s deactivation password stored?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Flash",
+			"Option": [
+				"RAM",
+				"CPU",
+				"Battery",
+				"LED",
+				"Flash"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+				{
+			"Text": "Correct USB 2.0 power voltage for NotABomb?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "5V",
+			"Option": [
+				"19V",
+				"12V",
+				"5V",
+				"3.3V"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "NotABomb was designed by a genius. What principle did he apply?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Fail-safe",
+			"Option": [
+				"Fail-safe",
+				"Six Sigma",
+				"Parity",
+				"TL;DR",
+				"Big Data"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Maximum current NotABomb can draw via USB 2.0?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "500mA",
+			"Option": [
+				"65W",
+				"12A",
+				"2A",
+				"500mA",
+				"100mA"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which component protects NotABomb against high currents?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Fuse",
+			"Option": [
+				"Fuse",
+				"Resistor",
+				"Capacitor",
+				"Inductor",
+				"Coil"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which of these alone can conduct electricity?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Salt",
+			"Option": [
+				"Vinegar",
+				"Oil",
+				"Salt",
+				"Flour",
+				"Petrol"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What could hold a tool in place temporarily?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Chewing gum",
+			"Option": [
+				"Salt",
+				"Sugar",
+				"Sand",
+				"Chewing gum",
+				"Condom"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What can be used to short two connections in NotABomb?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Paperclip",
+			"Option": [
+				"Toothpicks",
+				"Chewing gum",
+				"Paperclip",
+				"Credit card",
+				"Rubber band"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What’s the main purpose of a diode?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Block alternating current",
+			"Option": [
+				"Block alternating current",
+				"Block current peaks",
+				"Store energy",
+				"Reduce voltage"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which sensor detects light inside of NotABomb?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "LDR",
+			"Option": [
+				"Thermistor",
+				"LDR",
+				"Accelerometer",
+				"Magnetometer",
+				"LED"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which capacitor can store energy the longest?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Electrolytic",
+			"Option": [
+				"Ceramic",
+				"Tantalum",
+				"Electrolytic",
+				"Film",
+				"Copper plate"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		}, 
+		{
+			"Text": "What is the max voltage for USB-C?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "20V",
+			"Option": [
+				"230V",
+				"60V",
+				"20V",
+				"12V",
+				"5V"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which resistor setup increases total resistance?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Series",
+			"Option": [
+				"Series",
+				"Parallel",
+				"Hybrid",
+				"Alternating"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Several batteries in parallel results in …",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Higher Current",
+			"Option": [
+				"Higher Voltage",
+				"Higher Current",
+				"Lower Voltage",
+				"No change",
+				"Better Efficiency"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "All buttons must be pressed to disarm NotABomb. What logic is used?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "AND",
+			"Option": [
+				"XOR",
+				"OR",
+				"AND",
+				"Parallel",
+				"NOT"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "NotABomb connects via Wi-Fi. What protocol is used?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "IPv4",
+			"Option": [
+				"FiFo",
+				"IPv4",
+				"Sound waves",
+				"NTFS",
+				"RS232"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "To SSH into NotABomb, which port is used?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "22",
+			"Option": [
+				"22",
+				"53",
+				"80",
+				"110",
+				"153"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which user is best for SSH access?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "root",
+			"Option": [
+				"SUDO",
+				"Administrator",
+				"Admin",
+				"root",
+				"su"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "To send email to NotABomb via POP3, use port…",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "110/995",
+			"Option": [
+				"22/23",
+				"53/135",
+				"80/8088",
+				"110/995",
+				"3000/5000"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "When could the UNIX timestamp in NotABomb overflow?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "January 2038",
+			"Option": [
+				"January 1970",
+				"~10 Years",
+				"January 2038",
+				"December 5888",
+				">16.000 Years"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "How to ensure a file wasn't changed?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "MD5",
+			"Option": [
+				"NTFS",
+				"RAID",
+				"MD5",
+				"FAT32",
+				"ZFS"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+				{
+			"Text": "Which service allows NotABomb connection to a domain?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "DNS",
+			"Option": [
+				"SSH",
+				"SSL",
+				"DNS",
+				"DHCP",
+				"DynDNS"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is the minimum NotABomb needs to communicate via WIFI?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "IPv4/IPv6",
+			"Option": [
+				"IPv4/IPv6",
+				"DNS/DynDNS",
+				"DHCP",
+				"SSH/SSL",
+				"GSM/LTE"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which of these protocols is used for encrypted communication?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "SFTP",
+			"Option": [
+				"HTTP",
+				"FTP",
+				"SFTP",
+				"TCP",
+				"SMTP"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which tool can be used to sniff network data with an external device?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Hub",
+			"Option": [
+				"Switch",
+				"Hub",
+				"Router",
+				"Range Extender",
+				"CAT5"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What tool is used to measure voltage over time?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Oscilloscope",
+			"Option": [
+				"Voltmeter",
+				"Oscilloscope",
+				"Multimeter",
+				"Ammeter",
+				"Capacitor tester"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which component can amplify a signal?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Transistor",
+			"Option": [
+				"Resistor",
+				"Diode",
+				"Capacitor",
+				"Transistor",
+				"Inductor"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is minimum needed for a network connection?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "MAC Address",
+			"Option": [
+				"DNS",
+				"HTML code",
+				"MAC Address",
+				"SSID",
+				"DHCP"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is the purpose of grounding in electrical systems?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Protect against electric shock",
+			"Option": [
+				"Reduce voltage",
+				"Enhance signal strength",
+				"Protect against electric shock",
+				"Store electricity",
+				"Control current"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which protocol assigns IP addresses to devices on a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "DHCP",
+			"Option": [
+				"HTTP",
+				"DHCP",
+				"DNS",
+				"FTP",
+				"ARP"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What’s the primary role of a firewall in a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Filter traffic",
+			"Option": [
+				"Increase speed",
+				"Filter traffic",
+				"Assign IPs",
+				"Detect malware",
+				"Store data"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What type of current do batteries supply?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Direct Current (DC)",
+			"Option": [
+				"Alternating Current (AC)",
+				"Direct Current (DC)",
+				"Pulsed Current",
+				"Inductive Current",
+				"Static Current"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which encryption algorithm is considered secure for modern use?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "AES",
+			"Option": [
+				"DES",
+				"AES",
+				"MD5",
+				"SHA-1",
+				"Base64"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which key is used in asymmetric encryption for decryption?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Private key",
+			"Option": [
+				"Private key",
+				"Public key",
+				"Symmetric key",
+				"Session key",
+				"Token"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is the main purpose of two-factor authentication (2FA)?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Provide an extra layer of security",
+			"Option": [
+				"Increase speed of login",
+				"Provide an extra layer of security",
+				"Enable single sign-on",
+				"Encrypt login details",
+				"Bypass passwords"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which protocol is commonly used to secure websites?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "SSL/TLS",
+			"Option": [
+				"HTTP",
+				"SSL/TLS",
+				"FTP",
+				"DNS"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is a digital signature primarily used for?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Verify data integrity and authenticity",
+			"Option": [
+				"Encrypt messages",
+				"Verify data integrity and authenticity",
+				"Increase network speed",
+				"Store data",
+				"Compress files"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is the purpose of a firewall?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Prevent unauthorized access",
+			"Option": [
+				"Prevent unauthorized access",
+				"Encrypt data",
+				"Assign IP addresses",
+				"Control data storage",
+				"Monitor CPU usage"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which encryption technique uses the same key for encryption and decryption?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Symmetric encryption",
+			"Option": [
+				"Asymmetric encryption",
+				"Symmetric encryption",
+				"Public key encryption",
+				"Digital signatures",
+				"Hashing"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is the primary purpose of hashing in security?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Verify data integrity",
+			"Option": [
+				"Store data",
+				"Encrypt files",
+				"Verify data integrity",
+				"Increase system speed",
+				"Compress data"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+				{
+			"Text": "Which cryptographic method is commonly used to secure emails?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "PGP",
+			"Option": [
+				"POP3",
+				"IMAP",
+				"PGP",
+				"FTP",
+				"SMTP"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What is a common attack that targets encrypted data by analyzing patterns?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Side-channel attack",
+			"Option": [
+				"Man-in-the-middle",
+				"Brute force attack",
+				"Side-channel attack",
+				"Phishing",
+				"DNS poisoning"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which protocol is used to transfer files securely over a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "SFTP",
+			"Option": [
+				"HTTP",
+				"SFTP",
+				"SMTP",
+				"Telnet",
+				"UDP"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "What type of malware locks data and demands money via bitcoin?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Ransomware",
+			"Option": [
+				"Virus",
+				"Ransomware",
+				"Spyware",
+				"Adware",
+				"Worm"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which security measure scrambles data into unreadable text until decrypted?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Encryption",
+			"Option": [
+				"Encryption",
+				"Compression",
+				"Hashing",
+				"Firewall",
+				"Logging"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		},
+		{
+			"Text": "Which technology is often used to securely authenticate devices in a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "IPSec",
+			"Option": [
+				"VPN",
+				"TLS",
+				"MAC address",
+				"IPSec",
+				"DHCP"
+			],
+			"NextPassed": "quizz.json",
+			"NextFailed": "EXIT"
+		}
     ]
 }

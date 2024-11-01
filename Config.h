@@ -72,11 +72,11 @@ bool loadConfig() {
   Serial.println((String) "startQuizz: "+startQuizz);
   Serial.println((String) "QuizzMode: "+QuizzMode);
   Serial.println((String) "TFTRotation: "+TFTRotation);
-
-   Serial.println((String) "xCalibFactor: "+xCalibFactor);
-    Serial.println((String) "yCalibFactor: "+yCalibFactor);
-     Serial.println((String) "xIntercept: "+xIntercept);
-      Serial.println((String) "yIntercept: "+yIntercept);
+  Serial.println((String) "TFTInvertColor: "+TFTInvertColor);
+  Serial.println((String) "xCalibFactor: "+xCalibFactor);
+  Serial.println((String) "yCalibFactor: "+yCalibFactor);
+  Serial.println((String) "xIntercept: "+xIntercept);
+  Serial.println((String) "yIntercept: "+yIntercept);
 
 
   return true;
@@ -97,7 +97,15 @@ bool saveConfig() {
   doc["xIntercept"] = (String) xIntercept;
   doc["yIntercept"]= (String) yIntercept;
 
-
+  Serial.println((String) "initMenuItem: "+initMenuItem);
+  Serial.println((String) "startQuizz: "+startQuizz);
+  Serial.println((String) "QuizzMode: "+QuizzMode);
+  Serial.println((String) "TFTRotation: "+TFTRotation);
+  Serial.println((String) "TFTInvertColor: "+TFTInvertColor);
+  Serial.println((String) "xCalibFactor: "+xCalibFactor);
+  Serial.println((String) "yCalibFactor: "+yCalibFactor);
+  Serial.println((String) "xIntercept: "+xIntercept);
+  Serial.println((String) "yIntercept: "+yIntercept);
 
   File configFile = SPIFFS.open("/config.json", "w");
   if (!configFile) {

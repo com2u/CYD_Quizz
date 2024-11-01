@@ -1,0 +1,16 @@
+		{
+			"Text": "Which tool can be used to sniff network data with an external device?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Hub",
+			"Option": [
+				"Switch",
+				"Hub",
+				"Router",
+				"Range Extender",
+				"CAT5"
+			],
+			"NextPassed": "nab_IPSec.json",
+			"NextFailed": "EXIT"
+		}

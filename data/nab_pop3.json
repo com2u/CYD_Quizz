@@ -1,0 +1,16 @@
+		{
+			"Text": "To send email to NotABomb via POP3, use port…",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "110/995",
+			"Option": [
+				"22/23",
+				"53/135",
+				"80/8088",
+				"110/995",
+				"3000/5000"
+			],
+			"NextPassed": "nab_ResistorSeries.json",
+			"NextFailed": "EXIT"
+		}

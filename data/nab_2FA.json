@@ -1,0 +1,16 @@
+		{
+			"Text": "What is the main purpose of two-factor authentication (2FA)?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Provide an extra layer of security",
+			"Option": [
+				"Increase speed of login",
+				"Provide an extra layer of security",
+				"Enable single sign-on",
+				"Encrypt login details",
+				"Bypass passwords"
+			],
+			"NextPassed": "nab_AES.json",
+			"NextFailed": "EXIT"
+		}

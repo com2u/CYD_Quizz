@@ -1,0 +1,16 @@
+{
+			"Text": "What is the max voltage for USB-C?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "20V",
+			"Option": [
+				"230V",
+				"60V",
+				"20V",
+				"12V",
+				"5V"
+			],
+			"NextPassed": "nab_hashing.json",
+			"NextFailed": "EXIT"
+		}

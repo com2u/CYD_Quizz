@@ -1,0 +1,16 @@
+		{
+			"Text": "Which protocol assigns IP addresses to devices on a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "DHCP",
+			"Option": [
+				"HTTP",
+				"DHCP",
+				"DNS",
+				"FTP",
+				"ARP"
+			],
+			"NextPassed": "nab_USBCurrent.json",
+			"NextFailed": "EXIT"
+		}

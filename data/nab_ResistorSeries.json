@@ -1,0 +1,15 @@
+{
+			"Text": "Which resistor setup increases total resistance?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Series",
+			"Option": [
+				"Series",
+				"Parallel",
+				"Hybrid",
+				"Alternating"
+			],
+			"NextPassed": "nab_WIFI.json",
+			"NextFailed": "EXIT"
+		}

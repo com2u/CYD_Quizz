@@ -1,0 +1,16 @@
+{
+			"Text": "What is the primary purpose of hashing in security?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Verify data integrity",
+			"Option": [
+				"Store data",
+				"Encrypt files",
+				"Verify data integrity",
+				"Increase system speed",
+				"Compress data"
+			],
+			"NextPassed": "nab_HUB.json",
+			"NextFailed": "EXIT"
+		}

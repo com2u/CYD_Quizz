@@ -1,0 +1,16 @@
+		{
+			"Text": "Which capacitor can store energy the longest?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Electrolytic",
+			"Option": [
+				"Ceramic",
+				"Tantalum",
+				"Electrolytic",
+				"Film",
+				"Copper plate"
+			],
+			"NextPassed": "nab_Encryption.json",
+			"NextFailed": "EXIT"
+		}

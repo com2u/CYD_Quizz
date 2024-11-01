@@ -1,0 +1,16 @@
+		{
+			"Text": "What type of malware locks data and demands money via bitcoin?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Ransomware",
+			"Option": [
+				"Virus",
+				"Ransomware",
+				"Spyware",
+				"Adware",
+				"Worm"
+			],
+			"NextPassed": "nab_firewall.json",
+			"NextFailed": "EXIT"
+		}

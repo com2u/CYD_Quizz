@@ -1,9 +1,0 @@
-{
-"Image": "{baseURL}quizz_binary_clock.jpg", 
-"Sound":"{baseURL}modem.mp3", 
-"Countdown": 150, 
-"Selection": "keyboard",
-"Answer": "^23[\\s.:,-]?59$",
-"NextPassed": "quizz6.json",
-"NextFailed": "EXIT"
-}

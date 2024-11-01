@@ -1,0 +1,16 @@
+{
+			"Text": "What sensor type typically detects movement?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Infrared Sensor",
+			"Option": [
+				"Magnetometer",
+				"Gyroscope",
+				"Temperature Sensor",
+				"Infrared Sensor",
+				"NFC"
+			],
+			"NextPassed": "nab_capacitor.json",
+			"NextFailed": "EXIT"
+		}

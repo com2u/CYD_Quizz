@@ -1,0 +1,15 @@
+{
+			"Text": "Correct USB 2.0 power voltage for NotABomb?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "5V",
+			"Option": [
+				"19V",
+				"12V",
+				"5V",
+				"3.3V"
+			],
+			"NextPassed": "nab_2FA.json",
+			"NextFailed": "EXIT"
+		}

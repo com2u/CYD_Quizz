@@ -1,0 +1,16 @@
+		{
+			"Text": "NotABomb connects via Wi-Fi. What protocol is used?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "IPv4",
+			"Option": [
+				"FiFo",
+				"IPv4",
+				"Sound waves",
+				"NTFS",
+				"RS232"
+			],
+			"NextPassed": "nab_LEDVoltage.json",
+			"NextFailed": "EXIT"
+		}

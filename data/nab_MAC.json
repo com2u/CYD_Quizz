@@ -1,0 +1,16 @@
+		{
+			"Text": "What is minimum needed for a network connection?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "MAC Address",
+			"Option": [
+				"DNS",
+				"HTML code",
+				"MAC Address",
+				"SSID",
+				"DHCP"
+			],
+			"NextPassed": "nab_parallelBatteries.json",
+			"NextFailed": "EXIT"
+		}

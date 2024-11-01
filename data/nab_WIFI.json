@@ -1,0 +1,16 @@
+		{
+			"Text": "What is the minimum NotABomb needs to communicate via WIFI?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "IPv4/IPv6",
+			"Option": [
+				"IPv4/IPv6",
+				"DNS/DynDNS",
+				"DHCP",
+				"SSH/SSL",
+				"GSM/LTE"
+			],
+			"NextPassed": "nab_flash.json",
+			"NextFailed": "EXIT"
+		}

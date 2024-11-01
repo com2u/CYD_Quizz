@@ -1,0 +1,15 @@
+{
+			"Text": "NotABomb is powered by a battery. A status LED with three similar resistors in a row shows that the bomb is armed. The Voltage at one resistor is ~1 Volt.",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Battery Voltage = 5V",
+			"Option": [
+				"Battery Voltage = 9V",
+				"Battery Voltage = 5V",
+				"Battery Voltage = 3.3V",
+				"Battery Voltage = 1.7V"
+			],
+			"NextPassed": "nab_MAC.json",
+			"NextFailed": "EXIT"
+		}

@@ -1,0 +1,16 @@
+		{
+			"Text": "Which of these protocols is used for encrypted communication?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "SFTP",
+			"Option": [
+				"HTTP",
+				"FTP",
+				"SFTP",
+				"TCP",
+				"SMTP"
+			],
+			"NextPassed": "nab_PGP.json",
+			"NextFailed": "EXIT"
+		}

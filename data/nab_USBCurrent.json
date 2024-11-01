@@ -1,0 +1,16 @@
+{
+			"Text": "Maximum current NotABomb can draw via USB 2.0?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "500mA",
+			"Option": [
+				"65W",
+				"12A",
+				"2A",
+				"500mA",
+				"100mA"
+			],
+			"NextPassed": "nab_Bridgerectifier.json",
+			"NextFailed": "EXIT"
+		}

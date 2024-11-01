@@ -1,0 +1,16 @@
+		{
+			"Text": "Which protocol is used to transfer files securely over a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "SFTP",
+			"Option": [
+				"HTTP",
+				"SFTP",
+				"SMTP",
+				"Telnet",
+				"UDP"
+			],
+			"NextPassed": "nab_UNIX-timestamp.json",
+			"NextFailed": "EXIT"
+		}

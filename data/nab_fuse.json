@@ -1,0 +1,16 @@
+{
+			"Text": "Which component protects NotABomb against high currents?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "1) Fuse",
+			"Option": [
+				"1) Fuse",
+				"2) Resistor",
+				"3) Capacitor",
+				"4) Inductor",
+				"5) Coil"
+			],
+			"NextPassed": "nab_Paperclip.json",
+			"NextFailed": "EXIT"
+		}

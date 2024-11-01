@@ -1,0 +1,16 @@
+		{
+			"Text": "When could the UNIX timestamp in NotABomb overflow?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "January 2038",
+			"Option": [
+				"January 1970",
+				"~10 Years",
+				"January 2038",
+				"December 5888",
+				">16.000 Years"
+			],
+			"NextPassed": "EXIT",
+			"NextFailed": "EXIT"
+		}

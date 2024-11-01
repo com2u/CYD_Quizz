@@ -1,9 +1,0 @@
-{
-"Image": "{baseURL}quizz_hex.jpg", 
-"Sound":"{baseURL}bell.mp3", 
-"Countdown": 150,
-"Selection": "keyboard",
-"Answer": "^password$",
-"NextPassed": "quizz7.json",
-"NextFailed": "EXIT"	
-}

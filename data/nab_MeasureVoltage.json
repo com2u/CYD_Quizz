@@ -1,0 +1,16 @@
+{
+			"Text": "Best way to analyze NotABomb’s electronics safely?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Measure Voltage",
+			"Option": [
+				"Measure Voltage",
+				"Measure Current",
+				"Cut wires",
+				"Replace resistors",
+				"Measure Charge"
+			],
+			"NextPassed": "nab_root.json",
+			"NextFailed": "EXIT"
+		}

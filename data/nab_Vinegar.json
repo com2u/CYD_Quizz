@@ -1,0 +1,16 @@
+{
+			"Text": "Which of these alone can conduct electricity?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Vinegar",
+			"Option": [
+				"Vinegar",
+				"Oil",
+				"Salt",
+				"Flour",
+				"Petrol"
+			],
+			"NextPassed": "nab_electrostatic.json",
+			"NextFailed": "EXIT"
+		}

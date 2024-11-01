@@ -1,0 +1,16 @@
+		{
+			"Text": "Which component retains power even without a battery?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Capacitor",
+			"Option": [
+				"Resistor",
+				"CPU",
+				"Capacitor",
+				"RAM",
+				"ROM"
+			],
+			"NextPassed": "nab_LDR.json",
+			"NextFailed": "EXIT"
+		}

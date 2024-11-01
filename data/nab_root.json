@@ -1,0 +1,16 @@
+		{
+			"Text": "Which user is best for SSH access?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "root",
+			"Option": [
+				"SUDO",
+				"Administrator",
+				"Admin",
+				"root",
+				"su"
+			],
+			"NextPassed": "nab_Fail-safe.json",
+			"NextFailed": "EXIT"
+		}

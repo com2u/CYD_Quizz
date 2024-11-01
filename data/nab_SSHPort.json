@@ -1,0 +1,16 @@
+{
+			"Text": "To SSH into NotABomb, which port is used?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "22",
+			"Option": [
+				"22",
+				"53",
+				"80",
+				"110",
+				"153"
+			],
+			"NextPassed": "nab_USBVoltage.json",
+			"NextFailed": "EXIT"
+		}

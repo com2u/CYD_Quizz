@@ -1,0 +1,16 @@
+		{
+			"Text": "Which sensor detects light inside of NotABomb?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "LDR",
+			"Option": [
+				"Thermistor",
+				"LDR",
+				"Accelerometer",
+				"Magnetometer",
+				"LED"
+			],
+			"NextPassed": "nab_typicalwires.json",
+			"NextFailed": "EXIT"
+		}

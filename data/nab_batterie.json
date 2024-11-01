@@ -1,0 +1,16 @@
+		{
+			"Text": "What type of current do batteries supply?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Direct Current (DC)",
+			"Option": [
+				"Alternating Current (AC)",
+				"Direct Current (DC)",
+				"Pulsed Current",
+				"Inductive Current",
+				"Static Current"
+			],
+			"NextPassed": "nab_DHCP.json",
+			"NextFailed": "EXIT"
+		}

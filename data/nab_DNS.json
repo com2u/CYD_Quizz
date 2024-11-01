@@ -1,0 +1,16 @@
+				{
+			"Text": "Which service allows NotABomb connection to a domain?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "DNS",
+			"Option": [
+				"SSH",
+				"SSL",
+				"DNS",
+				"DHCP",
+				"DynDNS"
+			],
+			"NextPassed": "nab_Electrolytic.json",
+			"NextFailed": "EXIT"
+		}

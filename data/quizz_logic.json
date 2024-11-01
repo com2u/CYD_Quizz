@@ -1,0 +1,10 @@
+{
+"Text": "What is always true? (!=NOT)", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "option",
+"Answer": "(A XOR B) OR (!A XOR !B)",
+"Option": ["(A OR B)", "(A AND B) OR (!A AND !B)", "(A XOR B) OR (A OR B)", "(A XOR B) OR (!A XOR !B)", "(A OR B) AND (!A OR !B)"],
+"NextPassed": "nab_root.json",
+"NextFailed": "EXIT"	
+}

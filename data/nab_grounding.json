@@ -1,0 +1,16 @@
+		{
+			"Text": "What is the purpose of grounding in electrical systems?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Protect against electric shock",
+			"Option": [
+				"Reduce voltage",
+				"Enhance signal strength",
+				"Protect against electric shock",
+				"Store electricity",
+				"Control current"
+			],
+			"NextPassed": "nab_Vinegar.json",
+			"NextFailed": "EXIT"
+		}

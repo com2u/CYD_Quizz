@@ -1,0 +1,15 @@
+ {
+			"Text": "NotABomb uses typical wire colors. What are typical pairs?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "+ = red, GND = black",
+			"Option": [
+				"RX = red, TX = black",
+				"Ground = red, Power = blue",
+				"+ = red, GND = black",
+				"Ground = yellow, Signal = brown"
+			],
+			"NextPassed": "nab_grounding.json",
+			"NextFailed": "EXIT"
+		}

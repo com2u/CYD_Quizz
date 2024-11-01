@@ -1,0 +1,15 @@
+		{
+			"Text": "Which protocol is commonly used to secure websites?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "SSL/TLS",
+			"Option": [
+				"HTTP",
+				"SSL/TLS",
+				"FTP",
+				"DNS"
+			],
+			"NextPassed": "nab_SymmetricEncryption.json",
+			"NextFailed": "EXIT"
+		}

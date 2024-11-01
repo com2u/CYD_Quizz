@@ -1,0 +1,16 @@
+{
+			"Text": "What should be avoided when deactivating explosives?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Electrostatic charge",
+			"Option": [
+				"Noise",
+				"Light",
+				"Electrostatic charge",
+				"Ultrasound",
+				"Fingerprints"
+			],
+			"NextPassed": "nab_Ransomware.json",
+			"NextFailed": "EXIT"
+		}

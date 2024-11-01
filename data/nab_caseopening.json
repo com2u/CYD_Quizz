@@ -1,0 +1,15 @@
+{
+			"Text": "Purpose of NotABomb’s built-in light sensor?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Detect case opening",
+			"Option": [
+				"Detect case opening",
+				"Solar-powered operation",
+				"Function in the dark",
+				"Display status"
+			],
+			"NextPassed": "nab_MeasureVoltage.json",
+			"NextFailed": "EXIT"
+		}

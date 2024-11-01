@@ -1,0 +1,16 @@
+		{
+			"Text": "Which key is used in asymmetric encryption for decryption?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Private key",
+			"Option": [
+				"Private key",
+				"Public key",
+				"Symmetric key",
+				"Session key",
+				"Token"
+			],
+			"NextPassed": "nab_ble.json",
+			"NextFailed": "EXIT"
+		}

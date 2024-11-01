@@ -1,0 +1,16 @@
+				{
+			"Text": "Which cryptographic method is commonly used to secure emails?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "PGP",
+			"Option": [
+				"POP3",
+				"IMAP",
+				"PGP",
+				"FTP",
+				"SMTP"
+			],
+			"NextPassed": "nab_pop3.json",
+			"NextFailed": "EXIT"
+		}

@@ -5,7 +5,7 @@
 
 #include <Arduino.h>  // Include the Arduino library to define String
 
-#define DEBUG_OUTPUT 5
+#define DEBUG_OUTPUT 2
 #define PROJECT_NAME "CYD_QUIZZ"
 
 extern int global_state;

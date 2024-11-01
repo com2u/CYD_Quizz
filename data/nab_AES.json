@@ -1,0 +1,16 @@
+		{
+			"Text": "Which encryption algorithm is considered secure for modern use?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "AES",
+			"Option": [
+				"DES",
+				"AES",
+				"MD5",
+				"SHA-1",
+				"Base64"
+			],
+			"NextPassed": "nab_batterie.json",
+			"NextFailed": "EXIT"
+		}

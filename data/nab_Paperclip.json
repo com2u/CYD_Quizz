@@ -1,0 +1,16 @@
+		{
+			"Text": "What can be used to short two connections in NotABomb?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "3) Paperclip",
+			"Option": [
+				"1) Toothpicks",
+				"2) Chewing gum",
+				"3) Paperclip",
+				"4) Credit card",
+				"5) Rubber band"
+			],
+			"NextPassed": "nab_Oscilloscope.json",
+			"NextFailed": "EXIT"
+		}

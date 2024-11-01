@@ -1,0 +1,15 @@
+{
+			"Text": "Why might NotABomb have four diodes in its input cable?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Bridge rectifier for AC",
+			"Option": [
+				"Support 12V and 24V",
+				"Bridge rectifier for AC",
+				"Solar power input",
+				"Battery buffer"
+			],
+			"NextPassed": "nab_digital-signature.json",
+			"NextFailed": "EXIT"
+		}

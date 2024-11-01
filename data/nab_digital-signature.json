@@ -1,0 +1,16 @@
+{
+			"Text": "What is a digital signature primarily used for?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Verify data integrity and authenticity",
+			"Option": [
+				"Encrypt messages",
+				"Verify data integrity and authenticity",
+				"Increase network speed",
+				"Store data",
+				"Handle passwords"
+			],
+			"NextPassed": "nab_diode.json",
+			"NextFailed": "EXIT"
+		}

@@ -1,0 +1,16 @@
+		{
+			"Text": "Several batteries in parallel results in …",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Higher Current",
+			"Option": [
+				"Higher Voltage",
+				"Higher Current",
+				"Lower Voltage",
+				"No change",
+				"Better Efficiency"
+			],
+			"NextPassed": "nab_Side-channel-attack.json",
+			"NextFailed": "EXIT"
+		}

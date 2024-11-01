@@ -1,0 +1,16 @@
+		{
+			"Text": "How to ensure a file wasn't changed?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "MD5",
+			"Option": [
+				"NTFS",
+				"RAID",
+				"MD5",
+				"FAT32",
+				"ZFS"
+			],
+			"NextPassed": "nab_SFTP.json",
+			"NextFailed": "EXIT"
+		}

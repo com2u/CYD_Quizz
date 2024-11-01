@@ -1,0 +1,9 @@
+{
+"Text": "What is the next number? 2, 4, 8, 16, …", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "keyboard",
+"Answer": "32",
+"NextPassed": "quizz_regex.json",
+"NextFailed": "EXIT"	
+}

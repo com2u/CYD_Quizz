@@ -1,0 +1,16 @@
+{
+			"Text": "What could hold a tool in place temporarily?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Chewing gum",
+			"Option": [
+				"Salt",
+				"Sugar",
+				"Sand",
+				"Chewing gum",
+				"Condom"
+			],
+			"NextPassed": "nab_gyroscope.json",
+			"NextFailed": "EXIT"
+		}

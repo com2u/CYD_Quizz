@@ -1,0 +1,16 @@
+{
+			"Text": "Which module allows NotABomb to transmit wirelessly?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "BLE",
+			"Option": [
+				"UART",
+				"BLE",
+				"SPI",
+				"PWM",
+				"I2C"
+			],
+			"NextPassed": "nab_SSHPort.json",
+			"NextFailed": "EXIT"
+		}

@@ -1,0 +1,16 @@
+		{
+			"Text": "Which encryption technique uses the same key for encryption and decryption?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Symmetric encryption",
+			"Option": [
+				"Asymmetric encryption",
+				"Symmetric encryption",
+				"Public key encryption",
+				"Digital signatures",
+				"Hashing"
+			],
+			"NextPassed": "nab_firewall2.json",
+			"NextFailed": "EXIT"
+		}

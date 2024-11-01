@@ -1,0 +1,16 @@
+		{
+			"Text": "Which technology is often used to securely authenticate devices in a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "IPSec",
+			"Option": [
+				"VPN",
+				"TLS",
+				"MAC address",
+				"IPSec",
+				"DHCP"
+			],
+			"NextPassed": "nab_IPv4.json",
+			"NextFailed": "EXIT"
+		}

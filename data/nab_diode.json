@@ -1,0 +1,15 @@
+		{
+			"Text": "What’s the main purpose of a diode?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Block alternating current",
+			"Option": [
+				"Block alternating current",
+				"Block current peaks",
+				"Store energy",
+				"Reduce voltage"
+			],
+			"NextPassed": "nab_DNS.json",
+			"NextFailed": "EXIT"
+		}

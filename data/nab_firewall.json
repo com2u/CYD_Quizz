@@ -1,0 +1,16 @@
+		{
+			"Text": "What’s the primary role of a firewall in a network?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Filter traffic",
+			"Option": [
+				"Increase speed",
+				"Filter traffic",
+				"Assign IPs",
+				"Detect malware",
+				"Store data"
+			],
+			"NextPassed": "nab_PrivateKey.json",
+			"NextFailed": "EXIT"
+		}

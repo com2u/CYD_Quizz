@@ -1,0 +1,16 @@
+{
+			"Text": "What is the purpose of a firewall?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Prevent unauthorized access",
+			"Option": [
+				"Prevent unauthorized access",
+				"Encrypt data",
+				"Assign IP addresses",
+				"Control data storage",
+				"Monitor CPU usage"
+			],
+			"NextPassed": "nab_Transistor.json",
+			"NextFailed": "EXIT"
+		}

@@ -1,0 +1,16 @@
+{
+			"Text": "Where is NotABomb’s deactivation password stored?",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "Flash",
+			"Option": [
+				"RAM",
+				"CPU",
+				"Battery",
+				"LED",
+				"Flash"
+			],
+			"NextPassed": "nab_USB-C.json",
+			"NextFailed": "EXIT"
+		}
