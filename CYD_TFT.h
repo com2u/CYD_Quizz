@@ -257,7 +257,6 @@ void CYD_TFT_init(){
   tft.setTextColor( TFT_WHITE, TFT_BLACK);
   tft.setTextFont(2);
   touchScreen_Start();
-  
   JPEG_init();
 }
 
@@ -282,7 +281,10 @@ void CYD_TFT_BigDisplay(){
 
 
 void showMenu(bool clearDisplay, int startY = 10) {
-  if (clearDisplay) tft.fillScreen(TFT_BLACK);
+  if (clearDisplay) {
+    CYD_TFT_InvertColor(TFTInvertColor);
+    tft.fillScreen(TFT_BLACK);
+  }
   tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY);
   tft.setTextFont(2);
   

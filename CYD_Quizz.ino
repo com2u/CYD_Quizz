@@ -265,6 +265,7 @@ void loop() {
     }
     if (selectedItem == "Quizz"){
       global_state = 100;
+      CYD_TFT_InvertColor(TFTInvertColor);
       sendMQTT("Quizz1");
       String nextQuizz = startQuizz;
       Serial.println((String) "global_state = 100 - startQuizz:"+nextQuizz);
@@ -353,14 +354,14 @@ void loop() {
       Serial.println(startQuizz);
       saveConfig();
     }
-    if (selectedItem == "Invert Color"){
-      CYD_TFT_InvertColor(1);
+    if (selectedItem == "Invert Color"){    
       TFTInvertColor = 1;
+      CYD_TFT_InvertColor(TFTInvertColor);
       saveConfig();
     }
     if (selectedItem == "Original Color"){
-      CYD_TFT_InvertColor(0);
-      TFTInvertColor = 0;
+      TFTInvertColor = 1;
+      CYD_TFT_InvertColor(TFTInvertColor);
       saveConfig();
     }
     if (selectedItem == "Keyboard"){

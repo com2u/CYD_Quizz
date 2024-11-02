@@ -170,7 +170,12 @@ String Quizz(String quizzNo){
             selectedItem = checkMQTTQuizz();
           }
         }
-        if (selectedItem == "EXIT") return "";
+        if (selectedItem == "EXIT") {
+          Serial.println("Exit Quizz");
+          countdown = 0;
+          global_state = 0;
+          return "";
+        }
         return validateQuizz((expectedAnswer == selectedItem), nextPassed, nextFailed);
         
 

@@ -157,9 +157,17 @@ String checkMQTTQuizz(){
         return menuQuizzOption[3];
       }
       if (MQTTPayload ==  "EXIT") {
+        Serial.println("Restart Quizz");
         return "EXIT";
       }
     } 
+    if (MQTTTopic == "NotABomb/Key/Command" ){
+      Serial.println("checkMQTTQuizz Command");
+      if (MQTTPayload ==  "EXIT") {
+        Serial.println("Restart Quizz");
+        return "EXIT";
+      }
+    }
   }
   return "";
 }
