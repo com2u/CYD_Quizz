@@ -337,6 +337,10 @@ void loop() {
      if (selectedItem == "LED"){
       global_state = 50;
     }
+    if (selectedItem == "TFT Setup"){
+      global_state = 60;
+    }
+    
     if (selectedItem == "Display Vertical"){
       TFTRotation = 0;
       tft.setRotation(TFTRotation);

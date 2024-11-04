@@ -157,8 +157,6 @@ String Quizz(String quizzNo){
             itemCount++;
             // Here you can add code to display the option or handle it as needed
           }
-        } else {
-          Serial.println("No Options to choose");
         }
         int OptionMenuPosition = 148;
         showMenu(false, OptionMenuPosition);
@@ -177,6 +175,39 @@ String Quizz(String quizzNo){
           return "";
         }
         return validateQuizz((expectedAnswer == selectedItem), nextPassed, nextFailed);
+        
+      } else if (selection == "Area" ){
+        Serial.println("Check area");
+        TS_Point p;
+        while(p.z == 0  ){
+          TS_Point p = CYD_Handle_Touch(0);
+          if (p.z > 0) {
+            
+            if (doc.containsKey("Area")) {
+              int itemCount = 0;
+              Serial.println("Find selected area");
+              JsonArray optionArray = doc["Area"].as<JsonArray>();
+              for (JsonVariant entry : optionArray) {
+                int x = 0;
+                int y = 0;
+                int width = 0;
+                int height = 0;
+                String link = "";
+                if (entry.containsKey("x")) x = doc["x"].as<signed int>();
+                if (entry.containsKey("y")) y = doc["y"].as<signed int>();
+                if (entry.containsKey("width")) width = doc["width"].as<signed int>();
+                if (entry.containsKey("height")) height = doc["height"].as<signed int>();
+                if (entry.containsKey("link")) link = doc["link"].as<String>();
+                if ((p.x >= x) && (p.x < x+width) &&  (p.y >= y) && (p.y < y+height)){
+                    return link;
+                }
+              }
+            } else {
+              Serial.println("No areas found");
+            }
+          }  
+        }
+        
         
 
         return "";

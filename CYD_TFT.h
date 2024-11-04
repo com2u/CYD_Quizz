@@ -40,17 +40,18 @@ unsigned long lastMenuChangeMillis;
 
 int state = 0;  
 String menuEntry[]  = {"Quizz", "Timer", "Test", "Ping", "Keyboard", "Setup"};
-String menuTest[]  = {"Image", "Sound Board",  "Keyboard",  "Invert Color",  "Original Color", "REBOOT", "<--"};
+String menuTest[]  = {"Image", "Sound Board",  "Keyboard",   "REBOOT", "<--"};
 String menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 String menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
-String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "Quizz Setup", "Calibrate Touch", "Display Vertical", "Display 180", "<--"};
+String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "Quizz Setup", "TFT Setup",  "REBOOT", "<--"};
+String menuTFT[] = { "Calibrate Touch", "Invert Color",  "Original Color", "Display Vertical", "Display 180", "<--"};
 String menuQuizz[] = {"Startup Quizz", "Quizz Fail Count", "Quizz Mode Restart", "Quizz Reset", "<--"};
-
 String menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
-String menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
+//String menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
 String WIFIEntry[] = {" ", " ", " ", " ", "<--"};
 String emptyStrings = "                              ";
 
+/*
 const int MENU_ENTRY_COUNT = sizeof(menuEntry) / sizeof(menuEntry[0]);
 const int MENU_AUDIO_ENTRY_COUNT = sizeof(menuAudioEntry) / sizeof(menuAudioEntry[0]);
 const int MENU_SETUP_ENTRY_COUNT = sizeof(menuSetupEntry) / sizeof(menuSetupEntry[0]);
@@ -58,6 +59,7 @@ const int MENU_INFO_ENTRY_COUNT = sizeof(menuInfoEntry) / sizeof(menuInfoEntry[0
 const int MENU_TIMER_ENTRY_COUNT = sizeof(menuTimer) / sizeof(menuTimer[0]);
 const int MENU_TEST_ENTRY_COUNT = sizeof(menuTest) / sizeof(menuTest[0]);
 const int MENU_LED_ENTRY_COUNT = sizeof(menuLED) / sizeof(menuLED[0]);
+*/ 
 
 String *currentMenu;
 int menuSize;
@@ -69,10 +71,12 @@ void initMenu(){
   } else if (global_state == 10) {
     currentMenu = menuSetupEntry;
     menuSize = sizeof(menuSetupEntry) / sizeof(menuSetupEntry[0]);
-  } else if (global_state == 20) {
+  } 
+  /*else if (global_state == 20) {
     currentMenu = menuInfoEntry;
     menuSize = sizeof(menuInfoEntry) / sizeof(menuInfoEntry[0]);
-  } else if (global_state == 30) {
+  } */
+  else if (global_state == 30) {
     currentMenu = menuTimer;
     menuSize = sizeof(menuTimer) / sizeof(menuTimer[0]);
   } else if (global_state == 40) {
@@ -81,6 +85,9 @@ void initMenu(){
   } else if (global_state == 50) {
     currentMenu = menuLED;
     menuSize = sizeof(menuLED) / sizeof(menuLED[0]);
+  }  else if (global_state == 60) {
+    currentMenu = menuTFT;
+    menuSize = sizeof(menuTFT) / sizeof(menuTFT[0]);
   } else if (global_state == 100) {
     currentMenu = menuQuizzOption;
     menuSize = sizeof(menuQuizzOption) / sizeof(menuQuizzOption[0]);

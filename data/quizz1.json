@@ -1,9 +1,8 @@
 {
-"Text": "What is the next number? 1, 1, 2, 3, 5, 8, …", 
-"Sound":"", 
+"Text": "Pick your language", 
+"Image": "{baseURL}language.jpg", 
+"Sound":"{baseURL}bell.mp3", 
 "Countdown": 150,
-"Selection": "keyboard",
-"Answer": "13",
-"NextPassed": "quizz_geometric-sequence.json",
-"NextFailed": "EXIT"	
+"Selection": "Area",
+"Area": [{"x":0, "y":0, "width":240, "height":160, "link":"quizz_geometric-sequence.json"},{"x":0, "y":160, "width":240, "height":160, "link":"quizz_geometric-sequence.json"}]
 }
