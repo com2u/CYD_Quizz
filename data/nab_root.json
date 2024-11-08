@@ -1,5 +1,5 @@
 		{
-			"Text": "Which user is best for SSH access?",
+			"Text": "Which user is common for SSH access?",
 			"Sound": "{baseURL}correct_2.mp3", 
 			"Countdown": 150,
 			"Selection": "option",

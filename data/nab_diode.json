@@ -8,7 +8,8 @@
 				"Block alternating current",
 				"Block current peaks",
 				"Store energy",
-				"Reduce voltage"
+				"Reduce voltage",
+				"Emmit light"
 			],
 			"NextPassed": "nab_DNS.json",
 			"NextFailed": "EXIT"

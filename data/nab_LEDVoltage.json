@@ -8,7 +8,8 @@
 				"Battery Voltage = 9V",
 				"Battery Voltage = 5V",
 				"Battery Voltage = 3.3V",
-				"Battery Voltage = 1.7V"
+				"Battery Voltage = 1.7V",
+				"Battery Voltage = 1.2V"
 			],
 			"NextPassed": "nab_MAC.json",
 			"NextFailed": "EXIT"

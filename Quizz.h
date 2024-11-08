@@ -178,32 +178,37 @@ String Quizz(String quizzNo){
         
       } else if (selection == "Area" ){
         Serial.println("Check area");
-        TS_Point p;
+        TS_Point p = CYD_Handle_Touch(0);
         while(p.z == 0  ){
-          TS_Point p = CYD_Handle_Touch(0);
+          p = CYD_Handle_Touch(0);
           if (p.z > 0) {
-            
             if (doc.containsKey("Area")) {
-              int itemCount = 0;
-              Serial.println("Find selected area");
-              JsonArray optionArray = doc["Area"].as<JsonArray>();
-              for (JsonVariant entry : optionArray) {
-                int x = 0;
-                int y = 0;
-                int width = 0;
-                int height = 0;
-                String link = "";
-                if (entry.containsKey("x")) x = doc["x"].as<signed int>();
-                if (entry.containsKey("y")) y = doc["y"].as<signed int>();
-                if (entry.containsKey("width")) width = doc["width"].as<signed int>();
-                if (entry.containsKey("height")) height = doc["height"].as<signed int>();
-                if (entry.containsKey("link")) link = doc["link"].as<String>();
-                if ((p.x >= x) && (p.x < x+width) &&  (p.y >= y) && (p.y < y+height)){
-                    return link;
+                int itemCount = 0;
+                Serial.println((String) "Find selected area z:" + p.z + " x:" + p.x + " y:" + p.y);
+                JsonArray optionArray = doc["Area"].as<JsonArray>();
+                for (JsonVariant entry : optionArray) {
+                    int x = 0;
+                    int y = 0;
+                    int width = 0;
+                    int height = 0;
+                    String link = "";
+                    
+                    // Changed doc[] to entry[] for accessing object properties
+                    if (entry.containsKey("x")) x = entry["x"].as<signed int>();
+                    if (entry.containsKey("y")) y = entry["y"].as<signed int>();
+                    if (entry.containsKey("width")) width = entry["width"].as<signed int>();
+                    if (entry.containsKey("height")) height = entry["height"].as<signed int>();
+                    if (entry.containsKey("link")) link = entry["link"].as<String>();
+                    
+                    Serial.println((String) "Area " + link + " x:" + x + " y:" + y + 
+                                 " width:" + width + " height:" + height);
+                    
+                    if ((p.x >= x) && (p.x < x+width) && (p.y >= y) && (p.y < y+height)) {
+                        return link;
+                    }
                 }
-              }
             } else {
-              Serial.println("No areas found");
+                Serial.println("No areas found");
             }
           }  
         }

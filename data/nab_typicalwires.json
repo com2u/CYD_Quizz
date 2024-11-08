@@ -8,7 +8,8 @@
 				"RX = red, TX = black",
 				"Ground = red, Power = blue",
 				"+ = red, GND = black",
-				"Ground = yellow, Signal = brown"
+				"Ground = yellow, Signal = brown",
+				"red, green, blue, yellow"
 			],
 			"NextPassed": "nab_grounding.json",
 			"NextFailed": "EXIT"

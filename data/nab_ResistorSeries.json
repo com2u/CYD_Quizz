@@ -8,7 +8,8 @@
 				"Series",
 				"Parallel",
 				"Hybrid",
-				"Alternating"
+				"Alternating",
+				"Complex numbers",
 			],
 			"NextPassed": "nab_WIFI.json",
 			"NextFailed": "EXIT"
