@@ -1,0 +1,16 @@
+{
+	"Text": "Welcher Planet wird umgangssprachlich auch „roter Planet“ genannt?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Mars",
+	"Option": [
+		"Venus",
+		"Mars",
+		"Jupiter",
+		"Merkur",
+		"Saturn"
+	],
+	"NextPassed": "kids_Panda.json", 
+	"NextFailed": "EXIT"
+}

@@ -1,0 +1,16 @@
+{
+	"Text": "Welches ist der höchste Berg der Alpen?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Mont Blanc",
+	"Option": [
+		"Zugspitze",
+		"Mont Blanc",
+		"Rocky Mountains",
+		"Brocken",
+		"Grossglockner"
+	],
+	"NextPassed": "kids_Pazifischer_Ozean.json", 
+	"NextFailed": "EXIT"
+}

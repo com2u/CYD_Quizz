@@ -1,0 +1,16 @@
+{
+	"Text": "Welcher Planet hat Ringe?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Saturn",
+	"Option": [
+		"Erde",
+		"Mars",
+		"Jupiter",
+		"Saturn",
+		"Venus"
+	],
+	"NextPassed": "kids_Schneesturm.json", 
+	"NextFailed": "EXIT"
+}

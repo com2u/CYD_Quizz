@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Tier hält Winterschlaf?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Murmeltiere",
+	"Option": [
+		"Murmeltiere",
+		"Rehe",
+		"Hasen",
+		"Wildschweine",
+		"Katzen"
+	],
+	"NextPassed": "kids_28Tage.json", 
+	"NextFailed": "EXIT"
+}

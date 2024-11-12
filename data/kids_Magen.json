@@ -1,0 +1,8 @@
+{
+"Text": "Magen", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":113, "y":182, "width":47, "height":47, "link":"kids_Kolibri.json"}]
+}

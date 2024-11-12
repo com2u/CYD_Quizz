@@ -1,0 +1,16 @@
+{
+	"Text": "Wie nennt man die kleinste Einheit des Lebens?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Zelle",
+	"Option": [
+		"Pflanze",
+		"Organismus",
+		"Zelle",
+		"Atom",
+		"Molekül"
+	],
+	"NextPassed": "kids_spinnen.json", 
+	"NextFailed": "EXIT"
+}

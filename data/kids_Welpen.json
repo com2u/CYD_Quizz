@@ -1,0 +1,16 @@
+{
+	"Text": "Wie nennt man das Junge eines Hundes?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Welpe",
+	"Option": [
+		"Kälbchen",
+		"Welpe",
+		"Küken",
+		"Fohlen",
+		"Labrador"
+	],
+	"NextPassed": "kids_Herz.json", 
+	"NextFailed": "EXIT"
+}

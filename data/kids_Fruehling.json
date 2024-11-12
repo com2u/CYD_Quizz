@@ -1,0 +1,16 @@
+{
+	"Text": "Welche Jahreszeit folgt auf den Winter?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Frühling",
+	"Option": [
+		"Frühling",
+		"Sommer",
+		"Herbst",
+		"Winter",
+		"Regenzeit"
+	],
+	"NextPassed": "kids_24stunden.json", 
+	"NextFailed": "EXIT"
+}

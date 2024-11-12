@@ -1,0 +1,16 @@
+{
+	"Text": "Was ist ein anderes Wort für einen Sturm mit Schnee?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Schneesturm",
+	"Option": [
+		"Regenbogen",
+		"Orkan",
+		"Nebel",
+		"Schneesturm",
+		"Dürre"
+	],
+	"NextPassed": "kids_Darm.json", 
+	"NextFailed": "EXIT"
+}

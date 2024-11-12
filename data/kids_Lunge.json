@@ -1,0 +1,8 @@
+{
+"Text": "Lunge", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":76, "y":108, "width":42, "height":78, "link":"kids_12monate.json"}]
+}

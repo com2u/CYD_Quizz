@@ -1,0 +1,16 @@
+{
+	"Text": "Deutschland liegt in…",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Europa",
+	"Option": [
+		"Asien",
+		"Afrika",
+		"Europa",
+		"Nordamerika",
+		"Australien"
+	],
+	"NextPassed": "kids_Klavier.json", 
+	"NextFailed": "EXIT"
+}

@@ -1,0 +1,8 @@
+{
+"Text": "Nordsee", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":60, "y":83, "width":70, "height":100, "link":"kids_Bienenstock.json"}]
+}

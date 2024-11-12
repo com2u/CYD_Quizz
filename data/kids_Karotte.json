@@ -1,0 +1,16 @@
+{
+	"Text": "Welches dieser Lebensmittel ist ein Gemüse?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Karotte",
+	"Option": [
+		"Apfel",
+		"Birne",
+		"Banane",
+		"Karotte",
+		"Pfirsich"
+	],
+	"NextPassed": "kids_Welpen.json", 
+	"NextFailed": "EXIT"
+}

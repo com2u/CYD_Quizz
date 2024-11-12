@@ -1,0 +1,8 @@
+{
+"Text": "Helgoland", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":118, "y":150, "width":10, "height":10, "link":"kids_Saturn.json"}]
+}

@@ -1,0 +1,10 @@
+{
+"Text": "", 
+"Image": "{baseURL}Quizstart.jpg", 
+"Sound":"{baseURL}bell.mp3", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":0, "y":0, "width":240, "height":130, "link":"SinglePlayer.json"},
+{"x":0, "y":130, "width":240, "height":160, "link":"TeamPlayer.json"},
+{"x":0, "y":130, "width":240, "height":160, "link":"Setup.json"}]
+}

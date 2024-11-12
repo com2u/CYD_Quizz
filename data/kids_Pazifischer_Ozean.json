@@ -1,0 +1,16 @@
+{
+	"Text": "Was ist der größte Ozean der Erde?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Pazifischer Ozean",
+	"Option": [
+		"Atlantischer Ozean",
+		"Indischer Ozean",
+		"Pazifischer Ozean",
+		"Arktischer Ozean",
+		"Mittelmeer"
+	],
+	"NextPassed": "kids_Magen.json", 
+	"NextFailed": "EXIT"
+}

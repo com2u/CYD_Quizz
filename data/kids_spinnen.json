@@ -1,0 +1,16 @@
+{
+	"Text": "Wie viele Beine hat eine Spinne?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "8",
+	"Option": [
+		"2",
+		"4",
+		"6",
+		"8",
+		"10"
+	],
+	"NextPassed": "kids_Wasserstoff.json", 
+	"NextFailed": "EXIT"
+}

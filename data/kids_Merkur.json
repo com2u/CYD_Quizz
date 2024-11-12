@@ -1,0 +1,16 @@
+{
+	"Text": "Welcher Planet ist am nächsten zur Sonne?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Merkur",
+	"Option": [
+		"Mars",
+		"Erde",
+		"Venus",
+		"Merkur",
+		"Jupiter"
+	],
+	"NextPassed": "next.json", 
+	"NextFailed": "EXIT"
+}

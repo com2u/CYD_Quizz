@@ -1,0 +1,16 @@
+{
+	"Text": "Was ist die Hauptstadt von Frankreich?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Paris",
+	"Option": [
+		"Berlin",
+		"Paris",
+		"Rom",
+		"Madrid",
+		"Wien"
+	],
+	"NextPassed": "kids_Helgoland.json", 
+	"NextFailed": "EXIT"
+}

@@ -1,0 +1,16 @@
+{
+	"Text": "Wie viele Stunden hat ein Tag?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "24",
+	"Option": [
+		"10",
+		"12",
+		"18",
+		"24",
+		"30"
+	],
+	"NextPassed": "kids_honig.json", 
+	"NextFailed": "EXIT"
+}

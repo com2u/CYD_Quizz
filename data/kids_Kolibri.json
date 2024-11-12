@@ -1,0 +1,16 @@
+{
+	"Text": "Wovon ernährt sich ein Kolibri vorwiegend?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Blütennektar",
+	"Option": [
+		"Gräser",
+		"Nüsse",
+		"Früchte",
+		"Fischen",
+		"Blütennektar"
+	],
+	"NextPassed": "kids_koenig.json", 
+	"NextFailed": "EXIT"
+}

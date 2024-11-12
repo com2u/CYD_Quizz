@@ -1,0 +1,16 @@
+{
+	"Text": "Wann sollen Kartoffeln nicht gegessen werden? Wenn sie …",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "bereits austreiben",
+	"Option": [
+		"zu klein sind",
+		"zu groß sind",
+		"bereits austreiben",
+		"Frühkartoffeln sind",
+		"frittiert wurden"
+	],
+	"NextPassed": "kids_Kontinente.json", 
+	"NextFailed": "EXIT"
+}

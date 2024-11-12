@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Tier ist das schnellste an Land?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Gepard",
+	"Option": [
+		"Gepard",
+		"Elefant",
+		"Hase",
+		"Wolf",
+		"Zebra"
+	],
+	"NextPassed": "kids_Gruen.json", 
+	"NextFailed": "EXIT"
+}

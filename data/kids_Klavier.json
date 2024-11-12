@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Instrument hat Tasten, die man drückt?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Klavier",
+	"Option": [
+		"Trompete",
+		"Violine",
+		"Gitarre",
+		"Klavier",
+		"Trommel"
+	],
+	"NextPassed": "kids_hauptstadt.json", 
+	"NextFailed": "EXIT"
+}

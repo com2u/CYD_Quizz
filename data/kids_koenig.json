@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Land hat heute noch eine Königin und einen König?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Schweden",
+	"Option": [
+		"Schweden",
+		"Frankreich",
+		"Deutschland",
+		"Italien",
+		"Griechenland"
+	],
+	"NextPassed": "kids_Zaehne.json", 
+	"NextFailed": "EXIT"
+}

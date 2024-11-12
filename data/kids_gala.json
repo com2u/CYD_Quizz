@@ -1,0 +1,16 @@
+{
+	"Text": "Was ist Gala?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Apfelsorte",
+	"Option": [
+		"Apfelsorte",
+		"Gemüsesorte",
+		"Käse",
+		"Wurstsorte",
+		"Getreide"
+	],
+	"NextPassed": "kids_Leber.json", 
+	"NextFailed": "EXIT"
+}

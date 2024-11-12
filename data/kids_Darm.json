@@ -1,0 +1,8 @@
+{
+"Text": "Darm", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":79, "y":220, "width":89, "height":94, "link":"kids_Stickstoff.json"}]
+}

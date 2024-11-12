@@ -1,0 +1,16 @@
+{
+	"Text": "Wie viele Zähne hat ein Kleinkind?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "20",
+	"Option": [
+		"28",
+		"22",
+		"20",
+		"18",
+		"17"
+	],
+	"NextPassed": "kids_Merkur.json", 
+	"NextFailed": "EXIT"
+}

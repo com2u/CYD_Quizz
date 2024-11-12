@@ -1,0 +1,16 @@
+{
+	"Text": "Wie viele Kontinente gibt es auf der Erde?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "7",
+	"Option": [
+		"3",
+		"5",
+		"7",
+		"9",
+		"12"
+	],
+	"NextPassed": "kids_Mars.json", 
+	"NextFailed": "EXIT"
+}

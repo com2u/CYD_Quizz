@@ -1,0 +1,16 @@
+{
+	"Text": "Was wird nur paarweise verkauft?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Sandalen",
+	"Option": [
+		"Gabel",
+		"Tassen",
+		"Sandalen",
+		"Schokolade",
+		"Flaschen"
+	],
+	"NextPassed": "kids_Karotte.json", 
+	"NextFailed": "EXIT"
+}

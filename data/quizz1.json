@@ -1,8 +1,8 @@
 {
-"Text": "Pick your language", 
+"Text": "", 
 "Image": "{baseURL}language.jpg", 
 "Sound":"{baseURL}bell.mp3", 
 "Countdown": 150,
 "Selection": "Area",
-"Area": [{"x":0, "y":0, "width":240, "height":160, "link":"quizz_geometric-sequence.json"},{"x":0, "y":160, "width":240, "height":160, "link":"quizz_geometric-sequence.json"}]
+"Area": [{"x":0, "y":0, "width":240, "height":130, "link":"quizz_geometric-sequence.json"},{"x":0, "y":160, "width":240, "height":160, "link":"quizz_geometric-sequence.json"}]
 }

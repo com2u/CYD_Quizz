@@ -1,0 +1,16 @@
+{
+	"Text": "Wie heißt die Hauptstadt von Deutschland?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Berlin",
+	"Option": [
+		"Frankfurt am Main",
+		"Berlin",
+		"Hamburg",
+		"München",
+		"Bonn"
+	],
+	"NextPassed": "kids_Lunge.json", 
+	"NextFailed": "EXIT"
+}

@@ -1,0 +1,16 @@
+{
+	"Text": "Wie viele Monate hat ein Jahr?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "12",
+	"Option": [
+		"10",
+		"11",
+		"12",
+		"13",
+		"14"
+	],
+	"NextPassed": "kids_Pflanzen.json", 
+	"NextFailed": "EXIT"
+}

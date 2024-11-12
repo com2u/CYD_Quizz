@@ -1,0 +1,8 @@
+{
+"Text": "Ruhrgebiet", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":111, "y":171, "width":20, "height":21, "link":"kids_Vulkan.json"}]
+}

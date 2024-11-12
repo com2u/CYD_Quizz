@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Element ist das Hauptbestandteil der Luft?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Stickstoff",
+	"Option": [
+		"Sauerstoff",
+		"Helium",
+		"Stickstoff",
+		"Wasserstoff",
+		"Argon"
+	],
+	"NextPassed": "kids_Ruhrgebiet.json", 
+	"NextFailed": "EXIT"
+}

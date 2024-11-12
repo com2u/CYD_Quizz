@@ -1,0 +1,16 @@
+{
+	"Text": "Was braucht eine Pflanze, um zu wachsen?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Sonnenlicht",
+	"Option": [
+		"Milch",
+		"Zucker",
+		"Sonnenlicht",
+		"Sand",
+		"Plastik"
+	],
+	"NextPassed": "kids_Kamel.json", 
+	"NextFailed": "EXIT"
+}

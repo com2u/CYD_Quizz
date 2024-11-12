@@ -1,0 +1,16 @@
+{
+	"Text": "Welcher Monat hat normalerweise nur 28 Tage?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Februar",
+	"Option": [
+		"Januar",
+		"März",
+		"Mai",
+		"Juni",
+		"Februar"
+	],
+	"NextPassed": "kids_Apfel.json", 
+	"NextFailed": "EXIT"
+}

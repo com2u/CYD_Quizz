@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Tier kann sich am längsten ohne Wasser halten?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Kamel",
+	"Option": [
+		"Kamel",
+		"Tiger",
+		"Bär",
+		"Pferd",
+		"Frosch"
+	],
+	"NextPassed": "kids_Fruehling.json", 
+	"NextFailed": "EXIT"
+}

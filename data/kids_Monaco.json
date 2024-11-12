@@ -1,0 +1,8 @@
+{
+"Text": "Monaco", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":103, "y":250, "width":20, "height":11, "link":"kids_Blauwal.json"}]
+}

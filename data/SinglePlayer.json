@@ -1,0 +1,12 @@
+{
+"Text": "", 
+"Image": "{baseURL}Quizselect.jpg", 
+"Sound":"{baseURL}bell.mp3", 
+"Selection": "Area",
+"Area": [{"x":158, "y":17, "width":40, "height":40, "link":"kids_Alpen.json"},
+{"x":158, "y":63, "width":40, "height":40, "link":"kids_Nordsee.json"},
+{"x":158, "y":108, "width":40, "height":40, "link":"kids_Zelle.json"},
+{"x":158, "y":163, "width":40, "height":40, "link":"nab_twoButtons.json"},
+{"x":158, "y":208, "width":40, "height":40, "link":"nab_Electrolytic.json"},
+{"x":158, "y":252, "width":40, "height":40, "link":"quizz_Fibonacci.json"}]
+}

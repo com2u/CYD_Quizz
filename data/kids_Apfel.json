@@ -1,0 +1,16 @@
+{
+	"Text": "Welche Farbe hat ein reifer Apfel normalerweise?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Rot oder Grün",
+	"Option": [
+		"Blau",
+		"Rot oder Grün",
+		"Lila",
+		"Schwarz",
+		"Weiß"
+	],
+	"NextPassed": "kids_Adler.json", 
+	"NextFailed": "EXIT"
+}

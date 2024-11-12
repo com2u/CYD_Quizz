@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Tier ernährt sich überwiegend von Bambus?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Große Pandas",
+	"Option": [
+		"Giraffen",
+		"Große Pandas",
+		"Elefanten",
+		"Gorillas",
+		"Schimpanse"
+	],
+	"NextPassed": "kids_Paris.json", 
+	"NextFailed": "EXIT"
+}

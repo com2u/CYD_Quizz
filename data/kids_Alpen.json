@@ -1,0 +1,8 @@
+{
+"Text": "Alpen", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":100, "y":217, "width":66, "height":34, "link":"kids_Paarweise.json"}]
+}

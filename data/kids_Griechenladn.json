@@ -1,0 +1,8 @@
+{
+"Text": "Griechenland", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":196, "y":263, "width":45, "height":60, "link":"kids_Pinguin.json"}]
+}

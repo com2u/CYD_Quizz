@@ -1,0 +1,16 @@
+{
+	"Text": "Welches ist das größte Tier der Erde?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Blauwal",
+	"Option": [
+		"Giraffe",
+		"Blauwal",
+		"Elefant",
+		"Pottwal",
+		"Nashorn"
+	],
+	"NextPassed": "kids_Pazifik.json", 
+	"NextFailed": "EXIT"
+}

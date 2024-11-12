@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Insekt stellt Honig her?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Biene",
+	"Option": [
+		"Schmetterling",
+		"Biene",
+		"Käfer",
+		"Libelle",
+		"Ameise"
+	],
+	"NextPassed": "kids_Griechenladn.json", 
+	"NextFailed": "EXIT"
+}

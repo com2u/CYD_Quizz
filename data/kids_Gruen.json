@@ -1,0 +1,16 @@
+{
+	"Text": "Welche Farbe erhält man, wenn man Blau und Gelb mischt?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Grün",
+	"Option": [
+		"Rot",
+		"Grün",
+		"Lila",
+		"Orange",
+		"Braun"
+	],
+	"NextPassed": "kids_Bayern.json", 
+	"NextFailed": "EXIT"
+}

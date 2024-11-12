@@ -1,0 +1,16 @@
+{
+	"Text": "In welchem Ozean liegt Hawaii?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Pazifik",
+	"Option": [
+		"Atlantik",
+		"Indik",
+		"Pazifik",
+		"Arktik",
+		"Mittelmeer"
+	],
+	"NextPassed": "kids_Mont_Blanc.json", 
+	"NextFailed": "EXIT"
+}

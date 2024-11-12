@@ -1,0 +1,52 @@
+ DatentrÑger in Laufwerk C: ist Windows
+ Volumeseriennummer: B446-6B06
+
+ Verzeichnis von C:\data\Projects\Arduino\CYD_Quizz\data
+
+12.11.2024  10:01                 0 kids.txt
+11.11.2024  19:44               243 kids_12monate.json
+11.11.2024  19:20               243 kids_24stunden.json
+11.11.2024  19:40               277 kids_28Tage.json
+11.11.2024  19:43               257 kids_Adler.json
+11.11.2024  20:46               297 kids_Apfel.json
+11.11.2024  19:06               303 kids_Bienenstock.json
+11.11.2024  19:05               282 kids_Blauwal.json
+11.11.2024  18:52               268 kids_Deutschland_in.json
+11.11.2024  19:16               271 kids_ErdoberflÑche.json
+11.11.2024  20:45               285 kids_FrÅhling.json
+11.11.2024  18:55               269 kids_gala.json
+11.11.2024  19:15               273 kids_Gepard.json
+11.11.2024  20:41               285 kids_Gruen.json
+11.11.2024  18:58               291 kids_hauptstadt.json
+11.11.2024  19:39               275 kids_honig.json
+11.11.2024  20:42               286 kids_Kamel.json
+11.11.2024  19:43               283 kids_Karotte.json
+11.11.2024  18:54               357 kids_kartoffeln.json
+11.11.2024  19:14               291 kids_Klavier.json
+11.11.2024  18:53               316 kids_koenig.json
+11.11.2024  19:10               298 kids_Kolibri.json
+11.11.2024  19:10               250 kids_Kontinente.json
+11.11.2024  20:45               260 kids_KÑse.json
+11.11.2024  19:11               303 kids_Mars.json
+11.11.2024  19:41               275 kids_Merkur.json
+11.11.2024  19:10               305 kids_Mont_Blanc.json
+11.11.2024  19:05               278 kids_Paarweise.json
+11.11.2024  19:06               313 kids_Panda.json
+11.11.2024  20:43               268 kids_Paris.json
+11.11.2024  20:45               274 kids_Pazifik.json
+11.11.2024  19:13               330 kids_Pazifischer_Ozean.json
+11.11.2024  19:40               285 kids_Pflanzen.json
+11.11.2024  20:44               269 kids_Pinguin.json
+11.11.2024  19:44               258 kids_Saturn.json
+11.11.2024  19:40               302 kids_Schneesturm.json
+11.11.2024  18:56               240 kids_spinnen.json
+11.11.2024  20:42               303 kids_Stickstoff.json
+11.11.2024  19:44               324 kids_Vulkan.json
+11.11.2024  20:43               294 kids_Wasserstoff.json
+11.11.2024  19:05               277 kids_Welpen.json
+11.11.2024  18:55               282 kids_winterschlaf.json
+11.11.2024  19:12               298 kids_WÅrfel.json
+11.11.2024  18:51               248 kids_Zaehne.json
+11.11.2024  19:45               286 kids_Zelle.json
+              45 Datei(en),         12.472 Bytes
+               0 Verzeichnis(se), 181.895.192.576 Bytes frei

@@ -1,0 +1,8 @@
+{
+"Text": "Bayern", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":132, "y":191, "width":25, "height":28, "link":"kids_kartoffeln.json"}]
+}

@@ -1,0 +1,16 @@
+{
+	"Text": "Was ist der Hauptbestandteil der Sonne?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Wasserstoff",
+	"Option": [
+		"Eisen",
+		"Wasserstoff",
+		"Stickstoff",
+		"Kohlenstoff",
+		"Helium"
+	],
+	"NextPassed": "kids_Monaco.json", 
+	"NextFailed": "EXIT"
+}

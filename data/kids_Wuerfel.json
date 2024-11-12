@@ -1,0 +1,16 @@
+{
+	"Text": "Welcher Körper hat sechs gleich große Seitenflächen?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Würfel",
+	"Option": [
+		"Kugel",
+		"Zylinder",
+		"Quader",
+		"Würfel",
+		"Tetraeder"
+	],
+	"NextPassed": "kids_Zelle.json", 
+	"NextFailed": "EXIT"
+}

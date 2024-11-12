@@ -1,0 +1,16 @@
+{
+	"Text": "Wie nennt man das Zuhause von Bienen?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Bienenstock",
+	"Option": [
+		"Bienennest",
+		"Bienenhaus",
+		"Bienenstock",
+		"Bienenhöhle",
+		"Bienenhotel"
+	],
+	"NextPassed": "kids_Erdoberflaeche.json", 
+	"NextFailed": "EXIT"
+}

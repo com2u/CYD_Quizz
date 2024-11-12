@@ -1,0 +1,16 @@
+{
+	"Text": "Die Erdoberfläche ist meistens …",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Wasser",
+	"Option": [
+		"Wasser",
+		"Sand",
+		"Gestein",
+		"Bäume",
+		"Felder"
+	],
+	"NextPassed": "kids_gala.json", 
+	"NextFailed": "EXIT"
+}

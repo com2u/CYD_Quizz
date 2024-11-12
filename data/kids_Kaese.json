@@ -1,0 +1,16 @@
+{
+	"Text": "Was wird aus Milch hergestellt?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Käse",
+	"Option": [
+		"Saft",
+		"Käse",
+		"Mehl",
+		"Reis",
+		"Zucker"
+	],
+	"NextPassed": "kids_winterschlaf.json", 
+	"NextFailed": "EXIT"
+}

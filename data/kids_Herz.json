@@ -1,0 +1,8 @@
+{
+"Text": "Herz", 
+"Image": "{baseURL}europe.jpg", 
+"Sound":"", 
+"Countdown": 150,
+"Selection": "Area",
+"Area": [{"x":114, "y":111, "width":55, "height":65, "link":"kids_Deutschland_in.json"}]
+}

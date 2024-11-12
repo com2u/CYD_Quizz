@@ -1,0 +1,16 @@
+{
+	"Text": "Welches Tier kann fliegen?",
+	"Sound": "", 
+	"Countdown": 150,
+	"Selection": "option",
+	"Answer": "Adler",
+	"Option": [
+		"Löwe",
+		"Adler",
+		"Hai",
+		"Zebra",
+		"Elefant"
+	],
+	"NextPassed": "kids_Nordsee.json", 
+	"NextFailed": "EXIT"
+}
