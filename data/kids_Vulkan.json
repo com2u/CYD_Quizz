@@ -11,6 +11,6 @@
 		"Ein Fluss",
 		"Eine Höhle"
 	],
-	"NextPassed": "next.json", 
+	"NextPassed": "kids_Wuerfel.json", 
 	"NextFailed": "EXIT"
 }
