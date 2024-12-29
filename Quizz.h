@@ -95,6 +95,8 @@ String Quizz(String quizzNo){
       String nextPassed = "";
       String nextFailed = "";
       String quizzText = "";
+      String topic = "";
+      String payload = "";
       // Access the parsed JSON data
       
     if (!doc.isNull()) {
@@ -106,6 +108,8 @@ String Quizz(String quizzNo){
       if (doc.containsKey("Selection")) selection = doc["Selection"].as<String>();
       if (doc.containsKey("NextPassed")) nextPassed = doc["NextPassed"].as<String>();
       if (doc.containsKey("NextFailed")) nextFailed = doc["NextFailed"].as<String>();
+      if (doc.containsKey("Topic")) topic = doc["Topic"].as<String>();
+      if (doc.containsKey("Payload")) payload = doc["Payload"].as<String>();
       if (doc.containsKey("Text")) quizzText = doc["Text"].as<String>();
       
 
@@ -204,6 +208,18 @@ String Quizz(String quizzNo){
                                  " width:" + width + " height:" + height);
                     
                     if ((p.x >= x) && (p.x < x+width) && (p.y >= y) && (p.y < y+height)) {
+                        if(countdownSet > 0) {
+                          String message = "  CORRECT\n\r  ANSWER !";       
+                          tft.setTextColor(TFT_GREEN, TFT_BLACK);
+                          CYD_LED_Green();
+                          tft.println(message);
+                          tft.drawRect(0, 25, tft.width()-1, 75, TFT_LIGHTGREY);
+                          Serial.println(message);
+                          //sendMQTT(message);
+                          tft.setTextFont(2);
+                          QuizzPassedCount++;
+                          delay(700);
+                        }
                         return link;
                     }
                 }

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz - Death/Training Mode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        #modeSelector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .mode-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #333;
+            color: white;
+            border: 1px solid #ff3333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .mode-button.active {
+            background-color: #ff3333;
+            transform: scale(1.05);
+        }
+        #quizContainer {
+            background-color: #2d2d2d;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255,0,0,0.2);
+        }
+        #stats {
+            text-align: right;
+            margin-bottom: 10px;
+            display: none;
+            color: #ff9900;
+            font-weight: bold;
+        }
+        #countdown {
+            font-size: 2.5em;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255,0,0,0.5);
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        #questionText {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        #imageContainer {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            width: 240px;
+            height: 320px;
+            border: 2px solid #ff3333;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(255,0,0,0.3);
+        }
+        #imageContainer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .clickable-area {
+            position: absolute;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .clickable-area:hover {
+            background-color: rgba(255, 51, 51, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="modeSelector">
+        <button class="mode-button active" data-mode="death">Death Mode</button>
+        <button class="mode-button" data-mode="training">Training Mode</button>
+    </div>
+    <div id="quizContainer">
+        <div id="stats">Passed: <span id="passedCount">0</span> Failed: <span id="failedCount">0</span></div>
+        <div id="countdown"></div>
+        <div id="questionText"></div>
+        <div id="imageContainer"></div>
+        <div id="optionsContainer"></div>
+        <input type="text" id="textInput" style="display: none">
+        <div id="feedback"></div>
+    </div>
+    <script>
+        class Quiz {
+            constructor() {
+                this.baseURL = '';
+                this.defaultJSON = 'quizz0.json';
+                this.currentTimer = null;
+                this.audio = new Audio();
+                this.currentQuestion = null;
+                this.mode = 'death';
+                this.stats = { passed: 0, failed: 0 };
+                this.initializeModeSelector();
+                this.initialize();
+            }
+
+            initializeModeSelector() {
+                document.querySelectorAll('.mode-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        document.querySelectorAll('.mode-button').forEach(b => b.classList.remove('active'));
+                        button.classList.add('active');
+                        this.mode = button.dataset.mode;
+                        document.getElementById('stats').style.display = this.mode === 'training' ? 'block' : 'none';
+                        this.initialize();
+                    });
+                });
+            }
+
+            async initialize() {
+                this.stats = { passed: 0, failed: 0 };
+                this.updateStats();
+                await this.loadQuestion(this.defaultJSON);
+            }
+
+            async loadQuestion(jsonFile) {
+                if (jsonFile === 'EXIT') {
+                    this.endQuiz();
+                    return;
+                }
+                try {
+                    const response = await fetch(this.baseURL + jsonFile);
+                    const question = await response.json();
+                    this.displayQuestion(question);
+                } catch (error) {
+                    console.error('Failed to load question:', error);
+                }
+            }
+
+            displayQuestion(question) {
+                this.clearPrevious();
+                this.currentQuestion = question;
+                
+                if (question.Text) {
+                    document.getElementById('questionText').textContent = question.Text;
+                }
+                if (question.Image) {
+                    const img = document.createElement('img');
+                    img.src = question.Image.replace('{baseURL}', this.baseURL);
+                    document.getElementById('imageContainer').appendChild(img);
+                }
+                if (question.Sound) {
+                    this.playSound(question.Sound);
+                }
+                if (question.Countdown) {
+                    this.startCountdown(question.Countdown);
+                }
+                this.setupInputMethod(question);
+            }
+
+            setupInputMethod(question) {
+                const optionsContainer = document.getElementById('optionsContainer');
+                const textInput = document.getElementById('textInput');
+
+                switch (question.Selection) {
+                    case 'option':
+                        question.Option.forEach(option => {
+                            const button = document.createElement('button');
+                            button.className = 'option-button';
+                            button.textContent = option;
+                            button.onclick = () => this.checkAnswer(option);
+                            optionsContainer.appendChild(button);
+                        });
+                        break;
+                    case 'keyboard':
+                        textInput.style.display = 'block';
+                        textInput.value = '';
+                        textInput.focus();
+                        textInput.onkeypress = (e) => {
+                            if (e.key === 'Enter') {
+                                this.checkAnswer(textInput.value.trim());
+                            }
+                        };
+                        break;
+                    case 'Area':
+                        if (question.Area) {
+                            question.Area.forEach(area => {
+                                const clickableArea = document.createElement('div');
+                                clickableArea.className = 'clickable-area';
+                                clickableArea.style.left = `${area.x}px`;
+                                clickableArea.style.top = `${area.y}px`;
+                                clickableArea.style.width = `${area.width}px`;
+                                clickableArea.style.height = `${area.height}px`;
+                                clickableArea.onclick = () => this.loadQuestion(area.link);
+                                document.getElementById('imageContainer').appendChild(clickableArea);
+                            });
+                        }
+                        break;
+                }
+            }
+
+            checkAnswer(userAnswer) {
+                let isCorrect = false;
+                if (this.currentQuestion.Selection === 'option') {
+                    isCorrect = userAnswer === this.currentQuestion.Answer;
+                } else if (this.currentQuestion.Selection === 'keyboard') {
+                    const regex = new RegExp(this.currentQuestion.Answer);
+                    isCorrect = regex.test(userAnswer);
+                }
+
+                if (isCorrect) {
+                    this.stats.passed++;
+                } else {
+                    this.stats.failed++;
+                }
+                this.updateStats();
+                this.showFeedback(isCorrect ? 'Correct Answer' : 'Incorrect', isCorrect);
+
+                setTimeout(() => {
+                    const nextFile = isCorrect || this.mode === 'training' ? 
+                        this.currentQuestion.NextPassed : 
+                        this.currentQuestion.NextFailed;
+                    this.loadQuestion(nextFile);
+                }, 2000);
+            }
+
+            startCountdown(duration) {
+                let timeLeft = duration;
+                const countdownElement = document.getElementById('countdown');
+                if (this.currentTimer) {
+                    clearInterval(this.currentTimer);
+                }
+                countdownElement.textContent = timeLeft;
+                this.currentTimer = setInterval(() => {
+                    timeLeft--;
+                    countdownElement.textContent = timeLeft;
+                    if (timeLeft <= 0) {
+                        clearInterval(this.currentTimer);
+                        this.checkAnswer('');
+                    }
+                }, 1000);
+            }
+
+            playSound(soundUrl) {
+                this.audio.src = soundUrl.replace('{baseURL}', this.baseURL);
+                this.audio.play().catch(error => console.error('Audio playback failed:', error));
+            }
+
+            showFeedback(message, isCorrect) {
+                const feedback = document.getElementById('feedback');
+                feedback.textContent = message;
+                feedback.className = isCorrect ? 'correct' : 'incorrect';
+                feedback.style.display = 'block';
+            }
+
+            updateStats() {
+                if (this.mode === 'training') {
+                    document.getElementById('passedCount').textContent = this.stats.passed;
+                    document.getElementById('failedCount').textContent = this.stats.failed;
+                }
+            }
+
+            clearPrevious() {
+                if (this.currentTimer) {
+                    clearInterval(this.currentTimer);
+                }
+                document.getElementById('countdown').textContent = '';
+                document.getElementById('questionText').textContent = '';
+                document.getElementById('imageContainer').innerHTML = '';
+                document.getElementById('optionsContainer').innerHTML = '';
+                document.getElementById('textInput').style.display = 'none';
+                document.getElementById('feedback').style.display = 'none';
+                this.audio.pause();
+                this.audio.currentTime = 0;
+            }
+
+            endQuiz() {
+                this.clearPrevious();
+                document.getElementById('questionText').textContent = 'Quiz Completed!';
+                if (this.mode === 'training') {
+                    document.getElementById('questionText').textContent += 
+                        `\nFinal Score - Passed: ${this.stats.passed}, Failed: ${this.stats.failed}`;
+                }
+            }
+        }
+        window.onload = () => new Quiz();
+    </script>
+</body>
+</html>

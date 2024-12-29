@@ -1,0 +1,1 @@
+start "C:\Program Files\Google\Chrome\Application\chrome.exe" '--user-data-dir="C:\data\Projects\Arduino\CYD_Quizz\data\"'

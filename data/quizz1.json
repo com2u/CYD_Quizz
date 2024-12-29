@@ -1,8 +1,16 @@
-{
-"Text": "", 
-"Image": "{baseURL}language.jpg", 
-"Sound":"{baseURL}bell.mp3", 
-"Countdown": 150,
-"Selection": "Area",
-"Area": [{"x":0, "y":0, "width":240, "height":130, "link":"quizz_geometric-sequence.json"},{"x":0, "y":160, "width":240, "height":160, "link":"quizz_geometric-sequence.json"}]
-}
+		{
+			"Text": "In how many combinations can you press the white buttons? Press corresponding number at the keypad.",
+			"Sound": "", 
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "4",
+			"Option": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5"
+			],
+			"NextPassed": "nab_AllButtons.json",
+			"NextFailed": "EXIT"
+		}
