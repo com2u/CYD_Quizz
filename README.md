@@ -2,7 +2,7 @@
 
 This project utilizes an ESP32 with a 2.8" TFT touch display (commonly known as "Cheap Yellow Display" or CYD) to create a versatile interactive device. It includes features such as a countdown timer, sound playback, Wi-Fi connectivity, ping monitoring, and image display capabilities.
 
-https://github.com/com2u/CYD_Quizz/blob/main/data/CYD.png
+![CYD](https://github.com/com2u/CYD_Quizz/blob/main/data/CYD.png)
 
 ## Hardware Requirements
 
