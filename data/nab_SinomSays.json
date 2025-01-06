@@ -3,7 +3,7 @@
 			"Sound": "", 
 			"Image": "{baseURL}SinomSays.jpg", 
 			"Topic": "NotABomb/CYD/Mode",
-			"Payload": "SinomSays",
+			"Payload": "SimonSays",
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "passed",
