@@ -1,0 +1,14 @@
+		{
+			"Text": "Move the green dot to the blue point: 2 up, 8 down, 4 left, 6 right",
+			"Sound": "", 
+			"Topic": "NotABomb/CYD/Mode",
+			"Payload": "Maze",
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "passed",
+			"Option": [
+				"Abort"
+			],
+			"NextPassed": "nab_SinomSays.json",
+			"NextFailed": "EXIT"
+		}

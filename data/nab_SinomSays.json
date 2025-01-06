@@ -1,0 +1,15 @@
+		{
+			"Text": "Decode",
+			"Sound": "", 
+			"Image": "{baseURL}SinomSays.jpg", 
+			"Topic": "NotABomb/CYD/Mode",
+			"Payload": "SinomSays",
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "passed",
+			"Option": [
+				"Abort"
+			],
+			"NextPassed": "nab_AllButtons.json",
+			"NextFailed": "EXIT"
+		}

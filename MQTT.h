@@ -84,6 +84,7 @@ void reconnect() {
         client.publish(MQTTPath, "Init");
         client.subscribe((String(MQTTOutput) + "#").c_str());
         client.subscribe((String(MQTTOutput) + "*").c_str());
+        client.subscribe(String("NotABomb/Challenge").c_str());
         Serial.print("Subscribe: ");
         Serial.println(MQTTOutput);
         break;
@@ -139,7 +140,7 @@ String checkMQTTQuizz(){
         return menuQuizzOption[3];
       }
       if (MQTTPayload ==  "5") {
-        return menuQuizzOption[3];
+        return menuQuizzOption[4];
       }
       if (MQTTPayload ==  "6") {
         return menuQuizzOption[5];
@@ -168,6 +169,11 @@ String checkMQTTQuizz(){
         return "EXIT";
       }
     }
+    if (MQTTTopic == "NotABomb/Challenge" ){
+      Serial.println("checkMQTTQuizz NotABomb/Challenge");
+      return MQTTPayload;
+    }
+    
   }
   return "";
 }
@@ -181,6 +187,24 @@ boolean sendMQTT(String message) {
   }
   if (client.connected()) {
     String topic = MQTTPath;
+    
+    Serial.print(topic);
+    Serial.print(" Message: ");
+    Serial.println(message);
+    message.toCharArray(msg, message.length());
+    topic.toCharArray(topicChar, topic.length());
+    client.publish(topicChar, msg);
+    done = true;
+  }
+  return done;
+}
+
+boolean sendMQTT(String topic, String message) {
+  boolean done = false;
+  if (!client.connected()) {
+    reconnect();
+  }
+  if (client.connected()) {
     
     Serial.print(topic);
     Serial.print(" Message: ");

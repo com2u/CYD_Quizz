@@ -1,0 +1,14 @@
+		{
+			"Text": "Push the first white button when the LED Matrix gets blue stripes",
+			"Sound": "", 
+			"Topic": "NotABomb/CYD/Mode",
+			"Payload": "ColorChain",
+			"Countdown": 150,
+			"Selection": "option",
+			"Answer": "passed",
+			"Option": [
+				"Abort"
+			],
+			"NextPassed": "nab_Maze.json",
+			"NextFailed": "EXIT"
+		}

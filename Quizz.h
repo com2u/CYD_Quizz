@@ -140,7 +140,7 @@ String Quizz(String quizzNo){
           countdown = countdownSet;
           nextCountMillis = millis()+1000;
       }
-      
+      sendMQTT(topic, payload);
       if (selection == "keyboard" ){
         String answer = keyboard(false);
         answer.trim();  // Remove leading and trailing whitespace
@@ -160,6 +160,9 @@ String Quizz(String quizzNo){
             menuQuizzOption[itemCount] = optionText;
             itemCount++;
             // Here you can add code to display the option or handle it as needed
+          }
+          for (int item = itemCount; item < 5; item++) {
+            menuQuizzOption[item] = "";
           }
         }
         int OptionMenuPosition = 148;

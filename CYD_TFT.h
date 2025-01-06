@@ -303,12 +303,14 @@ void showMenu(bool clearDisplay, int startY = 10) {
   //int startY = 10;
   
   for (int i = 0; i < menuSize; i++) {
-    int y = startY + i * (menuItemHeight + menuItemPadding);
-    tft.fillRect(10, y, tft.width() - 20, menuItemHeight, TFT_LIGHTGREY);
-    tft.drawRect(10, y, tft.width() - 20, menuItemHeight, TFT_WHITE);
-    tft.setCursor(15, y + (menuItemHeight / 2) - 6);
-    tft.println((String) currentMenu[i]+" "+menuData[i]);
-    if (DEBUG_OUTPUT > 3) Serial.println((String) currentMenu[i]+" "+menuData[i]);
+    if (currentMenu[i].length() > 0) {
+      int y = startY + i * (menuItemHeight + menuItemPadding);
+      tft.fillRect(10, y, tft.width() - 20, menuItemHeight, TFT_LIGHTGREY);
+      tft.drawRect(10, y, tft.width() - 20, menuItemHeight, TFT_WHITE);
+      tft.setCursor(15, y + (menuItemHeight / 2) - 6);
+      tft.println((String) currentMenu[i]+" "+menuData[i]);
+      if (DEBUG_OUTPUT > 3) Serial.println((String) currentMenu[i]+" "+menuData[i]);
+    }
   }
 }
 
