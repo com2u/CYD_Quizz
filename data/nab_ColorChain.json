@@ -2,7 +2,7 @@
 			"Text": "Push the first white button when the LED Matrix gets blue stripes",
 			"Sound": "", 
 			"Topic": "NotABomb/CYD/Mode",
-			"Payload": "ColorChain",
+			"Payload": "ColorChain ",
 			"Countdown": 150,
 			"Selection": "option",
 			"Answer": "passed",

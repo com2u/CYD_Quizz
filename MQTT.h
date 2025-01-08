@@ -75,6 +75,7 @@ void reconnect() {
       clientId += String(random(0xffff), HEX);
       Serial.print("Attempting MQTT connection... ");
       Serial.print(clientId);
+      
       if (client.connect(clientId.c_str(), "MQTTiot",  "iot6812")) {
         client.setCallback(mycallback);
         Serial.println("connected");
