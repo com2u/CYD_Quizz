@@ -174,6 +174,7 @@ String Quizz(String quizzNo){
           if (selectedItem == "") {
             selectedItem = checkMQTTQuizz();
           }
+          delay(50);
         }
         if (selectedItem == "EXIT") {
           Serial.println("Exit Quizz");
