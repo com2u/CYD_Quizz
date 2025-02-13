@@ -65,7 +65,7 @@ void reconnect() {
       Serial.print("Attempting MQTT connection... ");
       Serial.print(clientId);
 
-      if (client.connect(clientId.c_str(), MQTTUser.c_str(), MQTTPassword.c_str())) {
+      if (client.connect(clientId.c_str(), MQTTUsers[mqttNo].c_str(), MQTTPasswords[mqttNo].c_str())) {
         client.setCallback(mycallback);
         Serial.println("connected");
         reconnectCount = 0;

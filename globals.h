@@ -24,6 +24,8 @@ extern unsigned long nextCountMillis;
 extern String menuData[13];
 extern String menuWIFI[33];
 extern String menuQuizzOption[5];
+extern String baseURLInterent;
+extern String baseURLPi;
 extern String baseURL;
 extern String startQuizz;
 extern int TFTRotation;

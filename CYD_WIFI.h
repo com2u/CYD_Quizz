@@ -118,6 +118,11 @@ void scanWIFINetwork() {
         if (WiFi.SSID(i) == ssid[networkNo]){
             Serial.print(" Home Network found: ");
             if (connectWIFI(ssid[networkNo], password[networkNo],10)){
+              if (networkNo < 1) {
+                baseURL = baseURLInterent;
+              } else {
+                baseURL = baseURLPi;
+              }
               return;
             }
         }
