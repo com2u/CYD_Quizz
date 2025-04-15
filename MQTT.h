@@ -53,19 +53,34 @@ void reconnect() {
   while (mqttNo < sizeof(mqtt_servers) / sizeof(mqtt_servers[0])) {
     Serial.print(mqttNo);
     Serial.print(" MQTT Server: ");
-    Serial.println(mqtt_servers[mqttNo]);
+    ConnectedMQTTServer = mqtt_servers[mqttNo];
+    Serial.println(ConnectedMQTTServer);
 
     client.setServer(mqtt_servers[mqttNo].c_str(), mqttPort);
-
+    
     while (!client.connected() && reconnectCount < 3) {
       reconnectCount++;
 
       String clientId = "CYD_NotABomb-";
       clientId += String(random(0xffff), HEX);
-      Serial.print("Attempting MQTT connection... ");
       Serial.print(clientId);
-
+      Serial.print(" MQTT --> ");
+      Serial.print(ConnectedWIFI);
+      Serial.print(" Broker: ");
+      Serial.print(ConnectedMQTTServer);
+      ConnectedMQTTUser = MQTTUsers[mqttNo];
+      ConnectedMQTTPassword = MQTTPasswords[mqttNo];
+      Serial.print(" User: ");
+      Serial.print(ConnectedMQTTUser);
+      Serial.print(" Password: ");
+      Serial.println(ConnectedMQTTPassword);
+      Serial.print(" ");
+        
+      ConnectedMQTTUser = MQTTUsers[mqttNo];
+      ConnectedMQTTPassword = MQTTPasswords[mqttNo];
+      
       if (client.connect(clientId.c_str(), MQTTUsers[mqttNo].c_str(), MQTTPasswords[mqttNo].c_str())) {
+        ConnectedclientId = clientId;
         client.setCallback(mycallback);
         Serial.println("connected");
         reconnectCount = 0;
@@ -88,6 +103,7 @@ void reconnect() {
     if (client.connected()) {
       break;
     }
+    ConnectedMQTTServer = "NONE!";
 
     reconnectCount = 0;
     mqttNo++;

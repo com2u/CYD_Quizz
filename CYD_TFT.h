@@ -45,7 +45,7 @@ String menuTimer[]  = {"Time", "Countdown",  "Count Up", "Alarm", "<--"};
 String menuAudioEntry[] = {"Bird", "Dog", "Cat", "Bee", "Car", "Horn", "Bus", "<--"};
 String menuSetupEntry[] = {"Volume +", "Volume -", "LED", "Quizz Setup", "TFT Setup",  "REBOOT", "<--"};
 String menuTFT[] = { "Calibrate Touch", "Invert Color",  "Original Color", "Display Vertical", "Display 180", "<--"};
-String menuQuizz[] = {"Startup Quizz", "Quizz Fail Count", "Quizz Mode Restart", "Quizz Reset", "<--"};
+String menuQuizz[] = {"Info", "Startup Quizz", "Quizz Fail Count", "Quizz Mode Restart", "Quizz Reset", "<--"};
 String menuLED[] = {"Red +", "Red -", "Green +", "Green -", "Blue +", "Blue -", "<--"};
 //String menuInfoEntry[] = {"Volume ", "Red ", "Green ", "Blue ", "<--"};
 String WIFIEntry[] = {" ", " ", " ", " ", "<--"};
@@ -246,6 +246,22 @@ String keyboard(boolean clear) {
       delay(200); // Debounce
     }
   }
+}
+
+void printSetup(){
+  tft.fillScreen(TFT_WHITE);
+  tft.setTextColor(TFT_BLACK, TFT_LIGHTGREY );
+  tft.setTextFont(2);
+  tft.setCursor(10, 10);
+  tft.print("WIFI:       "+ConnectedWIFI);
+  tft.print("Hostname:   "+ConnectedWIFIHostname);
+  tft.print("MQTTServer: "+ConnectedMQTTServer);
+  tft.print("MQTTID:     "+ConnectedclientId);
+  tft.print("User:       "+ConnectedMQTTUser);
+  tft.print("Password:   "+ConnectedMQTTPassword);
+  tft.print("BaseURL:    "+baseURL);
+  delay(10000); 
+
 }
 
 void touchScreen_Start(){

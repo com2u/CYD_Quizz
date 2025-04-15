@@ -1,5 +1,6 @@
 //
 // Tools -> Partition Schme --> Huge App (3MB, 1MB)
+// ESP32 Dev Modul
 // for CYD (Cheap Yellow Display) Display resolution 240 x 320
 // ESP32-2432S028
 //
@@ -352,6 +353,12 @@ void loop() {
       tft.setRotation(TFTRotation);
       ts.setRotation(TFTRotation);
       saveConfig();
+    }
+    if (selectedItem == "Info"){
+      Serial.println("Setup Info");
+      printSetup();
+      selectedItem = "";
+      global_state = 0;
     }
     if (selectedItem == "Startup Quizz"){
       startQuizz = keyboard(true);

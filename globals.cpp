@@ -24,6 +24,13 @@ String baseURLInterent = "http://sunrisetradingsystems.com/data/";
 String baseURLPi = "http://192.168.1.1/";
 String baseURL = "http://192.168.1.1/";
 String startQuizz = "quizz1.json";
+String ConnectedWIFI = "";
+String ConnectedWIFIHostname = "";
+String ConnectedMQTTServer = "";
+String ConnectedMQTTUser = "";
+String ConnectedMQTTPassword = "";
+String ConnectedclientId = "";
+
 int TFTRotation = 0;
 int TFTInvertColor = 0;
 

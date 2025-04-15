@@ -38,6 +38,13 @@ extern float yCalibFactor;
 extern float xIntercept;
 extern float yIntercept;
 extern String initMenuItem;
+extern String ConnectedWIFI;
+extern String ConnectedWIFIHostname;
+extern String ConnectedMQTTServer;
+extern String ConnectedMQTTUser;
+extern String ConnectedMQTTPassword;
+extern String ConnectedclientId;
+
 
 
 #endif // GLOBALS_H

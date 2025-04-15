@@ -36,10 +36,12 @@ boolean connectWIFI(String ssid,String password, int retries ){
   uint8_t mac[6];
   WiFi.macAddress(mac);
   clientName += getFingerprint(mac);
+  ConnectedWIFIHostname = clientName;
   char host[clientName.length()];
   clientName.toCharArray(host, clientName.length());
   for (int retry = 0; retry < retries; retry++) {
     if (WiFi.status() == WL_CONNECTED) {
+      ConnectedWIFI = ssid;
       WiFi.hostname(host);
       break;
     } else {
